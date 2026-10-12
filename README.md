@@ -38,7 +38,7 @@ npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/mani
 1. 在对应分类下新建 `seeds/<scenario>/<slug>-<id小写>.md`。`id` 为 8 位字母数字，不能与任何已发布 ID 相同（大小写不敏感）。
 2. frontmatter 字段见 `schema/seed.schema.json`；正文须有 `# Narrative` 章节，首段会截取为索引中的 `gist`。来源有作者、URL 或许可时写入 `source_url`、`source_revision`、`source_license`，并在 `NOTICE` 中补充需要随附的声明。
 3. 把 `{ "id", "file" }` 追加到 `registry/preserved-ids.json` 末尾，在 `registry/labels.zh-CN.json` 写中文标题与说明。
-4. 在 `scripts/contrast-roles.json` 中为这条 seed 写条目：`pairs` 写正文声明的文字色/背景色、UI 色/背景色组合，每组附逐字照抄的 seed 原文引用；不需要计算的色值写进 `ignore` 并附理由。没有条目、色值未归类、引用与正文不符、配对缺引用、忽略理由为空，或原文声明的组合低于 WCAG 门槛，`npm run check` 都会失败。
+4. 在 `scripts/contrast-roles.json` 中为这条 seed 写条目：`pairs` 写正文声明的文字色/背景色、UI 色/背景色组合，每组附逐字照抄的 seed 原文引用；不需要计算的色值写进 `ignore` 并附理由。没有条目、色值未归类、引用与正文不符、配对缺引用、忽略理由为空，或原文声明的组合低于 WCAG 门槛，`npm run check` 都会失败；强制检查的 `mC1nkP2t` 中任何组合低于门槛都会失败，包括 `conditional`。
 5. 运行 `npm run build && npm run check`，提交 seed 与生成物。
 
 已发布的 ID 不删除、不改绑到其他文件。要停用一条 seed，在 frontmatter 加 `deprecated: true`，至少保留一个 major 版本。

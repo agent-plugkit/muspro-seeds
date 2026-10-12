@@ -658,11 +658,11 @@
           "kind": "ui",
           "certainty": "declared",
           "quote": [
-            "**#C0C0C0** (divider lines only)",
-            "it is kept for divider lines and never carries text"
+            "**#C0C0C0** (decorative divider lines only)",
+            "it is kept for purely decorative divider lines: it never carries text, and no structure or component depends on it alone to be seen"
           ],
           "applicability": "conditional",
-          "note": "只用于分隔线；装饰性分隔线不适用 1.4.11"
+          "note": "只用于纯装饰分隔线：不承载文字，也不单独承担结构或组件的辨识（需要辨识的边界用 #222222），纯装饰内容不适用 1.4.11"
         },
         {
           "fg": "#6C6C58",
@@ -1080,10 +1080,11 @@
           "certainty": "declared",
           "quote": [
             "Focus outlines use Focus Red (#D82B0C), a deeper value at the primary red's hue",
-            "Focus Red reaches 3.36:1 and 3.58:1 there and at least 3:1 on every other surface (4.91 white, 3.99 lavender, 3.37 navy)",
+            "Focus Red reaches 3.36:1 and 3.58:1 there, 4.91:1 on white, 3.99:1 on the pale lavender and 3.37:1 on the navy",
+            "Its 3:1 holds only on these five surfaces",
             "Input borders transition to Focus Red on focus"
           ],
-          "note": "焦点框与聚焦输入框边框：淡粉、暖黄、白、淡紫、海军蓝底"
+          "note": "焦点框与聚焦输入框边框：淡粉、暖黄、白、淡紫、海军蓝底；只在这五种底上达标，在长春花蓝、紫蓝底上为 2.03 / 1.54:1，原文未把这两色写作焦点框背景"
         },
         {
           "fg": "#8888dd",

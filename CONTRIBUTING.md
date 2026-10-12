@@ -26,7 +26,7 @@
 | `certainty` | `declared`：seed 原文同时写明前景和背景的角色；`inferred`：两个角色分别写明，二者同时出现是推断；`uncertain`：原文没有说清该色是否用于文字、用于哪块背景。 |
 | `quote` | seed 原文的引用，单句或数组，必填。要逐字照抄正文；可以跨行，比较时空白会合并。`declared` 配对的引用必须包含前景色值本身。 |
 | `note` | 中文说明这组配对的用途，建议填写。 |
-| `applicability` | 默认 `always`。只有在条款对该用途不适用时（如纯装饰的分隔线）才写 `conditional`，此时 `note` 必填，写明这个用途。 |
+| `applicability` | 默认 `always`。只有在条款对该用途不适用时（如纯装饰的分隔线）才写 `conditional`，此时 `note` 必填，写明这个用途。seed 正文也要写清这一限定：例如分隔线不只要“不承载文字”，还要写明不单独承担结构或组件的辨识，否则不能算纯装饰。强制检查的 seed 不接受 `conditional`，见下文。 |
 | `alpha` | 前景的不透明度（0–1），会先合成到背景上再计算。 |
 
 ### 忽略理由：`ignore`
@@ -42,6 +42,7 @@
 3. **声明失配**：引用在正文中找不到；配对或 `ignore` 里的色值不在正文中；`declared` 配对的引用没有写出前景色值；配对没有引用；`conditional` 配对没有 `note`；`ignore` 的理由为空。
 4. **已确认违规**：`declared` 且非 `conditional` 的配对低于门槛。
 5. `contrast-roles.json` 里有不存在的 seed ID，或 `kind`、`certainty`、`applicability` 取值不认识。
+6. **强制检查的 seed 有低于门槛的配对**：`--enforce` 列出的 seed（目前只有 `mC1nkP2t`）中，任何低于门槛的配对都会失败，不分 `certainty`，`conditional` 也不例外。上面 4 中的 `conditional` 豁免只适用于其他 seed。
 
 另外，`npm test` 还要求：没有 `inferred` 或 `uncertain` 配对低于门槛（这类组合在报告里列为“低于门槛”，修正或确认角色后再提交）；`test/contrast.test.mjs` 的 `FIXED_PAIRS` 中列出的已修正配对仍然声明且达标。
 
@@ -66,8 +67,10 @@ seed 正文（`seeds/graphic/font-specimen-type-foundry-t2q6d5jr.md` 的 Color �
 
 ```markdown
 Palette: **#222222** (primary text/borders), **#757575** (secondary/muted text, 4.60:1 on white),
-**#C0C0C0** (divider lines only), **#6C6C58** (diagram lines), **#FFFFFF** (background). The light
-gray #C0C0C0 reaches only 1.81:1 on white, so it is kept for divider lines and never carries text; …
+**#C0C0C0** (decorative divider lines only), **#6C6C58** (diagram lines), **#FFFFFF** (background).
+The light gray #C0C0C0 reaches only 1.81:1 on white, so it is kept for purely decorative divider
+lines: it never carries text, and no structure or component depends on it alone to be seen. Lines
+that mark a needed boundary use the primary #222222 (15.90:1 on white). …
 ```
 
 对应的声明（节选）：
@@ -92,11 +95,11 @@ gray #C0C0C0 reaches only 1.81:1 on white, so it is kept for divider lines and n
       "kind": "ui",
       "certainty": "declared",
       "quote": [
-        "**#C0C0C0** (divider lines only)",
-        "it is kept for divider lines and never carries text"
+        "**#C0C0C0** (decorative divider lines only)",
+        "it is kept for purely decorative divider lines: it never carries text, and no structure or component depends on it alone to be seen"
       ],
       "applicability": "conditional",
-      "note": "只用于分隔线；装饰性分隔线不适用 1.4.11"
+      "note": "只用于纯装饰分隔线：不承载文字，也不单独承担结构或组件的辨识（需要辨识的边界用 #222222），纯装饰内容不适用 1.4.11"
     }
   ]
 }

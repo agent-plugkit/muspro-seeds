@@ -14,11 +14,14 @@ IDs, file names, frontmatter fields, scenario names and the `index.json` layout 
 - Contrast (3 seeds). Original values stay, limited to the uses they pass; each new value is a same-hue
   or same-scale value for the use that failed, and the seed text states its use and ratios.
   - `t2Q6D5JR`: secondary and muted text is `#757575` (4.60:1 on white); `#C0C0C0` (1.81:1) is kept for
-    divider lines only. This settles the pair that 1.2.0 left unconfirmed.
+    purely decorative divider lines that carry no text and are never the only cue for structure or a
+    component; needed boundaries use the primary `#222222` (15.90:1). This settles the pair that 1.2.0
+    left unconfirmed.
   - `GzPJkoac`: focus outlines and focused input borders use Focus Red `#D82B0C`, a deeper value at the
     primary red's hue (3.36:1 on the blush pink, 3.58:1 on the warm yellow, 4.91 white, 3.99 lavender,
-    3.37 navy); the primary red `#f34020` (2.58 / 2.74:1 on blush pink and yellow) stays for borders,
-    active states and accents.
+    3.37 navy). Its 3:1 is stated for these five surfaces only; on the periwinkle and violet-blue it
+    is 2.03 / 1.54:1. The primary red `#f34020` (2.58 / 2.74:1 on blush pink and yellow) stays for
+    borders, active states and accents.
   - `tVghVsn2`: the reference documents no text colors for the dark and starry themes; text there uses
     Light Text `#f5f5f5`, the light end of the seed's own gray scale (16.89:1 on `#141414`, 14.40:1 on
     `#0d2537`).
@@ -30,7 +33,8 @@ IDs, file names, frontmatter fields, scenario names and the `index.json` layout 
 - The contrast check (`--no-violations`) now also fails on a seed with no entry in
   `scripts/contrast-roles.json`, a pair without a quote, a conditional pair without a note and an
   ignore entry without a reason; an unknown `certainty` is an error. All current seeds already met
-  these rules.
+  these rules. A seed passed to `--enforce` (`mC1nkP2t`) fails on any pair below threshold, conditional
+  ones included; CONTRIBUTING and the README say so.
 - Added `CONTRIBUTING.md`: every color value in a seed needs a role declaration quoting the seed text
   or an ignore reason, with steps and an example. The README links it and states the rule.
 - Patch rather than minor: 1.1.0 and 1.2.0 were minor because they reworked a palette system and

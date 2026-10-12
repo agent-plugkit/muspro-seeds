@@ -1,5 +1,5 @@
 {
-  "description": "Color roles used by scripts/contrast-report.mjs. Each pair quotes the seed text it is based on; certainty is declared (the seed states both roles), inferred (roles stated separately, pairing assumed) or uncertain (the role itself is unclear). Colors: hex or the CSS keywords white, black, grey/gray.",
+  "description": "Color roles used by scripts/contrast-report.mjs. Each pair quotes the seed text it is based on; a declared pair must quote the text that names its foreground color. certainty is declared (the seed states both roles), inferred (roles stated separately, pairing assumed) or uncertain (the role itself is unclear). applicability is always (default) or conditional (the note names a use for which the criterion does not apply). Colors: hex or the CSS keywords white, black, grey/gray; backgrounds must be opaque.",
   "seeds": {
     "mC1nkP2t": {
       "pairs": [
@@ -12,7 +12,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Cobalt | `#2148B8` |",
+          "quote": "| Cobalt | `#2148B8` | 7.48 / 6.42 / 6.94 | all three papers | same as plate | 7.48 / 6.42 / 6.94 |",
           "note": "Cobalt 的文字值：正文、日期、说明与小字"
         },
         {
@@ -24,7 +24,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Cobalt | `#2148B8` |",
+          "quote": "| Cobalt | `#2148B8` | 7.48 / 6.42 / 6.94 | all three papers | same as plate | 7.48 / 6.42 / 6.94 |",
           "note": "Cobalt 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -36,7 +36,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Royal Blue | `#2058D4` |",
+          "quote": "| Royal Blue | `#2058D4` | 5.89 / 5.06 / 5.46 | all three papers | same as plate | 5.89 / 5.06 / 5.46 |",
           "note": "Royal Blue 的文字值：正文、日期、说明与小字"
         },
         {
@@ -48,7 +48,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Royal Blue | `#2058D4` |",
+          "quote": "| Royal Blue | `#2058D4` | 5.89 / 5.06 / 5.46 | all three papers | same as plate | 5.89 / 5.06 / 5.46 |",
           "note": "Royal Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -60,7 +60,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Botanical Green | `#008A4B` |",
+          "quote": "| Botanical Green | `#008A4B` | 4.23 / 3.64 / 3.93 | all three papers | Botanical Green Text `#037841` | 5.33 / 4.57 / 4.94 |",
           "note": "Botanical Green 的文字值：正文、日期、说明与小字"
         },
         {
@@ -72,7 +72,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Botanical Green | `#008A4B` |",
+          "quote": "| Botanical Green | `#008A4B` | 4.23 / 3.64 / 3.93 | all three papers | Botanical Green Text `#037841` | 5.33 / 4.57 / 4.94 |",
           "note": "Botanical Green 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -84,7 +84,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Mint Green | `#5EB783` |",
+          "quote": "| Mint Green | `#5EB783` | 2.34 / 2.01 / 2.17 | none — fields and screens only | Mint Green Text `#127747` | 5.34 / 4.59 / 4.96 |",
           "note": "Mint Green 的文字值：正文、日期、说明与小字"
         },
         {
@@ -96,7 +96,12 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Terracotta Orange | `#C65F38` |",
+          "quote": [
+            "| Terracotta Orange | `#C65F38` | 3.94 / 3.38 / 3.65 | all three papers | Terracotta Text `#AE4921` | 5.32 / 4.57 / 4.93 |",
+            "dates or annotations in the accent role use Terracotta Text `#AE4921`",
+            "--ink-accent-text: #ae4921; /* dates, captions, small type; 5.32:1 */",
+            "\"text_values\": [\"Cobalt #2148B8\", \"Terracotta Text #AE4921\"]"
+          ],
           "note": "Terracotta Orange 的文字值：正文、日期、说明与小字"
         },
         {
@@ -108,7 +113,12 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Terracotta Orange | `#C65F38` |",
+          "quote": [
+            "| Terracotta Orange | `#C65F38` | 3.94 / 3.38 / 3.65 | all three papers | Terracotta Text `#AE4921` | 5.32 / 4.57 / 4.93 |",
+            "Terracotta `#C65F38` stays on color fields, marks and large type",
+            "--ink-accent: #c65f38; /* plate: fields, marks, large type; 3.94:1 */",
+            "\"inks\": [\"Cobalt #2148B8\", \"Terracotta #C65F38\"]"
+          ],
           "note": "Terracotta Orange 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -120,7 +130,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Signal Red | `#C83232` |",
+          "quote": "| Signal Red | `#C83232` | 5.07 / 4.35 / 4.70 | all three papers | Signal Red Text `#C42E2F` | 5.31 / 4.56 / 4.92 |",
           "note": "Signal Red 的文字值：正文、日期、说明与小字"
         },
         {
@@ -132,7 +142,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Signal Red | `#C83232` |",
+          "quote": "| Signal Red | `#C83232` | 5.07 / 4.35 / 4.70 | all three papers | Signal Red Text `#C42E2F` | 5.31 / 4.56 / 4.92 |",
           "note": "Signal Red 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -144,7 +154,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Aubergine | `#63365F` |",
+          "quote": "| Aubergine | `#63365F` | 9.03 / 7.75 / 8.37 | all three papers | same as plate | 9.03 / 7.75 / 8.37 |",
           "note": "Aubergine 的文字值：正文、日期、说明与小字"
         },
         {
@@ -156,7 +166,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Aubergine | `#63365F` |",
+          "quote": "| Aubergine | `#63365F` | 9.03 / 7.75 / 8.37 | all three papers | same as plate | 9.03 / 7.75 / 8.37 |",
           "note": "Aubergine 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -168,7 +178,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Charcoal | `#30343A` |",
+          "quote": "| Charcoal | `#30343A` | 11.96 / 10.28 / 11.10 | all three papers | same as plate | 11.96 / 10.28 / 11.10 |",
           "note": "Charcoal 的文字值：正文、日期、说明与小字"
         },
         {
@@ -180,7 +190,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Charcoal | `#30343A` |",
+          "quote": "| Charcoal | `#30343A` | 11.96 / 10.28 / 11.10 | all three papers | same as plate | 11.96 / 10.28 / 11.10 |",
           "note": "Charcoal 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -192,7 +202,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Powder Blue | `#9EB8D3` |",
+          "quote": "| Powder Blue | `#9EB8D3` | 1.95 / 1.68 / 1.81 | none — fields and screens only | Powder Blue Text `#536A83` | 5.34 / 4.59 / 4.95 |",
           "note": "Powder Blue 的文字值：正文、日期、说明与小字"
         },
         {
@@ -204,7 +214,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Oxblood | `#8F3434` |",
+          "quote": "| Oxblood | `#8F3434` | 7.41 / 6.36 / 6.87 | all three papers | same as plate | 7.41 / 6.36 / 6.87 |",
           "note": "Oxblood 的文字值：正文、日期、说明与小字"
         },
         {
@@ -216,7 +226,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Oxblood | `#8F3434` |",
+          "quote": "| Oxblood | `#8F3434` | 7.41 / 6.36 / 6.87 | all three papers | same as plate | 7.41 / 6.36 / 6.87 |",
           "note": "Oxblood 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -228,7 +238,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Electric Blue | `#173AE3` |",
+          "quote": "| Electric Blue | `#173AE3` | 7.30 / 6.27 / 6.77 | all three papers | same as plate | 7.30 / 6.27 / 6.77 |",
           "note": "Electric Blue 的文字值：正文、日期、说明与小字"
         },
         {
@@ -240,7 +250,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Electric Blue | `#173AE3` |",
+          "quote": "| Electric Blue | `#173AE3` | 7.30 / 6.27 / 6.77 | all three papers | same as plate | 7.30 / 6.27 / 6.77 |",
           "note": "Electric Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -252,7 +262,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Carbon | `#242321` |",
+          "quote": "| Carbon | `#242321` | 15.01 / 12.89 / 13.93 | all three papers | same as plate | 15.01 / 12.89 / 13.93 |",
           "note": "Carbon 的文字值：正文、日期、说明与小字"
         },
         {
@@ -264,7 +274,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Carbon | `#242321` |",
+          "quote": "| Carbon | `#242321` | 15.01 / 12.89 / 13.93 | all three papers | same as plate | 15.01 / 12.89 / 13.93 |",
           "note": "Carbon 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -276,7 +286,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Warm Charcoal | `#302D2E` |",
+          "quote": "| Warm Charcoal | `#302D2E` | 13.03 / 11.19 / 12.09 | all three papers | same as plate | 13.03 / 11.19 / 12.09 |",
           "note": "Warm Charcoal 的文字值：正文、日期、说明与小字"
         },
         {
@@ -288,7 +298,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Warm Charcoal | `#302D2E` |",
+          "quote": "| Warm Charcoal | `#302D2E` | 13.03 / 11.19 / 12.09 | all three papers | same as plate | 13.03 / 11.19 / 12.09 |",
           "note": "Warm Charcoal 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -300,7 +310,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Ultramarine | `#263E99` |",
+          "quote": "| Ultramarine | `#263E99` | 8.99 / 7.73 / 8.34 | all three papers | same as plate | 8.99 / 7.73 / 8.34 |",
           "note": "Ultramarine 的文字值：正文、日期、说明与小字"
         },
         {
@@ -312,7 +322,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Ultramarine | `#263E99` |",
+          "quote": "| Ultramarine | `#263E99` | 8.99 / 7.73 / 8.34 | all three papers | same as plate | 8.99 / 7.73 / 8.34 |",
           "note": "Ultramarine 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -324,7 +334,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Safety Orange | `#E55D2B` |",
+          "quote": "| Safety Orange | `#E55D2B` | 3.38 / 2.90 / 3.14 | White, Beige only | Safety Orange Text `#BA3D02` | 5.34 / 4.59 / 4.95 |",
           "note": "Safety Orange 的文字值：正文、日期、说明与小字"
         },
         {
@@ -335,7 +345,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Safety Orange | `#E55D2B` |",
+          "quote": "| Safety Orange | `#E55D2B` | 3.38 / 2.90 / 3.14 | White, Beige only | Safety Orange Text `#BA3D02` | 5.34 / 4.59 / 4.95 |",
           "note": "Safety Orange 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -347,7 +357,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Cyan | `#159DDA` |",
+          "quote": "| Cyan | `#159DDA` | 2.92 / 2.51 / 2.71 | none — fields and screens only | Cyan Text `#036F9D` | 5.33 / 4.58 / 4.94 |",
           "note": "Cyan 的文字值：正文、日期、说明与小字"
         },
         {
@@ -359,7 +369,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Brick Red | `#B64032` |",
+          "quote": "| Brick Red | `#B64032` | 5.32 / 4.57 / 4.94 | all three papers | same as plate | 5.32 / 4.57 / 4.94 |",
           "note": "Brick Red 的文字值：正文、日期、说明与小字"
         },
         {
@@ -371,7 +381,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Brick Red | `#B64032` |",
+          "quote": "| Brick Red | `#B64032` | 5.32 / 4.57 / 4.94 | all three papers | same as plate | 5.32 / 4.57 / 4.94 |",
           "note": "Brick Red 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -383,7 +393,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Tangerine | `#E46C2D` |",
+          "quote": "| Tangerine | `#E46C2D` | 3.09 / 2.66 / 2.87 | White only | Tangerine Text `#B04803` | 5.32 / 4.57 / 4.93 |",
           "note": "Tangerine 的文字值：正文、日期、说明与小字"
         },
         {
@@ -393,7 +403,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Tangerine | `#E46C2D` |",
+          "quote": "| Tangerine | `#E46C2D` | 3.09 / 2.66 / 2.87 | White only | Tangerine Text `#B04803` | 5.32 / 4.57 / 4.93 |",
           "note": "Tangerine 印版值：色块、标记与大字（仅列出允许的纸色）"
         },
         {
@@ -405,7 +415,7 @@
           ],
           "kind": "text",
           "certainty": "declared",
-          "quote": "| Slate Blue | `#4773A5` |",
+          "quote": "| Slate Blue | `#4773A5` | 4.71 / 4.04 / 4.36 | all three papers | Slate Blue Text `#3E6A9C` | 5.36 / 4.60 / 4.97 |",
           "note": "Slate Blue 的文字值：正文、日期、说明与小字"
         },
         {
@@ -417,7 +427,7 @@
           ],
           "kind": "large",
           "certainty": "declared",
-          "quote": "| Slate Blue | `#4773A5` |",
+          "quote": "| Slate Blue | `#4773A5` | 4.71 / 4.04 / 4.36 | all three papers | Slate Blue Text `#3E6A9C` | 5.36 / 4.60 / 4.97 |",
           "note": "Slate Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
         }
       ],
@@ -716,6 +726,7 @@
           "kind": "ui",
           "certainty": "uncertain",
           "quote": "The lime appears in full-bleed sections, button fills, and toggle backgrounds",
+          "applicability": "conditional",
           "note": "仅当按钮/开关只靠青柠填充与白底区分时适用 1.4.11"
         }
       ]
@@ -795,6 +806,7 @@
           "kind": "ui",
           "certainty": "inferred",
           "quote": "Segmented controls with 40px height, 10px border-radius, #ddd background with #F8F8F8 active state",
+          "applicability": "conditional",
           "note": "激活态只靠底色区分时适用 1.4.11"
         }
       ],
@@ -896,6 +908,7 @@
           "certainty": "declared",
           "quote": [
             "Deep navy background (#021a50)",
+            "off-white (#f6ccc7)",
             "off-white on dark"
           ]
         },
@@ -1014,6 +1027,7 @@
           "kind": "ui",
           "certainty": "uncertain",
           "quote": "Light sage accent: `#d2d8d0` for borders and subtle backgrounds",
+          "applicability": "conditional",
           "note": "边框若用于界定输入框等组件则适用 1.4.11；纯装饰分隔不适用"
         }
       ]
@@ -1153,6 +1167,7 @@
           "kind": "text",
           "certainty": "uncertain",
           "quote": "vibrant orange `#f54e00` used for CTAs and highlights",
+          "applicability": "conditional",
           "note": "“highlights” 若是橙色文字则适用 4.5:1"
         }
       ]
@@ -1185,6 +1200,7 @@
           "kind": "ui",
           "certainty": "declared",
           "quote": "panels `#0c1220`/`#111a2b`, borders `#1a2540`",
+          "applicability": "conditional",
           "note": "面板边框若只是装饰性分隔则不适用 1.4.11"
         }
       ]
@@ -1221,6 +1237,7 @@
           "kind": "ui",
           "certainty": "inferred",
           "quote": "primary accent `#6698ff` (soft blue)",
+          "applicability": "conditional",
           "note": "强调色用于选中工具等状态时适用 1.4.11"
         },
         {

@@ -7,11 +7,14 @@
 //                                                         a stale declaration or an unclassified color
 //
 // Seed prose names color roles in free text, so the roles live in scripts/contrast-roles.json.
-// Every declared pair quotes the seed sentence it relies on; a quote that no longer appears, or a
-// color that is not in the seed, is reported as stale. Hex colors in a seed that no pair or
+// Every declared pair quotes the seed sentence it relies on; a quote that no longer appears, a
+// color that is not in the seed, or a "declared" foreground its quotes do not name, is reported
+// as stale. Hex colors in a seed that no pair or
 // ignore entry covers are listed. Seeds without declarations get pairs inferred from keywords in
 // their "# Color" section, all marked uncertain. Failing pairs of other seeds never change the
-// exit code: the report is informational except for --enforce.
+// exit code: the report is informational except for --enforce. A pair below its threshold is a
+// confirmed violation only when both roles are declared and the pair is not marked
+// "applicability": "conditional" (its note names a use for which the criterion does not apply).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -19,6 +22,12 @@ import { ROOT, loadSeeds, packageVersion, readJson } from './lib.mjs';
 
 export const THRESHOLDS = { text: 4.5, large: 3, ui: 3 };
 const KIND_LABELS = { text: '正文文字', large: '大字', ui: '非文字 UI' };
+const STATUS_LABELS = {
+  pass: '达标',
+  violation: '已确认违规',
+  below: '低于门槛',
+  na: '不适用（附条件）',
+};
 const CERTAINTY_LABELS = {
   declared: '原文声明',
   inferred: '推断配对',
@@ -41,8 +50,17 @@ export function parseColor(value) {
   return { rgb: channels, alpha, hex: `#${hex.slice(0, 6).toUpperCase()}` };
 }
 
+// Channels stay fractional: rounding here can move a pair across the threshold.
 function composite(fg, alpha, bg) {
-  return fg.map((channel, index) => Math.round(channel * alpha + bg[index] * (1 - alpha)));
+  return fg.map((channel, index) => channel * alpha + bg[index] * (1 - alpha));
+}
+
+// A translucent background shows whatever lies beneath it, so its contrast is undefined until the
+// caller composites it onto that backdrop and passes the opaque result.
+function opaqueBackground(value) {
+  const bg = parseColor(value);
+  if (bg.alpha < 1) throw new Error(`Background "${value}" is translucent; composite it onto the color beneath it first`);
+  return bg;
 }
 
 export function luminance([r, g, b]) {
@@ -54,7 +72,7 @@ export function luminance([r, g, b]) {
 }
 
 export function contrastRatio(foreground, background, alpha = 1) {
-  const bg = parseColor(background);
+  const bg = opaqueBackground(background);
   const fg = parseColor(foreground);
   const a = alpha * fg.alpha;
   const rgb = a < 1 ? composite(fg.rgb, a, bg.rgb) : fg.rgb;
@@ -117,7 +135,7 @@ function shift(movingRgb, fixedHex, threshold, { flip = false } = {}) {
 
 export function suggestFixes(foreground, background, threshold, alpha = 1) {
   const fg = parseColor(foreground);
-  const bg = parseColor(background);
+  const bg = opaqueBackground(background);
   const opacity = alpha * fg.alpha;
   const visible = opacity < 1 ? composite(fg.rgb, opacity, bg.rgb) : fg.rgb;
   return {
@@ -192,7 +210,9 @@ export function inferPairs(body) {
       const after = clause.slice(match.index + match[0].length).replace(/^[`*)\s]+/, '').slice(0, 28);
       const before = clause.slice(Math.max(0, match.index - 28), match.index);
       const role = classify(after, before);
-      if (role) roles[role].add(parseColor(match[0]).hex);
+      const parsed = parseColor(match[0]);
+      // Translucent colors have no fixed contrast as a background; leave them unclassified.
+      if (role && !(role === 'bg' && parsed.alpha < 1)) roles[role].add(parsed.hex);
     }
   }
   const pairs = [];
@@ -207,6 +227,13 @@ export function inferPairs(body) {
 // Report.
 
 const asList = (value) => (Array.isArray(value) ? value : [value]);
+const APPLICABILITY = new Set(['always', 'conditional']);
+
+function status({ pass, certainty, applicability }) {
+  if (pass) return 'pass';
+  if (applicability === 'conditional') return 'na';
+  return certainty === 'declared' ? 'violation' : 'below';
+}
 
 export function analyzeSeed(seed, declaration, root = ROOT) {
   const { body, data, file } = seed;
@@ -222,11 +249,21 @@ export function analyzeSeed(seed, declaration, root = ROOT) {
 
   for (const pair of declared) {
     const quotes = pair.quote === null ? [] : asList(pair.quote);
+    const applicability = pair.applicability ?? 'always';
+    if (!APPLICABILITY.has(applicability)) throw new Error(`${data.id}: unknown applicability "${applicability}"`);
     const lines = quotes.map((quote) => {
       const line = lineOf(body, quote, offset);
       if (line === null) stale.push(`quote not found: "${quote}"`);
       return line;
     });
+    // A declared role must name its color: a quote that only names the ink would stay valid after
+    // the color it assigns is reverted, as long as the new value survives elsewhere in the seed.
+    const quoted = new Set(extractColors(quotes.join('\n')).map(({ color }) => color.hex));
+    if (pair.certainty === 'declared') {
+      for (const fg of asList(pair.fg)) {
+        if (!NAMED[String(fg).toLowerCase()] && !quoted.has(parseColor(fg).hex)) stale.push(`declared color ${fg} is not named in its quote`);
+      }
+    }
     for (const fg of asList(pair.fg)) {
       for (const bg of asList(pair.bg)) {
         for (const value of [fg, bg]) {
@@ -245,7 +282,7 @@ export function analyzeSeed(seed, declaration, root = ROOT) {
         const threshold = THRESHOLDS[pair.kind];
         if (!threshold) throw new Error(`${data.id}: unknown kind "${pair.kind}"`);
         const pass = ratio >= threshold;
-        results.push({
+        const result = {
           fg: parseColor(fg).hex,
           fgLabel: String(fg),
           bg: parseColor(bg).hex,
@@ -258,9 +295,11 @@ export function analyzeSeed(seed, declaration, root = ROOT) {
           pass,
           lines: [...new Set(lines.filter((line) => line !== null))],
           quote: quotes.join(' … '),
+          applicability,
           note: pair.note ?? '',
           suggestion: pass ? null : suggestFixes(fg, bg, threshold, pair.alpha ?? 1),
-        });
+        };
+        results.push({ ...result, status: status(result) });
       }
     }
   }
@@ -322,9 +361,11 @@ function pairRow(seed, result, withSuggestion) {
       foreground && `前景改为 \`${foreground.hex}\`（${formatRatio(foreground.ratio)}:1）`,
       background && `或背景改为 \`${background.hex}\`（${formatRatio(background.ratio)}:1）`,
     ].filter(Boolean);
+    columns.splice(5, 0, `**${STATUS_LABELS[result.status]}**`);
     columns.push([fixes.join(' ') || '换用其他颜色组合', cell(result.note)].filter(Boolean).join('；'));
   } else {
-    columns.push(result.pass ? '达标' : '不达标');
+    const label = STATUS_LABELS[result.status];
+    columns.push(result.status === 'na' ? `${label}：${cell(result.note)}` : label);
   }
   return `| ${columns.join(' | ')} |`;
 }
@@ -333,6 +374,8 @@ export function renderMarkdown(report) {
   const out = [];
   const totalFailures = report.seeds.reduce((sum, seed) => sum + seed.failures.length, 0);
   const failingSeeds = report.seeds.filter((seed) => seed.failures.length).length;
+  const count = (seed, wanted) => seed.failures.filter((result) => result.status === wanted).length;
+  const total = (wanted) => report.seeds.reduce((sum, seed) => sum + count(seed, wanted), 0);
   out.push(
     `# WCAG 对比度报告（Muspro Seeds ${report.version}）`,
     '',
@@ -342,26 +385,27 @@ export function renderMarkdown(report) {
     '- 门槛：正文文字 4.5:1；大字（≥ 24px 常规或 ≥ 18.7px 粗体）3:1；非文字 UI（边框、图标、焦点框、数据标记）3:1。',
     '- 角色来源：**原文声明** = seed 同时写明前景与背景的角色；**推断配对** = 角色分别写明、二者同时出现是推断；**角色不确定** = 原文没有说明该色是否用于文字或用于哪块背景；**自动推断** = seed 无人工声明，按关键词推断。',
     '- 配对与原文引用见 `scripts/contrast-roles.json`。引用不再出现在 seed 中、或色值不在 seed 中时列为“声明失配”。',
+    '- 判定：对比度低于门槛的组合分三类。**已确认违规** = 角色来源为原文声明，且没有适用条件；**低于门槛** = 角色或配对是推断或不确定的，只说明所选组合的数值低于门槛，不代表已确认的无障碍缺陷；**不适用（附条件）** = 备注写明了该条款不适用的用途（如纯装饰分隔、不靠颜色区分状态），实际用途未核实前不计为违规。',
     '- 建议色：保持 OKLCH 色相，只调整亮度（超出 sRGB 时才降低彩度），优先朝远离对方的方向，取第一个超过门槛 0.05 的颜色；前景与背景各给一个，二选一即可。',
     '',
-    `共 ${report.seeds.length} 条 seed，${failingSeeds} 条有不达标组合，合计 ${totalFailures} 组。`,
+    `共 ${report.seeds.length} 条 seed，${failingSeeds} 条有低于门槛的组合，合计 ${totalFailures} 组：已确认违规 ${total('violation')} 组，低于门槛（角色未确认）${total('below')} 组，不适用（附条件）${total('na')} 组。这些是所选组合的门槛计算结果，只有“已确认违规”一类对应 seed 原文声明的用法。`,
     '',
     '## 汇总',
     '',
-    '| Seed | 文件 | 组合数 | 不达标 | 其中角色确定（原文声明） | 声明失配 | 未归类色值 |',
-    '| --- | --- | --- | --- | --- | --- | --- |',
+    '| Seed | 文件 | 组合数 | 低于门槛 | 已确认违规 | 角色未确认 | 不适用（附条件） | 声明失配 | 未归类色值 |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
   );
   for (const seed of report.seeds) {
-    const firm = seed.failures.filter(({ certainty }) => certainty === 'declared').length;
-    out.push(`| \`${seed.id}\` | ${seed.file} | ${seed.results.length} | ${seed.failures.length} | ${firm} | ${seed.stale.length} | ${seed.unclassified.length} |`);
+    const counts = ['violation', 'below', 'na'].map((wanted) => count(seed, wanted)).join(' | ');
+    out.push(`| \`${seed.id}\` | ${seed.file} | ${seed.results.length} | ${seed.failures.length} | ${counts} | ${seed.stale.length} | ${seed.unclassified.length} |`);
   }
-  out.push('', '## 不达标组合', '');
+  out.push('', '## 低于门槛的组合', '');
   for (const seed of report.seeds.filter(({ failures }) => failures.length)) {
     out.push(
       `### \`${seed.id}\` ${seed.file}`,
       '',
-      '| 前景 | 背景 | 类型 | 对比度 | 门槛 | 角色来源 | 原文 | 建议 |',
-      '| --- | --- | --- | --- | --- | --- | --- | --- |',
+      '| 前景 | 背景 | 类型 | 对比度 | 门槛 | 判定 | 角色来源 | 原文 | 建议 |',
+      '| --- | --- | --- | --- | --- | --- | --- | --- | --- |',
       ...seed.failures.map((result) => pairRow(seed, result, true)),
       '',
     );
@@ -407,8 +451,13 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
   if (outPath) writeFileSync(resolve(outPath), renderMarkdown(report));
   const failing = report.seeds.filter(({ failures }) => failures.length);
   const total = failing.reduce((sum, seed) => sum + seed.failures.length, 0);
-  console.log(`Contrast report: ${report.seeds.length} seeds, ${total} failing pairs in ${failing.length} seeds${outPath ? ` (written to ${outPath})` : ''}.`);
-  for (const seed of failing) console.log(`  ${seed.id.padEnd(8)} ${seed.failures.length} failing`);
+  const tally = (results, wanted) => results.filter((result) => result.status === wanted).length;
+  const all = failing.flatMap((seed) => seed.failures);
+  console.log(`Contrast report: ${report.seeds.length} seeds, ${total} pairs below threshold in ${failing.length} seeds `
+    + `(${tally(all, 'violation')} confirmed, ${tally(all, 'below')} roles unconfirmed, ${tally(all, 'na')} conditional)${outPath ? ` (written to ${outPath})` : ''}.`);
+  for (const seed of failing) {
+    console.log(`  ${seed.id.padEnd(8)} ${seed.failures.length} below threshold, ${tally(seed.failures, 'violation')} confirmed`);
+  }
   const enforced = (option('--enforce') ?? '').split(',').filter(Boolean);
   const problems = [];
   for (const id of enforced) {

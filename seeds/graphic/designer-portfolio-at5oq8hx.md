@@ -47,7 +47,7 @@ tags:
   - dark-led
   tech:
   - vanilla-js
-  - webflow
+  - framer
   - other-tech
   typography:
   - display-serif
@@ -91,7 +91,7 @@ Minimal component system. Navigation is just a centered SVG logo mark. Links use
 
 # Motion
 
-Horizontal auto-scrolling marquee for work gallery (infinite loop, multiple project strips). Kinetic type treatment in orange section — oversized words animate/scroll into view. Smooth scroll behavior site-wide. See references/motion.md for timing parameters.
+Horizontal auto-scrolling marquee for work gallery (infinite loop, multiple project strips). Kinetic type treatment in orange section — oversized words animate/scroll into view. Smooth scroll behavior site-wide.
 
 # Algorithms
 

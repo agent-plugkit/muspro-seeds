@@ -89,7 +89,7 @@ Minimal component system. Header: inline text with slash-separated category link
 
 # Motion
 
-Signature scroll-driven canvas animation. An extremely tall invisible scroll pane captures scroll events; scroll position maps to image sequence progression and 3D camera movement. Custom render loop updates geometry and textures based on scrollTop. Initial state shows kinetic typography hero; the first scroll sets a state class that hides the hero and reveals project imagery. Opacity transitions: 0.001 → 1 for content fade-in. See references/motion.md for implementation details.
+Signature scroll-driven canvas animation. An extremely tall invisible scroll pane captures scroll events; scroll position maps to image sequence progression and 3D camera movement. Custom render loop updates geometry and textures based on scrollTop. Initial state shows kinetic typography hero; the first scroll sets a state class that hides the hero and reveals project imagery. Opacity transitions: 0.001 → 1 for content fade-in.
 
 # Algorithms
 
@@ -102,3 +102,7 @@ Standard implementation, no special design.
 # Craft
 
 Loading state management: a full-screen loader displays until assets are ready, then a loaded-state class fades in content and nav. Scroll initiation detection: a state class applied on the first scroll event hides the opening hero element. Font loading: a subset of the text serif loads first, then the complete family, with WOFF2/WOFF fallbacks. Favicon suite: full touch-icon and tile set for the major mobile and desktop platforms.
+
+# Coherence
+
+Strict black-and-white restraint lets motion and the project imagery carry the whole experience. The kinetic diamond-panel typography teaches the scroll-driven interaction before any work appears, and the same scroll then drives the canvas through the archive, so the opening is the instruction for everything that follows. A single characterful text serif with uppercase tracked labels keeps the studio's voice consistent from hero to footer, while the absence of buttons, cards and accent colors leaves the print work as the only source of color.

@@ -92,7 +92,7 @@ Primary CTA button: white text on transparent background with right arrow icon, 
 
 # Motion
 
-Hero digits animate in with translate3d transforms on page load. Continuous snowflake falling animation (two stacked CSS keyframe animations: a 10s linear infinite fall and a 3s ease-in-out infinite sideways sway). Testimonial marquee scrolls horizontally via translate3d animation. Scroll-triggered word-by-word text reveal in team section (opacity 0.25 → 1). Video play button scales on hover. See references/motion.md for animation parameters.
+Hero digits animate in with translate3d transforms on page load. Continuous snowflake falling animation (two stacked CSS keyframe animations: a 10s linear infinite fall and a 3s ease-in-out infinite sideways sway). Testimonial marquee scrolls horizontally via translate3d animation. Scroll-triggered word-by-word text reveal in team section (opacity 0.25 → 1). Video play button scales on hover.
 
 # Algorithms
 

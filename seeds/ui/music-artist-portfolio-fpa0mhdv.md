@@ -88,7 +88,7 @@ Call row component: 64px fixed height, left-aligned icon (20% height, 11px from 
 
 # Motion
 
-App-style slide transitions using GSAP TweenMax. Duration 0.2s with `Power1.easeInOut` easing. Video and countdown apps slide in from right (`left: 100vw` to `left: 0vw`) while main phone view slides left (`left: 0vw` to `left: -100vw`). Reverse animation on back navigation. See references/motion.md for implementation.
+App-style slide transitions using GSAP TweenMax. Duration 0.2s with `Power1.easeInOut` easing. Video and countdown apps slide in from right (`left: 100vw` to `left: 0vw`) while main phone view slides left (`left: 0vw` to `left: -100vw`). Reverse animation on back navigation.
 
 # Algorithms
 

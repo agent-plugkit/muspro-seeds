@@ -92,7 +92,7 @@ Navigation cards are the core component: positioned relative containers with fou
 
 # Motion
 
-SmoothState page transitions: 350ms fade-in on load, fade-out on exit. Exhibitor list uses `slideToggle` for accordion expand/collapse. List toggle buttons animate between `+` and `–`. All transitions use `ease-out` or `ease-in` timing. See references/motion.md for transition implementation.
+SmoothState page transitions: 350ms fade-in on load, fade-out on exit. Exhibitor list uses `slideToggle` for accordion expand/collapse. List toggle buttons animate between `+` and `–`. All transitions use `ease-out` or `ease-in` timing.
 
 # Algorithms
 

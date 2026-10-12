@@ -101,7 +101,7 @@ Dark graphite background `#2F282F` dominates. Primary accent is violet/purple `#
 
 # Motion
 
-Multiple marquee animations: header portfolio track (200s linear), logo wall (80s linear), testimonials (150s linear). All pause on hover. Tab transitions use opacity fade (300ms in, 100ms out). Buttons use text-slide transform. Navbar hides on scroll down, shows on scroll up (translateY transition). See references/motion.md for implementation details.
+Multiple marquee animations: header portfolio track (200s linear), logo wall (80s linear), testimonials (150s linear). All pause on hover. Tab transitions use opacity fade (300ms in, 100ms out). Buttons use text-slide transform. Navbar hides on scroll down, shows on scroll up (translateY transition).
 
 # Algorithms
 

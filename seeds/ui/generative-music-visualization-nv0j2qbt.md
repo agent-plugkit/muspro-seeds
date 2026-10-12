@@ -98,11 +98,11 @@ All UI is text-based, no buttons with borders or backgrounds. The canvas itself 
 
 # Motion
 
-The canvas visualization animates continuously: notes appear, move along the curved staff lines, and fade. The staff itself may have subtle undulation or the notation scrolls through the curved path. Audio playback triggers visual synchronization — notes highlight or animate as they sound. Reference file covers the Paper.js animation loop and audio-visual synchronization.
+The canvas visualization animates continuously: notes appear, move along the curved staff lines, and fade. The staff itself may have subtle undulation or the notation scrolls through the curved path. Audio playback triggers visual synchronization — notes highlight or animate as they sound.
 
 # Algorithms
 
-The core visual form is algorithmically generated: a lemniscate (infinity symbol) path serves as the spine for curved staff lines. Musical notes are procedurally placed along these curves using mathematical path following. The composition itself is generative — algorithmic music generation drives the notation display. Reference file details the path mathematics and note placement algorithm.
+The core visual form is algorithmically generated: a lemniscate (infinity symbol) path serves as the spine for curved staff lines. Musical notes are procedurally placed along these curves using mathematical path following. The composition itself is generative — algorithmic music generation drives the notation display.
 
 # Material
 

@@ -111,3 +111,7 @@ Standard implementation, no special design.
 # Craft
 
 Custom checkbox navigation pattern using `[✔]` character that toggles opacity on active state. Bracket syntax as visual design element throughout. Rounded corner on active tabs only (top-right), creating distinctive "tab folder" aesthetic. Empty collaborators shown as `∅` symbol. External links show origin on hover via `data-origin` attribute and `\002197` (↗) arrow.
+
+# Coherence
+
+One electric blue does all the signaling: header, cart panel, metadata values, hover states and the image masks that fade on reveal, against plain black-on-white text. The dense index rows—bracketed metadata table, massive title, horizontal image strip—treat collections, campaigns, press and products as entries of equal weight, so the archive and the shop read as one system. Typographic devices such as `[value]` brackets, `[✔]` checkboxes and the `∅` placeholder, together with the single rounded tab corner, give the brutalist density a consistent, slightly technical voice.

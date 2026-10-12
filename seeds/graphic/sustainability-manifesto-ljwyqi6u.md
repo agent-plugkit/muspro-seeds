@@ -106,3 +106,7 @@ Standard implementation, no special design.
 # Craft
 
 Visible grid borders (1px solid #000000) are a deliberate aesthetic choice, making the layout structure explicit. Corner handle dots on cards reinforce the design-tool metaphor. Navigation is fixed with z-index: 700. Responsive breakpoints at 576px, 768px, 1024px, 1440px, 1900px, and 2100px—unusually granular, supporting ultra-wide displays.
+
+# Coherence
+
+The visible Swiss grid is the organizing idea: 1px black borders, gradient-drawn rules under the headlines and corner handle dots on the cards all expose structure, framing circular design as something engineered and inspectable. A single neo-grotesk in all caps and a strict black-and-white palette leave the macro material photography, set on black, as the only texture. Motion stays functional—the continuously rotating emblem, snap-scrolling principle cards and their alternating stagger—so the page reads as a technical yet optimistic manifesto rather than a campaign spectacle.

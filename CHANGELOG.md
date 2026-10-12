@@ -5,6 +5,39 @@ minor or patch release. Changing frontmatter fields, scenario names or the `inde
 release and raises `schemaVersion`. Published IDs are never removed or reused; retire a seed with
 `deprecated: true` and keep it for at least one major version.
 
+## 1.2.0
+
+Seed content release in four parts. Every seed keeps its ID, file name and design information (layout,
+type character, color values, craft); frontmatter fields, scenario names and the `index.json` layout are
+unchanged, so `schemaVersion` stays 1.0.0.
+
+- Content generalized (17 seeds: `rvYJrbZh`, `o0W3sQmk`, `B3LYgTWe`, `t2Q6D5JR`, `LjwyQI6U`, `lC4BpOAk`,
+  `H9aLYT6s`, `upXsOXv8`, `Nv0J2QBT`, `swwKiFDe`, `1JlUSoIP`, `rVQmfOqR`, `GzPJkoac`, `FpA0MHDV`,
+  `haYCh1wI`, `Yoiov5EL`, `JiAIwOJv`): source-site code, SVG exports and class names, hashed file names,
+  quoted copy and slogans, named brands, clients, logos, people and works, and proprietary font names are
+  replaced by descriptions of the technique and type character. Open and system fonts are kept. Two
+  internal contradictions were resolved (`rvYJrbZh` scale range is 0.65–1.0; `o0W3sQmk` `#f54e00` is
+  orange). `LjwyQI6U` drops its browser theme-color `#ddfa6d`, the only color value removed.
+- Contrast fixes (7 seeds: `H9aLYT6s`, `1JlUSoIP`, `rVQmfOqR`, `GzPJkoac`, `vEj9F5om`, `FpA0MHDV`,
+  `tVghVsn2`): the 11 confirmed WCAG failures now pass. As in `mC1nkP2t`, original values stay and are
+  limited to uses they pass (fills, marks, decoration, disabled states); a same-hue text or UI value is
+  added, e.g. `1JlUSoIP` links `#0181eb` → `#0272D1`, `FpA0MHDV` missed-call text `#ff3232` → `#EA0C1D`.
+  `scripts/contrast-report.mjs` gains `--no-violations`, and `npm run check` now fails on any confirmed
+  failure or stale declaration in any seed.
+- Verification of inferred pairs (9 seeds: `pibXRzsG`, `Vy3KTWAC`, `AT5oq8hX`, `H9aLYT6s`, `Yoiov5EL`,
+  `haYCh1wI`, `1JlUSoIP`, `swwKiFDe`, `vEj9F5om`): 15 of the 16 pairs whose role was inferred are now
+  declared from the seed text and pass; 14 of them changed seed values (e.g. `pibXRzsG` text on pink and
+  orange is black, focus ring Focus Red `#BF0000`; `H9aLYT6s` focus ring `#AEC2FE`). `t2Q6D5JR`
+  `#C0C0C0` stays unconfirmed.
+- Minor fixes: added the missing `# Coherence` section to `JiAIwOJv`, `LjwyQI6U` and `haYCh1wI`;
+  `AT5oq8hX` and `G26LBSOO` tag `framer` instead of `webflow`, matching their Tech Stack; removed
+  pointers to reference files that do not exist from `rVQmfOqR`, `H9aLYT6s`, `AT5oq8hX`, `FpA0MHDV`,
+  `Vy3KTWAC`, `C4aZtWoH`, `Nv0J2QBT` and `JiAIwOJv`; the `mC1nkP2t` Chinese summary again says printing
+  methods are chosen per task.
+- `mC1nkP2t` seed text is unchanged since 1.1.0 and is still recorded as modified from its MIT-licensed
+  source in NOTICE.
+- Minor rather than patch: changed color values and usage rules change what consumers produce.
+
 ## 1.1.0
 
 - `mC1nkP2t` (editorial print system): colors adjusted to meet WCAG 2.x contrast. Each ink now has a

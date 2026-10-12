@@ -24,7 +24,7 @@ Muspro Seeds 是一个公开的设计参考库。每条 seed 记录一个真实�
 ```bash
 npm run build          # 从 frontmatter 生成 seeds/index.json 与 seeds/scenarios.json
 npm run validate       # 校验 frontmatter、ID 唯一、文件命名与 ID 登记表
-npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t；全部 seed 已确认违规为 0）+ 测试 + 打包可复现
+npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t；全部 seed 已确认违规、声明失配、未归类色值均为 0）+ 测试 + 打包可复现
 npm run contrast -- --out contrast.md   # WCAG 对比度报告：全部 seed 的不达标组合与建议色
 npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/manifest.json
 ```
@@ -36,7 +36,7 @@ npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/mani
 1. 在对应分类下新建 `seeds/<scenario>/<slug>-<id小写>.md`。`id` 为 8 位字母数字，不能与任何已发布 ID 相同（大小写不敏感）。
 2. frontmatter 字段见 `schema/seed.schema.json`；正文须有 `# Narrative` 章节，首段会截取为索引中的 `gist`。来源有作者、URL 或许可时写入 `source_url`、`source_revision`、`source_license`，并在 `NOTICE` 中补充需要随附的声明。
 3. 把 `{ "id", "file" }` 追加到 `registry/preserved-ids.json` 末尾，在 `registry/labels.zh-CN.json` 写中文标题与说明。
-4. 在 `scripts/contrast-roles.json` 中写入 Color 等章节声明的文字色/背景色组合，每组附 seed 原文引用；没有声明的 seed 按关键词自动推断并标为“角色不确定”。
+4. 在 `scripts/contrast-roles.json` 中写入 Color 等章节声明的文字色/背景色组合，每组附 seed 原文引用；没有声明的 seed 按关键词自动推断并标为“角色不确定”。seed 中的每个色值都要被某个配对使用或在 `ignore` 中写明原因，否则 `npm run check` 报“未归类色值”。
 5. 运行 `npm run build && npm run check`，提交 seed 与生成物。
 
 已发布的 ID 不删除、不改绑到其他文件。要停用一条 seed，在 frontmatter 加 `deprecated: true`，至少保留一个 major 版本。

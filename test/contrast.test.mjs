@@ -155,3 +155,70 @@ test('seeds without declarations fall back to keyword inference', () => {
   assert.equal(result.results[0].certainty, 'auto');
   assert.ok(result.results[0].pass);
 });
+
+// Pairs fixed or verified in 1.2.0. They are listed here rather than read from contrast-roles.json,
+// so deleting a declaration cannot also delete its check.
+const FIXED_PAIRS = {
+  H9aLYT6s: ['#91C8FE #1458E4 ui', '#AEC2FE #1458E4 ui'],
+  '1JlUSoIP': ['#0272D1 #F8F8F8 text', '#0181EB #F8F8F8 ui', '#A58401 #F8F8F8 ui'],
+  rVQmfOqR: ['#945DE3 #2F282F ui', '#FFFFFF #874FD4 text'],
+  GzPJkoac: [
+    '#FFFFFF #E22C05 text', '#8888DD #FFFFFF ui', '#8888DD #021A50 ui',
+    '#6967B9 #E6E6FA ui', '#6967B9 #F6CCC7 ui', '#6967B9 #F9DA73 ui',
+  ],
+  vEj9F5om: ['#6E6E6E #121212 ui', '#6E6E6E #FFFFFF ui', '#FFFFFF #3A3A3A text', '#000000 #D4D4D4 text'],
+  FpA0MHDV: ['#76757B #FFFFFF text', '#EA0C1D #FFFFFF text', '#8A898F #FFFFFF ui', '#FF3232 #FFFFFF ui'],
+  tVghVsn2: [
+    '#757575 #FFFFFF text', '#6E6E6E #F5F5F5 text', '#6E6E6E #F9F8ED text',
+    '#888888 #FFFFFF ui', '#888888 #F5F5F5 ui', '#888888 #F9F8ED ui', '#AAAAAA #141414 ui', '#AAAAAA #0D2537 ui',
+  ],
+  pibXRzsG: ['#000000 #FE99D9 text', '#000000 #FF6502 text', '#000000 #1F9540 text', '#FFFFFF #1F9540 large', '#BF0000 #FE99D9 ui'],
+  Vy3KTWAC: ['#535E1D #FFC0CB text'],
+  AT5oq8hX: ['#0099FF #000000 text', '#006FBB #EFEFEF text', '#0088FF #000000 text', '#006BCB #EFEFEF text'],
+  Yoiov5EL: [
+    '#9A7438 #E5E5E5 ui', '#71814F #E5E5E5 ui', '#4E70C8 #E5E5E5 ui',
+    '#9A7438 #E2DED8 ui', '#71814F #DFE1DC ui', '#4E70C8 #D7DBE4 ui',
+  ],
+  haYCh1wI: ['#FFFFFF #1100FF text'],
+  swwKiFDe: ['#808080 #FAFAFA ui'],
+};
+
+function missingFixedPairs(report) {
+  return Object.entries(FIXED_PAIRS).flatMap(([id, pairs]) => {
+    const seed = report.seeds.find((item) => item.id === id);
+    const passing = new Set(seed.results
+      .filter(({ certainty, pass }) => certainty === 'declared' && pass)
+      .map(({ fg, bg, kind }) => `${fg} ${bg} ${kind}`));
+    return pairs.filter((pair) => !passing.has(pair)).map((pair) => `${id} ${pair}`);
+  });
+}
+
+function reportWithRoles(t, edit) {
+  const root = copyRoot(t);
+  const data = JSON.parse(readFileSync(roles, 'utf8'));
+  edit(data.seeds);
+  const path = join(root, 'roles.json');
+  writeFileSync(path, JSON.stringify(data));
+  return buildReport(root, path);
+}
+
+test('every pair fixed in 1.2.0 is still declared and passes', () => {
+  assert.deepEqual(missingFixedPairs(buildReport(ROOT, roles)), []);
+});
+
+test('deleting a fixed pair fails the check', (t) => {
+  // The only pair for #91C8FE: the color is left unclassified, which --no-violations reports.
+  const border = reportWithRoles(t, (seeds) => {
+    seeds.H9aLYT6s.pairs = seeds.H9aLYT6s.pairs.filter(({ fg }) => fg !== '#91C8FE');
+  });
+  const problems = checkProblems(border, { noViolations: true });
+  assert.equal(problems.length, 1);
+  assert.match(problems[0], /^H9aLYT6s: #91C8FE \(line \d+\) has no declared role or ignore reason$/);
+  assert.deepEqual(missingFixedPairs(border), ['H9aLYT6s #91C8FE #1458E4 ui']);
+  // Both colors stay in other pairs, so only the fixed-pair list notices.
+  const arrows = reportWithRoles(t, (seeds) => {
+    seeds.tVghVsn2.pairs.find(({ fg }) => fg === '#888').bg = ['#fff', '#f9f8ed'];
+  });
+  assert.deepEqual(checkProblems(arrows, { noViolations: true }), []);
+  assert.deepEqual(missingFixedPairs(arrows), ['tVghVsn2 #888888 #F5F5F5 ui']);
+});

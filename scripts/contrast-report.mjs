@@ -5,17 +5,18 @@
 //   node scripts/contrast-report.mjs --out <file>         also write the full Markdown report
 //   node scripts/contrast-report.mjs --enforce <id,...>   exit 1 if these seeds have a failing pair,
 //                                                         a stale declaration or an unclassified color
-//   node scripts/contrast-report.mjs --no-violations      exit 1 if any seed has a confirmed violation
-//                                                         or a stale declaration
+//   node scripts/contrast-report.mjs --no-violations      exit 1 if any seed has a confirmed violation,
+//                                                         a stale declaration or an unclassified color
 //
 // Seed prose names color roles in free text, so the roles live in scripts/contrast-roles.json.
 // Every declared pair quotes the seed sentence it relies on; a quote that no longer appears, a
 // color that is not in the seed, or a "declared" foreground its quotes do not name, is reported
-// as stale. Hex colors in a seed that no pair or
-// ignore entry covers are listed. Seeds without declarations get pairs inferred from keywords in
-// their "# Color" section, all marked uncertain. Pairs below threshold in other seeds change the
-// exit code only under --no-violations, and only when they are confirmed violations. A pair below
-// its threshold is a confirmed violation only when both roles are declared and the pair is not
+// as stale. Hex colors in a seed that no pair or ignore entry covers are listed as unclassified.
+// Seeds without declarations get pairs inferred from keywords in their "# Color" section, all
+// marked uncertain. Pairs below threshold in other seeds change the exit code only under
+// --no-violations, and only when they are confirmed violations; that option also fails on stale
+// declarations and unclassified colors in any seed. A pair below its threshold is a confirmed
+// violation only when both roles are declared and the pair is not
 // marked "applicability": "conditional" (its note names a use for which the criterion does not apply).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -443,8 +444,9 @@ export function renderMarkdown(report) {
 }
 
 // Problems that fail the check: everything wrong with an enforced seed, and with noViolations every
-// confirmed violation or stale declaration in any seed. A stale quote is included because a pair
-// whose text has changed no longer shows whether the seed's declared use passes.
+// confirmed violation, stale declaration or unclassified color in any seed. A stale quote is included
+// because a pair whose text has changed no longer shows whether the seed's declared use passes; an
+// unclassified color is included because deleting a pair would otherwise drop its check silently.
 export function checkProblems(report, { enforce = [], noViolations = false } = {}) {
   const problems = [];
   const describe = (id, result) => `${id}: ${result.fg} on ${result.bg} is ${formatRatio(result.ratio)}:1, needs ${result.threshold}:1`;
@@ -464,6 +466,7 @@ export function checkProblems(report, { enforce = [], noViolations = false } = {
         problems.push(`${describe(seed.id, result)} (confirmed violation)`);
       }
       for (const item of seed.stale) problems.push(`${seed.id}: ${item}`);
+      for (const { hex, line } of seed.unclassified) problems.push(`${seed.id}: ${hex} (line ${line}) has no declared role or ignore reason`);
     }
   }
   for (const id of report.orphans) problems.push(`scripts/contrast-roles.json: unknown seed ${id}`);
@@ -496,5 +499,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     process.exit(1);
   }
   if (enforced.length) console.log(`Enforced seeds pass: ${enforced.join(', ')}.`);
-  if (noViolations) console.log('No confirmed violations and no stale declarations.');
+  if (noViolations) console.log('No confirmed violations, stale declarations or unclassified colors.');
 }

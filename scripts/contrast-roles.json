@@ -716,23 +716,75 @@
           "fg": [
             "#9A7438",
             "#71814F",
-            "#5D80D9"
+            "#4E70C8"
           ],
           "bg": "#e5e5e5",
           "kind": "ui",
           "certainty": "declared",
           "quote": [
             "Each section uses its highlight for borders, active states, and player chrome via CSS custom property `--section-highlight`",
-            "cornflower blue (`#5D80D9`)",
-            "their `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1) and Sage UI (`#71814F`, 3.36:1); cornflower (3.00:1) is used as is",
+            "the `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1), Sage UI (`#71814F`, 3.36:1) and Cornflower UI (`#4E70C8`, 3.72:1)",
             "Background: `#e5e5e5` (light warm gray)"
           ],
-          "note": "各分区高亮色的界面值：边框、激活态与播放器控件"
+          "note": "各分区高亮色的界面值在页面底上：边框、激活态与播放器控件"
+        },
+        {
+          "fg": "#9A7438",
+          "bg": "#E2DED8",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "the `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1), Sage UI (`#71814F`, 3.36:1) and Cornflower UI (`#4E70C8`, 3.72:1)",
+            "which over the page give `#E2DED8` (mustard), `#DFE1DC` (sage) and `#D7DBE4` (cornflower)",
+            "Each UI value also holds on its own card tint (3.17 / 3.21 / 3.38:1), so borders, active states and player controls may sit inside cards"
+          ],
+          "note": "mustard 分区的界面值在本分区卡片淡染底上（10% 原色叠在 #e5e5e5 上）"
+        },
+        {
+          "fg": "#71814F",
+          "bg": "#DFE1DC",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "the `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1), Sage UI (`#71814F`, 3.36:1) and Cornflower UI (`#4E70C8`, 3.72:1)",
+            "which over the page give `#E2DED8` (mustard), `#DFE1DC` (sage) and `#D7DBE4` (cornflower)",
+            "Each UI value also holds on its own card tint (3.17 / 3.21 / 3.38:1), so borders, active states and player controls may sit inside cards"
+          ],
+          "note": "sage 分区的界面值在本分区卡片淡染底上（10% 原色叠在 #e5e5e5 上）"
+        },
+        {
+          "fg": "#4E70C8",
+          "bg": "#D7DBE4",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "the `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1), Sage UI (`#71814F`, 3.36:1) and Cornflower UI (`#4E70C8`, 3.72:1)",
+            "which over the page give `#E2DED8` (mustard), `#DFE1DC` (sage) and `#D7DBE4` (cornflower)",
+            "Each UI value also holds on its own card tint (3.17 / 3.21 / 3.38:1), so borders, active states and player controls may sit inside cards"
+          ],
+          "note": "cornflower 分区的界面值在本分区卡片淡染底上（10% 原色叠在 #e5e5e5 上）"
+        },
+        {
+          "fg": "#000",
+          "bg": [
+            "#E2DED8",
+            "#DFE1DC",
+            "#D7DBE4"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Text: `#000` (pure black)",
+            "which over the page give `#E2DED8` (mustard), `#DFE1DC` (sage) and `#D7DBE4` (cornflower)",
+            "black text on the tints stays above 15:1"
+          ],
+          "note": "卡片内正文落在淡染底上"
         }
       ],
       "ignore": {
-        "#CAA266": "原色只用于卡片底色淡染，不承担边框、激活态或控件（原文：“The original `#CAA266` and `#AABB87` only tint the cards”）",
-        "#AABB87": "同上：原色只用于卡片底色淡染"
+        "#CAA266": "原色只用于卡片底色淡染，不承担边框、激活态或控件（原文：“The original `#CAA266`, `#AABB87` and `#5D80D9` only tint the cards”）",
+        "#AABB87": "同上：原色只用于卡片底色淡染",
+        "#5D80D9": "同上：原色只用于卡片底色淡染；在页面底只有 3.00:1、在自身卡片淡染底上只有 2.72:1，界面值改用 Cornflower UI #4E70C8"
       }
     },
     "haYCh1wI": {
@@ -999,11 +1051,38 @@
           "certainty": "uncertain",
           "quote": "vibrant primary red (#f34020) as accent",
           "note": "强调色的具体用途未声明，按非文字 UI 计算"
+        },
+        {
+          "fg": "#8888dd",
+          "bg": [
+            "white",
+            "#021a50"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "violet-blue (#8888dd) borders that transition to primary red on focus",
+            "The violet-blue border reaches 3:1 only against white (3.17:1) and the navy (5.22:1)"
+          ],
+          "note": "输入框边框在白色与海军蓝底上"
+        },
+        {
+          "fg": "#6967B9",
+          "bg": [
+            "#e6e6fa",
+            "#f6ccc7",
+            "#f9da73"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "on the pale lavender, blush pink and warm yellow surfaces (2.58 / 2.17 / 2.31:1) input borders use Violet UI (#6967B9, 4.02 / 3.39 / 3.60:1)"
+          ],
+          "note": "输入框边框在淡紫、淡粉、暖黄底上的界面值"
         }
       ],
       "ignore": {
-        "#88a6ea": "次要色，用途未声明",
-        "#8888dd": "次要色，用途未声明"
+        "#88a6ea": "次要色，用途未声明"
       }
     },
     "weZM545X": {
@@ -1331,9 +1410,23 @@
           "certainty": "declared",
           "quote": [
             "`#757575` for secondary text (4.60:1 on the white canvas",
-            "Tooltip text at 14px in `#757575`"
+            "Tooltip text at 14px in `#757575` on white surfaces (4.60:1 on the white canvas and islands)"
           ],
-          "note": "次要文字与提示文字的文字值"
+          "note": "次要文字与提示文字在白色画布和白色浮层上的文字值"
+        },
+        {
+          "fg": "#6E6E6E",
+          "bg": [
+            "#f5f5f5",
+            "#f9f8ed"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "so secondary and tooltip text there uses `#6E6E6E` (4.67:1 on `#f5f5f5`, 4.77:1 on `#f9f8ed`)",
+            "on the soft and retro canvases it darkens to `#6E6E6E`"
+          ],
+          "note": "soft / retro 主题画布上的次要文字与提示文字"
         },
         {
           "fg": "#666",
@@ -1376,11 +1469,11 @@
         }
       ],
       "ignore": {
-        "#f5f5f5": "灰阶起点/soft 主题底色，主题内文字色未声明",
+        "#f5f5f5": "灰阶起点/soft 主题底色；该主题的次要文字与箭头配对已声明",
         "#121212": "灰阶终点",
-        "#f9f8ed": "retro 主题底色，主题内文字色未声明",
-        "#141414": "dark 主题底色，主题内文字色未声明",
-        "#0d2537": "starry 主题底色，主题内文字色未声明",
+        "#f9f8ed": "retro 主题底色；该主题的次要文字与箭头配对已声明",
+        "#141414": "dark 主题底色，主题内文字色未声明（原文：“text colors for the dark and starry themes are not documented”）；箭头配对已声明",
+        "#0d2537": "starry 主题底色，主题内文字色未声明；箭头配对已声明",
         "#00000014": "阴影",
         "#eeeeee": "浮层装饰边框"
       }

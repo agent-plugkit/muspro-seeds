@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/agent-plugkit/muspro-seeds/schema/seed.schema.json",
+  "title": "Muspro seed frontmatter",
+  "description": "YAML frontmatter of seeds/<scenario>/<slug>-<id>.md. schemaVersion 1.0.0.",
+  "type": "object",
+  "required": [
+    "id",
+    "scenario",
+    "scenario_name",
+    "category",
+    "modality",
+    "view_type",
+    "core_dimensions",
+    "scores",
+    "tags",
+    "dimensions_with_reference"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9]{8}$"
+    },
+    "scenario": {
+      "enum": ["ui", "graphic", "information"]
+    },
+    "scenario_name": {
+      "enum": ["界面", "平面", "信息表达"]
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "modality": {
+      "type": "string",
+      "minLength": 1
+    },
+    "view_type": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_url": {
+      "type": "string",
+      "pattern": "^https://"
+    },
+    "source_revision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "visual_assets_included": {
+      "type": "boolean"
+    },
+    "deprecated": {
+      "type": "boolean"
+    },
+    "core_dimensions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "scores": {
+      "type": "object",
+      "required": [
+        "anti_slop_value",
+        "code_value",
+        "density",
+        "motion_intensity",
+        "novelty",
+        "visual_value"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "anti_slop_value": { "$ref": "#/$defs/score" },
+        "code_value": { "$ref": "#/$defs/score" },
+        "density": { "$ref": "#/$defs/score" },
+        "motion_intensity": { "$ref": "#/$defs/score" },
+        "novelty": { "$ref": "#/$defs/score" },
+        "visual_value": { "$ref": "#/$defs/score" }
+      }
+    },
+    "tags": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "uniqueItems": true,
+        "items": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "dimensions_with_reference": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "$defs": {
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}

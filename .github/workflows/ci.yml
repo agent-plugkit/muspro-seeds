@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Validate, check generated files and pack twice
+        run: npm run check
+
+      - name: Published IDs survive against the base branch
+        if: github.event_name == 'pull_request'
+        run: node scripts/validate.mjs --base "origin/${{ github.base_ref }}"
+
+      - name: Generated artifacts must not drift
+        run: |
+          npm run build
+          repository_status="$(git status --porcelain --untracked-files=all)"
+          if [ -n "$repository_status" ]; then
+            printf '%s\n' "$repository_status"
+            exit 1
+          fi

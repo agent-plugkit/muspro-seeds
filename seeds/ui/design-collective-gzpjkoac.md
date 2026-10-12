@@ -108,3 +108,7 @@ Subtle grid texture overlay on select sections. Gradient backgrounds on cards us
 # Craft
 
 Consistent 4px spacing system throughout. Text selection color customized to Selection Red, the deeper brand primary. Focus outlines use Focus Red (#D82B0C) with 2px offset. Rounded corners applied universally (sections, cards, buttons, inputs). Underline link treatment with precise offset control.
+
+# Coherence
+
+The collective's idea of play as a rigorous working method shows in the pairing of a friendly, round-bowled geometric sans at a chunky Black weight with an exact system underneath: 4px gaps between sections, 4px gutters and spacing, and rounded corners applied to sections, cards, buttons and inputs alike. Deep navy and the primary red anchor the warm yellow, blush pink, lavender and periwinkle accents, so the playful color stays tied to a serious base, and the deeper Selection Red and Focus Red keep the brand hue wherever text and focus states need more contrast. Pill buttons, gradient cards and the inset-shadow hover give the flat surfaces a soft, tactile character that matches the playful yet professional tone.

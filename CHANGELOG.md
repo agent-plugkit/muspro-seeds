@@ -5,6 +5,38 @@ minor or patch release. Changing frontmatter fields, scenario names or the `inde
 release and raises `schemaVersion`. Published IDs are never removed or reused; retire a seed with
 `deprecated: true` and keep it for at least one major version.
 
+## 1.2.1
+
+Patch release: corrections that keep each seed's design direction, plus contributor documentation.
+IDs, file names, frontmatter fields, scenario names and the `index.json` layout are unchanged, so
+`schemaVersion` stays 1.0.0.
+
+- Contrast (3 seeds). Original values stay, limited to the uses they pass; each new value is a same-hue
+  or same-scale value for the use that failed, and the seed text states its use and ratios.
+  - `t2Q6D5JR`: secondary and muted text is `#757575` (4.60:1 on white); `#C0C0C0` (1.81:1) is kept for
+    divider lines only. This settles the pair that 1.2.0 left unconfirmed.
+  - `GzPJkoac`: focus outlines and focused input borders use Focus Red `#D82B0C`, a deeper value at the
+    primary red's hue (3.36:1 on the blush pink, 3.58:1 on the warm yellow, 4.91 white, 3.99 lavender,
+    3.37 navy); the primary red `#f34020` (2.58 / 2.74:1 on blush pink and yellow) stays for borders,
+    active states and accents.
+  - `tVghVsn2`: the reference documents no text colors for the dark and starry themes; text there uses
+    Light Text `#f5f5f5`, the light end of the seed's own gray scale (16.89:1 on `#141414`, 14.40:1 on
+    `#0d2537`).
+- Added the missing `# Coherence` section to 7 seeds (`x1BNQPTi`, `lC4BpOAk`, `GzPJkoac`, `rVQmfOqR`,
+  `swwKiFDe`, `rvYJrbZh`, `Nv0J2QBT`); each summarizes only what the seed already says. Every seed now
+  has a Coherence section.
+- `o0W3sQmk` Imagery again says the recurring mascot is a small animal, without naming a species or
+  scenes.
+- The contrast check (`--no-violations`) now also fails on a seed with no entry in
+  `scripts/contrast-roles.json`, a pair without a quote, a conditional pair without a note and an
+  ignore entry without a reason; an unknown `certainty` is an error. All current seeds already met
+  these rules.
+- Added `CONTRIBUTING.md`: every color value in a seed needs a role declaration quoting the seed text
+  or an ignore reason, with steps and an example. The README links it and states the rule.
+- Patch rather than minor: 1.1.0 and 1.2.0 were minor because they reworked a palette system and
+  rewrote 17 seeds. Here no seed is added, no design direction changes, and the color changes fix
+  failing or unconfirmed uses left over from 1.2.0 while keeping the original values.
+
 ## 1.2.0
 
 Seed content release in five parts. Every seed keeps its ID, file name and design information (layout,

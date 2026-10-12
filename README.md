@@ -24,7 +24,7 @@ Muspro Seeds 是一个公开的设计参考库。每条 seed 记录一个真实�
 ```bash
 npm run build          # 从 frontmatter 生成 seeds/index.json 与 seeds/scenarios.json
 npm run validate       # 校验 frontmatter、ID 唯一、文件命名与 ID 登记表
-npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t；全部 seed 已确认违规、声明失配、未归类色值均为 0）+ 测试 + 打包可复现
+npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t；全部 seed 须有声明，已确认违规、声明失配、未归类色值均为 0）+ 测试 + 打包可复现
 npm run contrast -- --out contrast.md   # WCAG 对比度报告：全部 seed 的不达标组合与建议色
 npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/manifest.json
 ```
@@ -33,17 +33,19 @@ npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/mani
 
 ## 新增或修改 seed
 
+完整规则、操作步骤和示例见 [CONTRIBUTING.md](CONTRIBUTING.md)。最重要的一条：**seed 正文中的每个色值，都必须在 `scripts/contrast-roles.json` 写用途声明（附 seed 原文引用）或写明忽略理由，否则 `npm run check` 失败。**
+
 1. 在对应分类下新建 `seeds/<scenario>/<slug>-<id小写>.md`。`id` 为 8 位字母数字，不能与任何已发布 ID 相同（大小写不敏感）。
 2. frontmatter 字段见 `schema/seed.schema.json`；正文须有 `# Narrative` 章节，首段会截取为索引中的 `gist`。来源有作者、URL 或许可时写入 `source_url`、`source_revision`、`source_license`，并在 `NOTICE` 中补充需要随附的声明。
 3. 把 `{ "id", "file" }` 追加到 `registry/preserved-ids.json` 末尾，在 `registry/labels.zh-CN.json` 写中文标题与说明。
-4. 在 `scripts/contrast-roles.json` 中写入 Color 等章节声明的文字色/背景色组合，每组附 seed 原文引用；没有声明的 seed 按关键词自动推断并标为“角色不确定”。seed 中的每个色值都要被某个配对使用或在 `ignore` 中写明原因，否则 `npm run check` 报“未归类色值”。
+4. 在 `scripts/contrast-roles.json` 中为这条 seed 写条目：`pairs` 写正文声明的文字色/背景色、UI 色/背景色组合，每组附逐字照抄的 seed 原文引用；不需要计算的色值写进 `ignore` 并附理由。没有条目、色值未归类、引用与正文不符、配对缺引用、忽略理由为空，或原文声明的组合低于 WCAG 门槛，`npm run check` 都会失败。
 5. 运行 `npm run build && npm run check`，提交 seed 与生成物。
 
 已发布的 ID 不删除、不改绑到其他文件。要停用一条 seed，在 frontmatter 加 `deprecated: true`，至少保留一个 major 版本。
 
 ## 版本与发布
 
-- `version`（`package.json`）遵循 semver：新增或修改 seed 正文为 minor/patch；改 frontmatter 字段、分类名或索引结构为 major，同时提升 `schemaVersion`（`scripts/lib.mjs`）。
+- `version`（`package.json`）遵循 semver：不改变设计方向的修正（对比度修正、补齐缺失章节、措辞与文档）为 patch；新增 seed 或成批改写设计指导为 minor；改 frontmatter 字段、分类名或索引结构为 major，同时提升 `schemaVersion`（`scripts/lib.mjs`）。
 - 发布资产为 `muspro-seeds-<version>.tar.gz` 与 `manifest.json`（`name`、`version`、`schemaVersion`、`tarball`、`sha256`、`contentHash`、`files`）。Release tag 为 `v<version>`；Musekit 的 `muse_local.py update` 从 `releases/latest/download/manifest.json` 读取最新版本，只接受同一 schema major。
 - 归档内条目排序固定、mtime/属主/权限固定，同一内容与同一 Node.js zlib 生成的字节相同。`contentHash` 是逐文件 sha256 清单的哈希，不受压缩实现影响；下游应以 `sha256` 校验下载、以 `contentHash` 校验快照内容。
 

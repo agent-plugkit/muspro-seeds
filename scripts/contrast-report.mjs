@@ -5,17 +5,19 @@
 //   node scripts/contrast-report.mjs --out <file>         also write the full Markdown report
 //   node scripts/contrast-report.mjs --enforce <id,...>   exit 1 if these seeds have a failing pair,
 //                                                         a stale declaration or an unclassified color
-//   node scripts/contrast-report.mjs --no-violations      exit 1 if any seed has a confirmed violation,
-//                                                         a stale declaration or an unclassified color
+//   node scripts/contrast-report.mjs --no-violations      exit 1 if any seed has no declarations, a
+//                                                         confirmed violation, a stale declaration or
+//                                                         an unclassified color
 //
 // Seed prose names color roles in free text, so the roles live in scripts/contrast-roles.json.
 // Every declared pair quotes the seed sentence it relies on; a quote that no longer appears, a
 // color that is not in the seed, or a "declared" foreground its quotes do not name, is reported
-// as stale. Hex colors in a seed that no pair or ignore entry covers are listed as unclassified.
+// as stale, and so is a pair without a quote, a conditional pair without a note or an ignore entry
+// without a reason. Hex colors in a seed that no pair or ignore entry covers are listed as unclassified.
 // Seeds without declarations get pairs inferred from keywords in their "# Color" section, all
 // marked uncertain. Pairs below threshold in other seeds change the exit code only under
-// --no-violations, and only when they are confirmed violations; that option also fails on stale
-// declarations and unclassified colors in any seed. A pair below its threshold is a confirmed
+// --no-violations, and only when they are confirmed violations; that option also fails on seeds
+// without declarations, stale declarations and unclassified colors in any seed. A pair below its threshold is a confirmed
 // violation only when both roles are declared and the pair is not
 // marked "applicability": "conditional" (its note names a use for which the criterion does not apply).
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -230,7 +232,9 @@ export function inferPairs(body) {
 // Report.
 
 const asList = (value) => (Array.isArray(value) ? value : [value]);
+const isText = (value) => typeof value === 'string' && value.trim() !== '';
 const APPLICABILITY = new Set(['always', 'conditional']);
+const CERTAINTY = new Set(['declared', 'inferred', 'uncertain']);
 
 function status({ pass, certainty, applicability }) {
   if (pass) return 'pass';
@@ -254,7 +258,14 @@ export function analyzeSeed(seed, declaration, root = ROOT) {
     const quotes = pair.quote === null ? [] : asList(pair.quote);
     const applicability = pair.applicability ?? 'always';
     if (!APPLICABILITY.has(applicability)) throw new Error(`${data.id}: unknown applicability "${applicability}"`);
-    const lines = quotes.map((quote) => {
+    // Every hand-written pair rests on seed text; only keyword-inferred pairs (no declaration) have none.
+    if (declaration) {
+      const label = `${asList(pair.fg).join(', ')} on ${asList(pair.bg).join(', ')}`;
+      if (!CERTAINTY.has(pair.certainty)) throw new Error(`${data.id}: unknown certainty "${pair.certainty}"`);
+      if (!quotes.length || !quotes.every(isText)) stale.push(`pair ${label} does not quote the seed text`);
+      if (applicability === 'conditional' && !isText(pair.note)) stale.push(`conditional pair ${label} has no note naming its use`);
+    }
+    const lines = quotes.filter(isText).map((quote) => {
       const line = lineOf(body, quote, offset);
       if (line === null) stale.push(`quote not found: "${quote}"`);
       return line;
@@ -307,7 +318,10 @@ export function analyzeSeed(seed, declaration, root = ROOT) {
     }
   }
   const ignored = new Map(Object.entries(declaration?.ignore ?? {}).map(([value, reason]) => [parseColor(value).hex, { value, reason }]));
-  for (const hex of ignored.keys()) if (!presentHex.has(hex)) stale.push(`ignored color ${hex} does not appear in the seed`);
+  for (const [hex, { reason }] of ignored) {
+    if (!presentHex.has(hex)) stale.push(`ignored color ${hex} does not appear in the seed`);
+    if (!isText(reason)) stale.push(`ignored color ${hex} has no reason`);
+  }
   const unclassified = [];
   const seen = new Set();
   for (const { raw, color, line } of colors) {
@@ -444,7 +458,7 @@ export function renderMarkdown(report) {
 }
 
 // Problems that fail the check: everything wrong with an enforced seed, and with noViolations every
-// confirmed violation, stale declaration or unclassified color in any seed. A stale quote is included
+// missing declaration, confirmed violation, stale declaration or unclassified color in any seed. A stale quote is included
 // because a pair whose text has changed no longer shows whether the seed's declared use passes; an
 // unclassified color is included because deleting a pair would otherwise drop its check silently.
 export function checkProblems(report, { enforce = [], noViolations = false } = {}) {
@@ -462,6 +476,7 @@ export function checkProblems(report, { enforce = [], noViolations = false } = {
   }
   if (noViolations) {
     for (const seed of report.seeds.filter(({ id }) => !enforce.includes(id))) {
+      if (!seed.declared) problems.push(`${seed.id}: no role declarations in scripts/contrast-roles.json`);
       for (const result of seed.failures.filter(({ status: value }) => value === 'violation')) {
         problems.push(`${describe(seed.id, result)} (confirmed violation)`);
       }
@@ -499,5 +514,5 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     process.exit(1);
   }
   if (enforced.length) console.log(`Enforced seeds pass: ${enforced.join(', ')}.`);
-  if (noViolations) console.log('No confirmed violations, stale declarations or unclassified colors.');
+  if (noViolations) console.log('Every seed is declared; no confirmed violations, stale declarations or unclassified colors.');
 }

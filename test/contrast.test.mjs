@@ -226,3 +226,20 @@ test('deleting a fixed pair fails the check', (t) => {
   assert.deepEqual(checkProblems(arrows, { noViolations: true }), []);
   assert.deepEqual(missingFixedPairs(arrows), ['tVghVsn2 #888888 #F5F5F5 ui']);
 });
+
+test('a pair without a quote, an ignore without a reason or a seed without declarations fails the check', (t) => {
+  const report = reportWithRoles(t, (seeds) => {
+    seeds.t2Q6D5JR.pairs.find(({ fg }) => fg === '#6C6C58').quote = null;
+    delete seeds.t2Q6D5JR.pairs.find(({ fg }) => fg === '#C0C0C0').note;
+    seeds.tVghVsn2.ignore['#eeeeee'] = ' ';
+    delete seeds.C4aZtWoH;
+  });
+  const problems = checkProblems(report, { noViolations: true });
+  assert.ok(problems.includes('t2Q6D5JR: pair #6C6C58 on #FFFFFF does not quote the seed text'), problems.join('\n'));
+  assert.ok(problems.includes('t2Q6D5JR: conditional pair #C0C0C0 on #FFFFFF has no note naming its use'));
+  assert.ok(problems.includes('tVghVsn2: ignored color #EEEEEE has no reason'));
+  assert.ok(problems.includes('C4aZtWoH: no role declarations in scripts/contrast-roles.json'));
+  assert.throws(() => reportWithRoles(t, (seeds) => {
+    seeds.t2Q6D5JR.pairs[0].certainty = 'declard';
+  }), /unknown certainty "declard"/);
+});

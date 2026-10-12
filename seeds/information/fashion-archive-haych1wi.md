@@ -80,7 +80,7 @@ Primary font: a brand-specific custom sans-serif — plain, compact and slightly
 
 # Color
 
-Electric blue accent: `#1100FF` (CSS variable `--accent-color`). Pure black text `#000` on white background. Header background is the accent blue; active tab inverts to white background with black text. Images load with blue mask overlay that fades on reveal. Selection background is semi-transparent accent blue.
+Electric blue accent: `#1100FF` (CSS variable `--accent-color`). Pure black text `#000` on white background. Header background is the accent blue with white (`#fff`) tab labels (8.50:1; black on the blue would reach only 2.46:1); active tab inverts to white background with black text. Images load with blue mask overlay that fades on reveal. Selection background is semi-transparent accent blue.
 
 # Imagery
 

@@ -75,7 +75,7 @@ Dual font system: Inter for headings (600 weight) and IBM Plex Sans for body tex
 
 # Color
 
-Light gray background (#F8F8F8) with darker text (#444). Signature deep blue banner (#2052BB). Semantic color coding throughout: positive pressure in red (#E5432E), negative pressure in blue (#3F90CD), velocity gradients in purple-to-yellow spectrum. Interactive elements use contextual colors—wind-scene arrows in #424b37, drifting-object markers in #715728, airfoil cross-section in #dab017. Slider components use theme-matched colors per section.
+Light gray background (#F8F8F8) with darker text (#444). Signature deep blue banner (#2052BB). Semantic color coding throughout: positive pressure in red (#E5432E), negative pressure in blue (#3F90CD), velocity gradients in purple-to-yellow spectrum. Interactive elements use contextual colors—wind-scene arrows in #424b37, drifting-object markers in #715728, airfoil cross-section filled #dab017 with a 2px Airfoil Edge #A58401 outline (3.35:1 on #F8F8F8; the fill alone reaches only 1.93:1). Slider components use theme-matched colors per section.
 
 # Imagery
 

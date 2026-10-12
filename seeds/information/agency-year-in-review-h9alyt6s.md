@@ -104,7 +104,7 @@ Standard implementation, no special design.
 
 # Craft
 
-Custom cursor behavior on interactive elements. Focus states use 0.125rem solid #4d65ff outline with 0.125rem offset. Smooth scrolling enabled. Snowflake animation uses 12 positioned elements with randomized delays (0-3s) and positions (10%-90% left). Border-radius 1.5rem on themed containers. Anti-aliasing applied globally (-webkit-font-smoothing: antialiased).
+Custom cursor behavior on interactive elements. Focus states use 0.125rem solid Focus Periwinkle (#AEC2FE) outline with 0.125rem offset, 3.36:1 on the blue page; the original #4d65ff reaches only 1.30:1 on #1458e4 and is kept for decorative tints only. Smooth scrolling enabled. Snowflake animation uses 12 positioned elements with randomized delays (0-3s) and positions (10%-90% left). Border-radius 1.5rem on themed containers. Anti-aliasing applied globally (-webkit-font-smoothing: antialiased).
 
 # Coherence
 

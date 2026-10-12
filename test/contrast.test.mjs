@@ -124,6 +124,12 @@ test('no seed has a confirmed violation', () => {
   assert.deepEqual(checkProblems(report, { enforce: ['mC1nkP2t'], noViolations: true }), []);
 });
 
+test('only the pair left for the user stays unconfirmed below threshold', () => {
+  const report = buildReport(ROOT, roles);
+  const below = report.seeds.flatMap(({ id, failures }) => failures.filter(({ status }) => status === 'below').map(({ fg }) => `${id} ${fg}`));
+  assert.deepEqual(below, ['t2Q6D5JR #C0C0C0']);
+});
+
 test('--no-violations catches a confirmed violation or a reverted fix in any seed', (t) => {
   // A declared text pair that falls below 4.5:1 is a confirmed violation.
   const root = copyRoot(t);

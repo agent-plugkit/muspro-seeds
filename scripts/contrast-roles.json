@@ -440,36 +440,59 @@
     "pibXRzsG": {
       "pairs": [
         {
-          "fg": "#fff",
+          "fg": "#000",
           "bg": [
             "#fe99d9",
             "#ff6502",
             "#1f9540"
           ],
           "kind": "text",
-          "certainty": "inferred",
-          "quote": "white (#fff) for text on dark/color backgrounds",
-          "note": "原文只说白字用于“深色/彩色背景”，未指明是哪几块色块；按三块主色块各算一次"
+          "certainty": "declared",
+          "quote": [
+            "Black (#000) for text on light backgrounds and on the pink and orange fields (10.77:1 on #fe99d9, 7.11:1 on #ff6502)",
+            "with smaller copy on green in black (5.43:1)"
+          ],
+          "note": "粉、橙、绿三块色块上的文字值（绿底为小字）"
         },
         {
           "fg": "#000",
           "bg": "#fe99d9",
-          "kind": "text",
-          "certainty": "uncertain",
-          "quote": "Black (#000) for text on light backgrounds",
-          "note": "粉色 #fe99d9 算“浅色背景”还是“彩色背景”原文未说明"
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "**Form inputs**: Transparent background, black (#000) border (1px solid), black text with black placeholder (10.77:1 on the pink contact field, where white would reach only 1.94:1)",
+          "note": "联系区表单的输入框边框（文字与占位符见上一组）"
         },
         {
-          "fg": "#ff0000",
+          "fg": "#fff",
+          "bg": "#1f9540",
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "white (#fff) for text on dark backgrounds such as the black button, and on the green field only for large service-row titles (3.86:1 on #1f9540, enough for large type only)",
+          "note": "白字在绿底只用于大字号服务行标题"
+        },
+        {
+          "fg": "#fff",
+          "bg": "#000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "white (#fff) for text on dark backgrounds such as the black button",
+            "**Primary button**: Pill-shaped (border-radius: 999px), black fill, white text"
+          ],
+          "note": "主按钮白字"
+        },
+        {
+          "fg": "#BF0000",
           "bg": "#fe99d9",
           "kind": "ui",
-          "certainty": "uncertain",
-          "quote": "Custom focus states with red outline (#ff0000) on form fields",
-          "note": "表单所在区块的底色未声明，按联系区的粉色计算"
+          "certainty": "declared",
+          "quote": "Custom focus states with a deep red outline (Focus Red #BF0000, 3.35:1 on the pink contact field) on form fields",
+          "note": "表单焦点框的界面值"
         }
       ],
       "ignore": {
-        "#1f9540": "也用作按钮悬停/聚焦边框，相邻色未声明"
+        "#1f9540": "也用作按钮悬停/聚焦边框，相邻色未声明",
+        "#ff0000": "原色只用于装饰点缀，不再用作粉底上的焦点框（原文：“the original pure red #ff0000 reaches only 2.05:1 on the pink and is kept for decorative accents only”）"
       }
     },
     "Vy3KTWAC": {
@@ -482,12 +505,12 @@
           "quote": "olive green `#576221` for all text and borders; warm gray `#e3dbce` for background"
         },
         {
-          "fg": "#576221",
+          "fg": "#535E1D",
           "bg": "#FFC0CB",
           "kind": "text",
-          "certainty": "uncertain",
-          "quote": "pink `#FFC0CB` for text selection",
-          "note": "选中态文字色未声明，按保持橄榄绿计算"
+          "certainty": "declared",
+          "quote": "pink `#FFC0CB` for the text-selection highlight, with selected text in Selection Olive `#535E1D` (4.57:1 on the pink; the base olive reaches only 4.30:1 there)",
+          "note": "选中态文字值"
         }
       ]
     },
@@ -566,18 +589,35 @@
         },
         {
           "fg": "#0099ff",
+          "bg": "#000000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "**#0099ff** (link accent on the black hero, 7.00:1)",
+          "note": "黑色首屏上的链接文字"
+        },
+        {
+          "fg": "#006FBB",
           "bg": "#efefef",
           "kind": "text",
-          "certainty": "inferred",
-          "quote": "**#0099ff** (link accent)",
-          "note": "链接所在背景未声明，按介绍区浅灰计算"
+          "certainty": "declared",
+          "quote": "Links on the light #efefef intro field use Link Blue Text **#006FBB** (4.57:1; #0099ff reaches only 2.60:1 there)",
+          "note": "浅灰介绍区上的链接文字值"
         },
         {
           "fg": "#0088ff",
+          "bg": "#000000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "color shift to #0088ff on the black hero (5.96:1)",
+          "note": "黑色首屏上的链接悬停色"
+        },
+        {
+          "fg": "#006BCB",
           "bg": "#efefef",
           "kind": "text",
-          "certainty": "inferred",
-          "quote": "Links use underline-on-hover pattern with color shift to #0088ff"
+          "certainty": "declared",
+          "quote": "to #006BCB on the light intro field (4.60:1; #0088ff reaches only 3.06:1 there)",
+          "note": "浅灰介绍区上的链接悬停文字值"
         },
         {
           "fg": "#111111",
@@ -647,16 +687,20 @@
           "note": "按钮边框的界面值"
         },
         {
-          "fg": "#4d65ff",
+          "fg": "#AEC2FE",
           "bg": "#1458e4",
           "kind": "ui",
-          "certainty": "inferred",
-          "quote": "Focus states use 0.125rem solid #4d65ff outline",
-          "note": "焦点框所在背景未声明，按全页蓝底计算"
+          "certainty": "declared",
+          "quote": [
+            "Focus states use 0.125rem solid Focus Periwinkle (#AEC2FE) outline with 0.125rem offset, 3.36:1 on the blue page",
+            "Dominant electric blue (#1458e4) fills the entire page background"
+          ],
+          "note": "焦点框的界面值；外偏移 0.125rem，落在全页蓝底上"
         }
       ],
       "ignore": {
-        "#0099FF": "原色只用于色块、光晕与装饰，不承载边框、文字或标记"
+        "#0099FF": "原色只用于色块、光晕与装饰，不承载边框、文字或标记",
+        "#4d65ff": "原色只用于装饰色调，不再用作焦点框（原文：“the original #4d65ff reaches only 1.30:1 on #1458e4 and is kept for decorative tints only”）"
       }
     },
     "Yoiov5EL": {
@@ -670,17 +714,26 @@
         },
         {
           "fg": [
-            "#CAA266",
-            "#AABB87",
+            "#9A7438",
+            "#71814F",
             "#5D80D9"
           ],
           "bg": "#e5e5e5",
           "kind": "ui",
-          "certainty": "inferred",
-          "quote": "Each section uses its highlight for borders, active states, and player chrome",
-          "note": "边框、激活态与播放器控件按非文字 UI 计算；若高亮色也用于文字则门槛为 4.5:1"
+          "certainty": "declared",
+          "quote": [
+            "Each section uses its highlight for borders, active states, and player chrome via CSS custom property `--section-highlight`",
+            "cornflower blue (`#5D80D9`)",
+            "their `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1) and Sage UI (`#71814F`, 3.36:1); cornflower (3.00:1) is used as is",
+            "Background: `#e5e5e5` (light warm gray)"
+          ],
+          "note": "各分区高亮色的界面值：边框、激活态与播放器控件"
         }
-      ]
+      ],
+      "ignore": {
+        "#CAA266": "原色只用于卡片底色淡染，不承担边框、激活态或控件（原文：“The original `#CAA266` and `#AABB87` only tint the cards”）",
+        "#AABB87": "同上：原色只用于卡片底色淡染"
+      }
     },
     "haYCh1wI": {
       "pairs": [
@@ -692,16 +745,16 @@
           "quote": "Pure black text `#000` on white background"
         },
         {
-          "fg": [
-            "white",
-            "black"
-          ],
+          "fg": "#fff",
           "bg": "#1100FF",
           "kind": "text",
-          "certainty": "uncertain",
-          "quote": "Header background is the accent blue; active tab inverts to white background with black text",
-          "note": "蓝色页眉上非激活标签的文字色未声明，黑白两种都列出"
+          "certainty": "declared",
+          "quote": "Header background is the accent blue with white (`#fff`) tab labels (8.50:1; black on the blue would reach only 2.46:1)",
+          "note": "蓝色页眉上非激活标签的文字"
         }
+      ],
+      "notes": [
+        "黑字不配蓝色页眉：原文只写激活标签“inverts to white background with black text”，黑字落在白底上；页眉标签写明为白字（“with white (`#fff`) tab labels”）"
       ]
     },
     "G26LBSOO": {
@@ -786,14 +839,24 @@
         {
           "fg": [
             "#424b37",
-            "#715728",
-            "#dab017"
+            "#715728"
           ],
           "bg": "#F8F8F8",
           "kind": "ui",
           "certainty": "uncertain",
-          "quote": "wind-scene arrows in #424b37, drifting-object markers in #715728, airfoil cross-section in #dab017",
+          "quote": "wind-scene arrows in #424b37, drifting-object markers in #715728",
           "note": "画布底色未声明，按页面底色计算"
+        },
+        {
+          "fg": "#A58401",
+          "bg": "#F8F8F8",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "airfoil cross-section filled #dab017 with a 2px Airfoil Edge #A58401 outline (3.35:1 on #F8F8F8; the fill alone reaches only 1.93:1)",
+            "Canvas containers have no border or shadow—content floats on light gray background"
+          ],
+          "note": "翼型截面的轮廓线：理解模拟所需的图形对象，按 1.4.11 计算"
         },
         {
           "fg": "#777",
@@ -821,7 +884,8 @@
         }
       ],
       "ignore": {
-        "#2052BB": "横幅上的文字色未声明"
+        "#2052BB": "横幅上的文字色未声明",
+        "#dab017": "只作翼型截面的填充，边界由 #A58401 轮廓线提供（原文：“airfoil cross-section filled #dab017 with a 2px Airfoil Edge #A58401 outline”）"
       }
     },
     "rVQmfOqR": {
@@ -983,15 +1047,22 @@
         {
           "fg": "grey",
           "bg": "#fafafa",
-          "kind": "text",
-          "certainty": "uncertain",
-          "quote": "`grey` (mid)",
-          "note": "CSS grey = #808080；用途未声明，按文字计算"
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "`grey` (mid)",
+            "Custom focus outline: `var(--border-thin) solid var(--color-mid)` with offset",
+            "`#fafafa` (light)"
+          ],
+          "note": "CSS grey = #808080，即 --color-mid，原文写明的用途是焦点框"
         }
       ],
       "ignore": {
         "#e6e6e6": "lightish，用途未声明"
-      }
+      },
+      "notes": [
+        "grey 不按文字计算：原文只把 mid 用于焦点框（“Custom focus outline: `var(--border-thin) solid var(--color-mid)` with offset”），没有写文字用途"
+      ]
     },
     "Nv0J2QBT": {
       "pairs": [
@@ -1051,14 +1122,6 @@
           "quote": "Default theme: #121212 (near-black) background, #ffffff text"
         },
         {
-          "fg": "#3a3a3a",
-          "bg": "#121212",
-          "kind": "text",
-          "certainty": "uncertain",
-          "quote": "#3a3a3a secondary/muted",
-          "note": "secondary/muted 是否用于文字未声明，按文字计算"
-        },
-        {
           "fg": "#6E6E6E",
           "bg": [
             "#121212",
@@ -1076,17 +1139,36 @@
           "quote": "Inverted theme: #ffffff background, #000000 text"
         },
         {
-          "fg": "#d4d4d4",
-          "bg": "#ffffff",
+          "fg": "#ffffff",
+          "bg": "#3a3a3a",
           "kind": "text",
-          "certainty": "uncertain",
-          "quote": "#d4d4d4 secondary",
-          "note": "secondary 是否用于文字未声明，按文字计算"
+          "certainty": "declared",
+          "quote": [
+            "Default theme: #121212 (near-black) background, #ffffff text",
+            "The secondary values fill the message card, which carries the theme text (11.37:1 on #3a3a3a, 14.16:1 on #d4d4d4)",
+            "var(--secondaryColor) background for message card"
+          ],
+          "note": "默认主题消息卡片：白字配 secondary 底"
+        },
+        {
+          "fg": "#000000",
+          "bg": "#d4d4d4",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Inverted theme: #ffffff background, #000000 text",
+            "The secondary values fill the message card, which carries the theme text (11.37:1 on #3a3a3a, 14.16:1 on #d4d4d4)",
+            "var(--secondaryColor) background for message card"
+          ],
+          "note": "反色主题消息卡片：黑字配 secondary 底"
         }
       ],
       "ignore": {
         "#404040": "只用于禁用态图标；1.4.11 不适用于非激活组件"
-      }
+      },
+      "notes": [
+        "#3a3a3a、#d4d4d4 不按文字或图标计算：原文写明 secondary 是消息卡片底色（“var(--secondaryColor) background for message card”），弱化图标改用 #6E6E6E（“Secondary class applies the muted icon fill #6E6E6E”）"
+      ]
     },
     "FpA0MHDV": {
       "pairs": [

@@ -82,7 +82,7 @@ Dual-font system: a clean, friendly geometric sans-serif with round bowls (weigh
 
 # Color
 
-Neutral base with section-specific accents. Background: `#e5e5e5` (light warm gray). Text: `#000` (pure black). Section highlight colors assigned per thematic cluster: mustard yellow (`#CAA266`), sage green (`#AABB87`), cornflower blue (`#5D80D9`). Each section uses its highlight for borders, active states, and player chrome via CSS custom property `--section-highlight`. Cards have subtle background tints at 10% opacity (`--section-highlight-background`).
+Neutral base with section-specific accents. Background: `#e5e5e5` (light warm gray). Text: `#000` (pure black). Section highlight colors assigned per thematic cluster: mustard yellow (`#CAA266`), sage green (`#AABB87`), cornflower blue (`#5D80D9`). Each section uses its highlight for borders, active states, and player chrome via CSS custom property `--section-highlight`. Mustard and sage reach only 1.87:1 and 1.63:1 on `#e5e5e5`, so their `--section-highlight` values are Mustard UI (`#9A7438`, 3.38:1) and Sage UI (`#71814F`, 3.36:1); cornflower (3.00:1) is used as is. The original `#CAA266` and `#AABB87` only tint the cards. Cards have subtle background tints at 10% opacity (`--section-highlight-background`).
 
 # Imagery
 

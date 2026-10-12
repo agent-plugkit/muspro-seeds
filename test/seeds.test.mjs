@@ -5,11 +5,12 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
 import {
-  ROOT, contentHash, createTarGz, loadRegistry, parseYamlSubset, payloadFiles, readTarGz,
+  ROOT, buildArtifacts, contentHash, createTarGz, loadRegistry, parseYamlSubset, payloadFiles, readJson, readTarGz,
 } from '../scripts/lib.mjs';
 import { validateRepository } from '../scripts/validate.mjs';
 
-const ids = loadRegistry(ROOT).map(({ id }) => id);
+// The registry as published in v1.0.0. The library may grow; these entries may not change.
+const published = readJson(join(ROOT, 'test/fixtures/registry-v1.0.0.json')).seeds;
 
 function sandbox(t) {
   const root = mkdtempSync(join(tmpdir(), 'muspro-seeds-test-'));
@@ -27,10 +28,36 @@ function errorsOf(root, options) {
 const print = 'seeds/graphic/editorial-print-system-mc1nkp2t.md';
 const audio = 'seeds/ui/interactive-audio-experience-vej9f5om.md';
 
-test('the published registry keeps every v1.0.0 seed', () => {
-  assert.equal(ids.length, 29);
-  assert.equal(new Set(ids).size, ids.length);
-  assert.deepEqual(validateRepository(ROOT).errors, []);
+test('the registry starts with every v1.0.0 entry, still bound to the same file', () => {
+  const registry = loadRegistry(ROOT);
+  assert.ok(published.length > 0);
+  assert.deepEqual(registry.slice(0, published.length), published);
+  assert.equal(new Set(registry.map(({ id }) => id.toLowerCase())).size, registry.length);
+  assert.deepEqual(validateRepository(ROOT, { baseRegistry: published }).errors, []);
+});
+
+test('appending a registered, labelled seed validates and indexes it after the published ones', (t) => {
+  const root = sandbox(t);
+  const file = 'ui/new-seed-zz9zz9zz.md';
+  writeFileSync(join(root, 'seeds', file), readFileSync(join(root, audio), 'utf8').replace('id: vEj9F5om', 'id: Zz9Zz9Zz'));
+  const registryPath = join(root, 'registry/preserved-ids.json');
+  const registry = JSON.parse(readFileSync(registryPath, 'utf8'));
+  registry.seeds.push({ id: 'Zz9Zz9Zz', file });
+  writeFileSync(registryPath, JSON.stringify(registry));
+  const labelsPath = join(root, 'registry/labels.zh-CN.json');
+  const labels = JSON.parse(readFileSync(labelsPath, 'utf8'));
+  labels.seeds.Zz9Zz9Zz = { title: '新增参考', summary: '验证登记表可以追加。' };
+  writeFileSync(labelsPath, JSON.stringify(labels));
+
+  for (const baseRegistry of [undefined, published, loadRegistry(ROOT)]) {
+    assert.deepEqual(validateRepository(root, { baseRegistry }).errors, []);
+  }
+  const { seeds } = JSON.parse(buildArtifacts(root)['index.json']);
+  assert.equal(seeds.length, loadRegistry(ROOT).length + 1);
+  assert.deepEqual(seeds.slice(0, published.length).map(({ id, file: path }) => ({ id, file: path })), published);
+  assert.deepEqual(seeds.at(-1).id, 'Zz9Zz9Zz');
+  const ui = JSON.parse(buildArtifacts(root)['scenarios.json']).scenarios.find(({ id }) => id === 'ui');
+  assert.equal(ui.seeds.at(-1).title, '新增参考');
 });
 
 test('duplicate IDs are rejected', (t) => {

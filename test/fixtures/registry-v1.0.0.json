@@ -1,0 +1,122 @@
+{
+  "description": "Registry as published in muspro-seeds v1.0.0. Later registries must start with these entries, unchanged.",
+  "version": "1.0.0",
+  "seeds": [
+    {
+      "id": "vEj9F5om",
+      "file": "ui/interactive-audio-experience-vej9f5om.md"
+    },
+    {
+      "id": "rvYJrbZh",
+      "file": "ui/artist-portfolio-rvyjrbzh.md"
+    },
+    {
+      "id": "weZM545X",
+      "file": "ui/editorial-publication-wezm545x.md"
+    },
+    {
+      "id": "x1BNQPTi",
+      "file": "ui/community-archive-x1bnqpti.md"
+    },
+    {
+      "id": "swwKiFDe",
+      "file": "ui/education-product-swwkifde.md"
+    },
+    {
+      "id": "JiAIwOJv",
+      "file": "graphic/design-studio-portfolio-jiaiwojv.md"
+    },
+    {
+      "id": "LjwyQI6U",
+      "file": "graphic/sustainability-manifesto-ljwyqi6u.md"
+    },
+    {
+      "id": "Vy3KTWAC",
+      "file": "graphic/art-book-fair-event-vy3ktwac.md"
+    },
+    {
+      "id": "AT5oq8hX",
+      "file": "graphic/designer-portfolio-at5oq8hx.md"
+    },
+    {
+      "id": "B3LYgTWe",
+      "file": "graphic/arts-center-b3lygtwe.md"
+    },
+    {
+      "id": "mC1nkP2t",
+      "file": "graphic/editorial-print-system-mc1nkp2t.md"
+    },
+    {
+      "id": "pu9ToBED",
+      "file": "ui/supply-chain-intelligence-dashboard-pu9tobed.md"
+    },
+    {
+      "id": "G26LBSOO",
+      "file": "information/health-research-report-g26lbsoo.md"
+    },
+    {
+      "id": "C4aZtWoH",
+      "file": "graphic/art-school-exhibition-c4aztwoh.md"
+    },
+    {
+      "id": "haYCh1wI",
+      "file": "information/fashion-archive-haych1wi.md"
+    },
+    {
+      "id": "H9aLYT6s",
+      "file": "information/agency-year-in-review-h9alyt6s.md"
+    },
+    {
+      "id": "pibXRzsG",
+      "file": "graphic/agency-portfolio-pibxrzsg.md"
+    },
+    {
+      "id": "rVQmfOqR",
+      "file": "ui/agency-landing-rvqmfoqr.md"
+    },
+    {
+      "id": "Nv0J2QBT",
+      "file": "ui/generative-music-visualization-nv0j2qbt.md"
+    },
+    {
+      "id": "FpA0MHDV",
+      "file": "ui/music-artist-portfolio-fpa0mhdv.md"
+    },
+    {
+      "id": "tTceao0M",
+      "file": "graphic/brand-studio-portfolio-ttceao0m.md"
+    },
+    {
+      "id": "t2Q6D5JR",
+      "file": "graphic/font-specimen-type-foundry-t2q6d5jr.md"
+    },
+    {
+      "id": "1JlUSoIP",
+      "file": "information/interactive-educational-article-1jlusoip.md"
+    },
+    {
+      "id": "Yoiov5EL",
+      "file": "information/documentary-companion-yoiov5el.md"
+    },
+    {
+      "id": "upXsOXv8",
+      "file": "ui/health-ecommerce-upxsoxv8.md"
+    },
+    {
+      "id": "lC4BpOAk",
+      "file": "ui/personal-portfolio-lc4bpoak.md"
+    },
+    {
+      "id": "o0W3sQmk",
+      "file": "ui/saas-developer-tools-o0w3sqmk.md"
+    },
+    {
+      "id": "tVghVsn2",
+      "file": "ui/whiteboard-tool-tvghvsn2.md"
+    },
+    {
+      "id": "GzPJkoac",
+      "file": "ui/design-collective-gzpjkoac.md"
+    }
+  ]
+}

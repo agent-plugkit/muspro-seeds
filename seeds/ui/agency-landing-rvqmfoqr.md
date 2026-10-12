@@ -65,11 +65,11 @@ dimensions_with_reference: []
 
 # Narrative
 
-A creative agency landing page targeting B2B marketing. The narrative flows from credibility (star rating + client logos) through value proposition ("Creative that wins") to process explanation (3-step how-it-works with animated widgets), service showcase (tabbed portfolio), social proof (infinite testimonial marquee), and conversion (newsletter + contact). The story emphasizes "in-house creative team without overheads" for enterprise clients.
+A creative agency landing page targeting B2B marketing. The narrative flows from credibility (star rating + client logos) through a short, results-first value proposition that promises performance-driven creative to process explanation (3-step how-it-works with animated widgets), service showcase (tabbed portfolio), social proof (infinite testimonial marquee), and conversion (newsletter + contact). The story pitches the agency as a substitute for an in-house creative team, minus the hiring and overhead cost, for enterprise clients.
 
 # Tech Stack
 
-Webflow-built site with custom CSS animations. Uses jQuery for interactions. Custom @font-face loading for Almarena Neue Display family. CSS keyframe animations for marquees. Tab system uses stacked grid technique for equal-height panes.
+Webflow-built site with custom CSS animations. Uses jQuery for interactions. Custom @font-face loading for a licensed display sans family. CSS keyframe animations for marquees. Tab system uses stacked grid technique for equal-height panes.
 
 # Layout
 
@@ -77,7 +77,7 @@ Dark graphite background (#2F282F) with full-bleed sections. Hero centers conten
 
 # Typography
 
-Primary font: **Almarena Neue Display** (Regular, Medium, SemiBold, Bold weights). Large display headings (approx 48-64px) with tight tracking. Body text uses lighter weight at comfortable line-height. Uppercase eyebrow labels with small circular dot indicator. Hierarchy: Display > Heading-2 > Body-standard > Caption.
+Primary font: a **contemporary display grotesk** — wide, smooth and confident, with a friendly, slightly rounded geometry (Regular, Medium, SemiBold, Bold weights). Large display headings (approx 48-64px) with tight tracking. Body text uses lighter weight at comfortable line-height. Uppercase eyebrow labels with small circular dot indicator. Hierarchy: Display > Heading-2 > Body-standard > Caption.
 
 # Color
 
@@ -85,13 +85,13 @@ Dark graphite background `#2F282F` dominates. Primary accent is violet/purple `#
 
 # Imagery
 
-3D-rendered emoji avatars (Memoji-style) are signature visual elements - used in star-rating component, testimonial cards, and process widgets. Portfolio showcase uses full-bleed project mockups. Client logos in grayscale for logo wall. Custom cursor pointer graphics with team role labels ("Designer", "Account Manager").
+3D-rendered cartoon avatars (stylized 3D emoji-like heads) are signature visual elements - used in star-rating component, testimonial cards, and process widgets. Portfolio showcase uses full-bleed project mockups. Client logos in grayscale for logo wall. Custom cursor pointer graphics with team role labels (designer, account manager).
 
 # Components
 
 **Buttons**: Dual-text slide animation on hover (text wraps translate vertically). Primary uses violet fill, secondary uses transparent with border.
 
-**Star Rating Eyebrow**: Avatar group (3 circular 3D emojis) + star SVG + "Trusted by" text - used as social proof header.
+**Star Rating Eyebrow**: Avatar group (3 circular 3D emojis) + star SVG + a short trust-claim line - used as social proof header.
 
 **Service Tabs**: Horizontal scrollable menu with pill-style active state. Content area shows full-bleed project image.
 

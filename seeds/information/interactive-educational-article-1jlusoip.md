@@ -59,7 +59,7 @@ dimensions_with_reference: []
 
 # Narrative
 
-An interactive physics explainer article about airfoils and the physics of flight. The narrative flows from intuitive observations (grass bending in wind) through microscopic particle behavior to macroscopic fluid dynamics. Each section builds on the previous with interactive Canvas demonstrations that let readers manipulate variables and observe outcomes. The content targets curious learners seeking deep intuition about aerodynamics, not just facts.
+An interactive physics explainer article about airfoils and the physics of flight. The narrative moves from an everyday phenomenon the reader already knows, to the behavior of individual air particles, and then to macroscopic fluid dynamics. Each section builds on the previous with interactive Canvas demonstrations that let readers manipulate variables and observe outcomes. The content targets curious learners seeking deep intuition about aerodynamics, not just facts.
 
 # Tech Stack
 
@@ -67,7 +67,7 @@ Vanilla JavaScript with custom WebGL/Canvas rendering. No frameworks. Custom phy
 
 # Layout
 
-Single-column article layout with max-width 44rem for text content. Full-width canvas containers (`.drawer_container.full_width`) break out of the text column to create visual breathing room. Canvas containers use aspect-ratio padding trick (`.ratio_50`, `.ratio_60`, `.ratio_100`) for responsive sizing without layout shift. Generous vertical spacing between sections (2.3em margin on drawers). Header banner spans full viewport width with deep blue background (#2052BB).
+Single-column article layout with max-width 44rem for text content. Full-width canvas containers break out of the text column to create visual breathing room. Canvas containers reserve their height with the aspect-ratio padding trick (height as 50%, 60% or 100% of width) for responsive sizing without layout shift. Generous vertical spacing between sections (2.3em margin on canvas containers). Header banner spans full viewport width with deep blue background (#2052BB).
 
 # Typography
 
@@ -75,11 +75,11 @@ Dual font system: Inter for headings (600 weight) and IBM Plex Sans for body tex
 
 # Color
 
-Light gray background (#F8F8F8) with darker text (#444). Signature deep blue banner (#2052BB). Semantic color coding throughout: positive pressure in red (#E5432E), negative pressure in blue (#3F90CD), velocity gradients in purple-to-yellow spectrum. Interactive elements use contextual colors—grass arrows in #424b37, leaf markers in #715728, airfoil cross-section in #dab017. Slider components use theme-matched colors per section.
+Light gray background (#F8F8F8) with darker text (#444). Signature deep blue banner (#2052BB). Semantic color coding throughout: positive pressure in red (#E5432E), negative pressure in blue (#3F90CD), velocity gradients in purple-to-yellow spectrum. Interactive elements use contextual colors—wind-scene arrows in #424b37, drifting-object markers in #715728, airfoil cross-section in #dab017. Slider components use theme-matched colors per section.
 
 # Imagery
 
-No photographs. All visuals are real-time Canvas simulations: particle systems (12,000+ particles), vector fields with instanced arrow rendering, pressure contour maps with gradient fills, 3D surface plots for pressure landscapes. Simulations include: grass field with wind, falling leaves, air particle collisions, velocity vector fields, pressure visualization with draggable hotspots, airfoil flow patterns with streamlines.
+No photographs. All visuals are real-time Canvas simulations: particle systems with thousands of particles, vector fields with instanced arrow rendering, pressure contour maps with gradient fills, 3D surface plots for pressure landscapes. Simulations include: an outdoor wind scene with drifting objects, air particle collisions, velocity vector fields, pressure visualization with draggable hotspots, airfoil flow patterns with streamlines.
 
 # Components
 
@@ -99,7 +99,7 @@ Clean flat surfaces with subtle depth cues. Canvas containers have no border or 
 
 # Craft
 
-Imperial/metric unit switching via CSS class toggle (`.show_imperial`) with instant DOM update—no page reload. Click/tap word switching for device-appropriate labels (`.click_word` vs `.tap_word`). Heading anchor links with PNG icon (8x16px) hidden until hover. Canvas pixel ratio capped at 2x for performance. Draggable pressure hotspots with visual dashed-circle indicators. Restart buttons positioned absolute bottom-left of canvas containers.
+Imperial/metric unit switching via a single class toggle on a parent element that shows one set of values and hides the other—instant, no page reload. Instruction verbs switch between click and tap wording to match the input device. Heading anchor links with PNG icon (8x16px) hidden until hover. Canvas pixel ratio capped at 2x for performance. Draggable pressure hotspots with visual dashed-circle indicators. Restart buttons positioned absolute bottom-left of canvas containers.
 
 # Coherence
 

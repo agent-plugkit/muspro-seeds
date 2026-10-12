@@ -64,11 +64,11 @@ dimensions_with_reference: []
 
 # Narrative
 
-A Swiss menswear fashion label archive site presenting collections, campaigns, press coverage, research, and products. The narrative structure is a dense, scannable index — each entry displays metadata (content type, location, collaborators, year) in a tabular format alongside oversized titles and horizontal image strips. The site functions as both a portfolio and an e-commerce platform, with Shopify integration for product sales.
+An independent European menswear label's archive site presenting collections, campaigns, press coverage, research, and products. The narrative structure is a dense, scannable index — each entry displays metadata (content type, location, collaborators, year) in a tabular format alongside oversized titles and horizontal image strips. The site functions as both a portfolio and an e-commerce platform, with Shopify integration for product sales.
 
 # Tech Stack
 
-Kirby CMS (PHP) with custom frontend. Swup for page transitions. Shopify Buy SDK for e-commerce. Flickity for carousels. Plyr for video. GSAP/TweenLite for animations. Custom font "SBM" embedded as base64 WOFF data URI.
+Kirby CMS (PHP) with custom frontend. Swup for page transitions. Shopify Buy SDK for e-commerce. Flickity for carousels. Plyr for video. GSAP/TweenLite for animations. A brand-specific custom font embedded as a base64 WOFF data URI.
 
 # Layout
 
@@ -76,7 +76,7 @@ Brutalist editorial layout with extreme information density. Fixed header with f
 
 # Typography
 
-Primary font: SBM (custom sans-serif, embedded as data URI). Body size: 0.753rem with 1rem line-height. Massive display type for titles: 6.0241rem (desktop), scaling to 3.01205rem (mobile). Tight line-height (5rem for desktop titles, 2.5rem mobile). All caps used in UI elements. Bracket syntax `[content]` for metadata values. Checkbox-style navigation indicators `[✔]` with accent color.
+Primary font: a brand-specific custom sans-serif — plain, compact and slightly technical, set tight at display sizes (embedded as data URI). Body size: 0.753rem with 1rem line-height. Massive display type for titles: 6.0241rem (desktop), scaling to 3.01205rem (mobile). Tight line-height (5rem for desktop titles, 2.5rem mobile). All caps used in UI elements. Bracket syntax `[content]` for metadata values. Checkbox-style navigation indicators `[✔]` with accent color.
 
 # Color
 

@@ -64,7 +64,7 @@ dimensions_with_reference: []
 
 # Narrative
 
-A design studio's 2024 Year in Review landing page. The narrative flows from an impactful hero announcing "2024 in review" through client testimonial video, a scrolling marquee of praise words, team philosophy reveal with scroll-triggered text animation, project showcase gallery, and a bold CTA footer. The page celebrates the studio's journey while demonstrating their own design capabilities.
+A design studio's annual year-in-review landing page. The narrative flows from an impactful hero that announces the reviewed year in giant numerals through client testimonial video, a scrolling marquee of praise words, team philosophy reveal with scroll-triggered text animation, project showcase gallery, and a bold CTA footer. The page celebrates the studio's journey while demonstrating their own design capabilities.
 
 # Tech Stack
 
@@ -84,15 +84,15 @@ Dominant electric blue (#1458e4) fills the entire page background with white (#f
 
 # Imagery
 
-Project showcase features screenshot thumbnails of client websites and digital products - a portfolio gallery demonstrating range. Video background shows client testimonial footage. Logo strip displays client brand marks (School of Motion, LaunchLabs, dbt Labs, Euri, etc.) in monochrome treatment. No decorative stock imagery - all content serves the narrative.
+Project showcase features screenshot thumbnails of client websites and digital products - a portfolio gallery demonstrating range. Video background shows client testimonial footage. A logo strip shows a handful of tech and education clients' marks in a single-color treatment. No decorative stock imagery - all content serves the narrative.
 
 # Components
 
-Primary CTA button: white text on transparent background with right arrow icon, border-color #0099FF. Video player: custom video player implementation with play button overlay and poster frame. Marquee tags: pill-shaped containers with large text scrolling horizontally. Project cards: screenshot thumbnails with hover states. Footer: social icon links (Twitter/X, LinkedIn, Dribbble, Facebook).
+Primary CTA button: white text on transparent background with right arrow icon, border-color #0099FF. Video player: custom video player implementation with play button overlay and poster frame. Marquee tags: pill-shaped containers with large text scrolling horizontally. Project cards: screenshot thumbnails with hover states. Footer: a row of common social platform icon links.
 
 # Motion
 
-Hero digits animate in with translate3d transforms on page load. Continuous snowflake falling animation (CSS keyframes: snowflakes-fall 10s linear infinite, snowflakes-shake 3s ease-in-out infinite). Testimonial marquee scrolls horizontally via translate3d animation. Scroll-triggered word-by-word text reveal in team section (opacity 0.25 → 1). Video play button scales on hover. See references/motion.md for animation parameters.
+Hero digits animate in with translate3d transforms on page load. Continuous snowflake falling animation (two stacked CSS keyframe animations: a 10s linear infinite fall and a 3s ease-in-out infinite sideways sway). Testimonial marquee scrolls horizontally via translate3d animation. Scroll-triggered word-by-word text reveal in team section (opacity 0.25 → 1). Video play button scales on hover. See references/motion.md for animation parameters.
 
 # Algorithms
 

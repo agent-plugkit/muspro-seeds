@@ -627,10 +627,7 @@
           "certainty": "declared",
           "quote": "pure white (#ffffff) backgrounds, pure black (#000000) text and borders"
         }
-      ],
-      "ignore": {
-        "#ddfa6d": "只用于浏览器 theme-color，不出现在界面中"
-      }
+      ]
     },
     "H9aLYT6s": {
       "pairs": [
@@ -782,7 +779,7 @@
           "bg": "#F8F8F8",
           "kind": "ui",
           "certainty": "uncertain",
-          "quote": "grass arrows in #424b37, leaf markers in #715728, airfoil cross-section in #dab017",
+          "quote": "wind-scene arrows in #424b37, drifting-object markers in #715728, airfoil cross-section in #dab017",
           "note": "画布底色未声明，按页面底色计算"
         },
         {
@@ -908,8 +905,8 @@
           "certainty": "declared",
           "quote": [
             "Deep navy background (#021a50)",
-            "off-white (#f6ccc7)",
-            "off-white on dark"
+            "pale blush pink (#f6ccc7)",
+            "blush pink on dark"
           ]
         },
         {
@@ -1097,7 +1094,7 @@
           "bg": "#ffffff",
           "kind": "ui",
           "certainty": "declared",
-          "quote": "iOS blue for info icons (`#007AFF` in SVG)"
+          "quote": "system blue for info icons (`#007AFF` in SVG)"
         },
         {
           "fg": [

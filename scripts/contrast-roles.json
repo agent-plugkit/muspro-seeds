@@ -642,12 +642,27 @@
           ]
         },
         {
-          "fg": "#C0C0C0",
+          "fg": "#757575",
           "bg": "#FFFFFF",
           "kind": "text",
-          "certainty": "uncertain",
-          "quote": "**#C0C0C0** (secondary/muted)",
-          "note": "secondary/muted 可能是次要文字，也可能只是分隔线；按文字计算"
+          "certainty": "declared",
+          "quote": [
+            "**#757575** (secondary/muted text, 4.60:1 on white)",
+            "**#FFFFFF** (background)"
+          ],
+          "note": "次要/弱化文字在白底上的文字值"
+        },
+        {
+          "fg": "#C0C0C0",
+          "bg": "#FFFFFF",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "**#C0C0C0** (divider lines only)",
+            "it is kept for divider lines and never carries text"
+          ],
+          "applicability": "conditional",
+          "note": "只用于分隔线；装饰性分隔线不适用 1.4.11"
         },
         {
           "fg": "#6C6C58",
@@ -1053,6 +1068,24 @@
           "note": "强调色的具体用途未声明，按非文字 UI 计算"
         },
         {
+          "fg": "#D82B0C",
+          "bg": [
+            "#f6ccc7",
+            "#f9da73",
+            "white",
+            "#e6e6fa",
+            "#021a50"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "Focus outlines use Focus Red (#D82B0C), a deeper value at the primary red's hue",
+            "Focus Red reaches 3.36:1 and 3.58:1 there and at least 3:1 on every other surface (4.91 white, 3.99 lavender, 3.37 navy)",
+            "Input borders transition to Focus Red on focus"
+          ],
+          "note": "焦点框与聚焦输入框边框：淡粉、暖黄、白、淡紫、海军蓝底"
+        },
+        {
           "fg": "#8888dd",
           "bg": [
             "white",
@@ -1061,7 +1094,7 @@
           "kind": "ui",
           "certainty": "declared",
           "quote": [
-            "violet-blue (#8888dd) borders that transition to primary red on focus",
+            "violet-blue (#8888dd) borders that transition to Focus Red on focus",
             "The violet-blue border reaches 3:1 only against white (3.17:1) and the navy (5.22:1)"
           ],
           "note": "输入框边框在白色与海军蓝底上"
@@ -1429,6 +1462,21 @@
           "note": "soft / retro 主题画布上的次要文字与提示文字"
         },
         {
+          "fg": "#f5f5f5",
+          "bg": [
+            "#141414",
+            "#0d2537"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "dark (`#141414` bg), starry (`#0d2537` bg)",
+            "text there uses Light Text `#f5f5f5`, the light end of the same gray scale (16.89:1 on `#141414`, 14.40:1 on `#0d2537`)",
+            "on the dark and starry canvases it is Light Text `#f5f5f5`"
+          ],
+          "note": "dark / starry 主题的文字色（原文未记录这两个主题的文字色，取同一灰阶的浅端）"
+        },
+        {
           "fg": "#666",
           "bg": "#fff",
           "kind": "ui",
@@ -1469,11 +1517,11 @@
         }
       ],
       "ignore": {
-        "#f5f5f5": "灰阶起点/soft 主题底色；该主题的次要文字与箭头配对已声明",
+        "#f5f5f5": "灰阶起点/soft 主题底色，同时是 dark / starry 主题的浅色文字；相关配对已声明",
         "#121212": "灰阶终点",
         "#f9f8ed": "retro 主题底色；该主题的次要文字与箭头配对已声明",
-        "#141414": "dark 主题底色，主题内文字色未声明（原文：“text colors for the dark and starry themes are not documented”）；箭头配对已声明",
-        "#0d2537": "starry 主题底色，主题内文字色未声明；箭头配对已声明",
+        "#141414": "dark 主题底色；浅色文字与箭头配对已声明",
+        "#0d2537": "starry 主题底色；浅色文字与箭头配对已声明",
         "#00000014": "阴影",
         "#eeeeee": "浮层装饰边框"
       }

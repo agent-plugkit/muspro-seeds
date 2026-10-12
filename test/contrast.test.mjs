@@ -111,7 +111,8 @@ test('pairs below threshold separate confirmed violations from unconfirmed and c
   assert.deepEqual(statuses('pu9ToBED'), ['na', 'na']);
   assert.deepEqual(statuses('FpA0MHDV'), []);
   assert.deepEqual(statuses('tVghVsn2'), ['na']);
-  assert.deepEqual(statuses('t2Q6D5JR'), ['below']);
+  // Divider lines only: decorative separators are exempt from 1.4.11.
+  assert.deepEqual(statuses('t2Q6D5JR'), ['na']);
   const markdown = renderMarkdown(report);
   assert.match(markdown, /\| 不适用（附条件）：面板边框若只是装饰性分隔则不适用 1\.4\.11 \|/);
   assert.doesNotMatch(markdown, /不达标/);
@@ -124,10 +125,10 @@ test('no seed has a confirmed violation', () => {
   assert.deepEqual(checkProblems(report, { enforce: ['mC1nkP2t'], noViolations: true }), []);
 });
 
-test('only the pair left for the user stays unconfirmed below threshold', () => {
+test('no pair stays below threshold with an unconfirmed role', () => {
   const report = buildReport(ROOT, roles);
   const below = report.seeds.flatMap(({ id, failures }) => failures.filter(({ status }) => status === 'below').map(({ fg }) => `${id} ${fg}`));
-  assert.deepEqual(below, ['t2Q6D5JR #C0C0C0']);
+  assert.deepEqual(below, []);
 });
 
 test('--no-violations catches a confirmed violation or a reverted fix in any seed', (t) => {
@@ -156,7 +157,7 @@ test('seeds without declarations fall back to keyword inference', () => {
   assert.ok(result.results[0].pass);
 });
 
-// Pairs fixed or verified in 1.2.0. They are listed here rather than read from contrast-roles.json,
+// Pairs fixed or verified since 1.2.0. They are listed here rather than read from contrast-roles.json,
 // so deleting a declaration cannot also delete its check.
 const FIXED_PAIRS = {
   H9aLYT6s: ['#91C8FE #1458E4 ui', '#AEC2FE #1458E4 ui'],
@@ -165,12 +166,14 @@ const FIXED_PAIRS = {
   GzPJkoac: [
     '#FFFFFF #E22C05 text', '#8888DD #FFFFFF ui', '#8888DD #021A50 ui',
     '#6967B9 #E6E6FA ui', '#6967B9 #F6CCC7 ui', '#6967B9 #F9DA73 ui',
+    '#D82B0C #F6CCC7 ui', '#D82B0C #F9DA73 ui', '#D82B0C #FFFFFF ui', '#D82B0C #E6E6FA ui', '#D82B0C #021A50 ui',
   ],
   vEj9F5om: ['#6E6E6E #121212 ui', '#6E6E6E #FFFFFF ui', '#FFFFFF #3A3A3A text', '#000000 #D4D4D4 text'],
   FpA0MHDV: ['#76757B #FFFFFF text', '#EA0C1D #FFFFFF text', '#8A898F #FFFFFF ui', '#FF3232 #FFFFFF ui'],
   tVghVsn2: [
     '#757575 #FFFFFF text', '#6E6E6E #F5F5F5 text', '#6E6E6E #F9F8ED text',
     '#888888 #FFFFFF ui', '#888888 #F5F5F5 ui', '#888888 #F9F8ED ui', '#AAAAAA #141414 ui', '#AAAAAA #0D2537 ui',
+    '#F5F5F5 #141414 text', '#F5F5F5 #0D2537 text',
   ],
   pibXRzsG: ['#000000 #FE99D9 text', '#000000 #FF6502 text', '#000000 #1F9540 text', '#FFFFFF #1F9540 large', '#BF0000 #FE99D9 ui'],
   Vy3KTWAC: ['#535E1D #FFC0CB text'],
@@ -181,6 +184,7 @@ const FIXED_PAIRS = {
   ],
   haYCh1wI: ['#FFFFFF #1100FF text'],
   swwKiFDe: ['#808080 #FAFAFA ui'],
+  t2Q6D5JR: ['#757575 #FFFFFF text'],
 };
 
 function missingFixedPairs(report) {
@@ -202,7 +206,7 @@ function reportWithRoles(t, edit) {
   return buildReport(root, path);
 }
 
-test('every pair fixed in 1.2.0 is still declared and passes', () => {
+test('every fixed pair is still declared and passes', () => {
   assert.deepEqual(missingFixedPairs(buildReport(ROOT, roles)), []);
 });
 

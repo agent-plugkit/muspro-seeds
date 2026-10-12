@@ -1,6 +1,6 @@
 {
   "name": "@agent-plugkit/muspro-seeds",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "description": "Muspro Seeds: versioned design reference seeds for Musekit and other agent skills",
   "license": "MIT",
@@ -17,6 +17,7 @@
     "validate": "node scripts/validate.mjs",
     "test": "node --test test/*.test.mjs",
     "pack:release": "node scripts/pack-release.mjs",
-    "check": "node scripts/validate.mjs && node scripts/build-index.mjs --check && npm test && node scripts/pack-release.mjs --check-reproducible"
+    "contrast": "node scripts/contrast-report.mjs",
+    "check": "node scripts/validate.mjs && node scripts/build-index.mjs --check && node scripts/contrast-report.mjs --enforce mC1nkP2t && npm test && node scripts/pack-release.mjs --check-reproducible"
   }
 }

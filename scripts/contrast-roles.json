@@ -1,0 +1,1246 @@
+{
+  "description": "Color roles used by scripts/contrast-report.mjs. Each pair quotes the seed text it is based on; certainty is declared (the seed states both roles), inferred (roles stated separately, pairing assumed) or uncertain (the role itself is unclear). Colors: hex or the CSS keywords white, black, grey/gray.",
+  "seeds": {
+    "mC1nkP2t": {
+      "pairs": [
+        {
+          "fg": "#2148B8",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Cobalt | `#2148B8` |",
+          "note": "Cobalt 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#2148B8",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Cobalt | `#2148B8` |",
+          "note": "Cobalt 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#2058D4",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Royal Blue | `#2058D4` |",
+          "note": "Royal Blue 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#2058D4",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Royal Blue | `#2058D4` |",
+          "note": "Royal Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#037841",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Botanical Green | `#008A4B` |",
+          "note": "Botanical Green 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#008A4B",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Botanical Green | `#008A4B` |",
+          "note": "Botanical Green 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#127747",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Mint Green | `#5EB783` |",
+          "note": "Mint Green 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#AE4921",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Terracotta Orange | `#C65F38` |",
+          "note": "Terracotta Orange 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#C65F38",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Terracotta Orange | `#C65F38` |",
+          "note": "Terracotta Orange 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#C42E2F",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Signal Red | `#C83232` |",
+          "note": "Signal Red 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#C83232",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Signal Red | `#C83232` |",
+          "note": "Signal Red 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#63365F",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Aubergine | `#63365F` |",
+          "note": "Aubergine 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#63365F",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Aubergine | `#63365F` |",
+          "note": "Aubergine 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#30343A",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Charcoal | `#30343A` |",
+          "note": "Charcoal 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#30343A",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Charcoal | `#30343A` |",
+          "note": "Charcoal 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#536A83",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Powder Blue | `#9EB8D3` |",
+          "note": "Powder Blue 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#8F3434",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Oxblood | `#8F3434` |",
+          "note": "Oxblood 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#8F3434",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Oxblood | `#8F3434` |",
+          "note": "Oxblood 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#173AE3",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Electric Blue | `#173AE3` |",
+          "note": "Electric Blue 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#173AE3",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Electric Blue | `#173AE3` |",
+          "note": "Electric Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#242321",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Carbon | `#242321` |",
+          "note": "Carbon 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#242321",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Carbon | `#242321` |",
+          "note": "Carbon 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#302D2E",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Warm Charcoal | `#302D2E` |",
+          "note": "Warm Charcoal 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#302D2E",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Warm Charcoal | `#302D2E` |",
+          "note": "Warm Charcoal 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#263E99",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Ultramarine | `#263E99` |",
+          "note": "Ultramarine 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#263E99",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Ultramarine | `#263E99` |",
+          "note": "Ultramarine 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#BA3D02",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Safety Orange | `#E55D2B` |",
+          "note": "Safety Orange 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#E55D2B",
+          "bg": [
+            "#FAFAF7",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Safety Orange | `#E55D2B` |",
+          "note": "Safety Orange 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#036F9D",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Cyan | `#159DDA` |",
+          "note": "Cyan 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#B64032",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Brick Red | `#B64032` |",
+          "note": "Brick Red 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#B64032",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Brick Red | `#B64032` |",
+          "note": "Brick Red 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#B04803",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Tangerine | `#E46C2D` |",
+          "note": "Tangerine 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#E46C2D",
+          "bg": [
+            "#FAFAF7"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Tangerine | `#E46C2D` |",
+          "note": "Tangerine 印版值：色块、标记与大字（仅列出允许的纸色）"
+        },
+        {
+          "fg": "#3E6A9C",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Slate Blue | `#4773A5` |",
+          "note": "Slate Blue 的文字值：正文、日期、说明与小字"
+        },
+        {
+          "fg": "#4773A5",
+          "bg": [
+            "#FAFAF7",
+            "#E9E9E5",
+            "#F5F1E8"
+          ],
+          "kind": "large",
+          "certainty": "declared",
+          "quote": "| Slate Blue | `#4773A5` |",
+          "note": "Slate Blue 印版值：色块、标记与大字（仅列出允许的纸色）"
+        }
+      ],
+      "ignore": {
+        "#5EB783": "Mint Green 印版值只用于色块与网点，不承载文字或标记",
+        "#9EB8D3": "Powder Blue 印版值只用于色块与网点，不承载文字或标记",
+        "#159DDA": "Cyan 印版值只用于色块与网点，不承载文字或标记"
+      }
+    },
+    "pibXRzsG": {
+      "pairs": [
+        {
+          "fg": "#fff",
+          "bg": [
+            "#fe99d9",
+            "#ff6502",
+            "#1f9540"
+          ],
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "white (#fff) for text on dark/color backgrounds",
+          "note": "原文只说白字用于“深色/彩色背景”，未指明是哪几块色块；按三块主色块各算一次"
+        },
+        {
+          "fg": "#000",
+          "bg": "#fe99d9",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "Black (#000) for text on light backgrounds",
+          "note": "粉色 #fe99d9 算“浅色背景”还是“彩色背景”原文未说明"
+        },
+        {
+          "fg": "#ff0000",
+          "bg": "#fe99d9",
+          "kind": "ui",
+          "certainty": "uncertain",
+          "quote": "Custom focus states with red outline (#ff0000) on form fields",
+          "note": "表单所在区块的底色未声明，按联系区的粉色计算"
+        }
+      ],
+      "ignore": {
+        "#1f9540": "也用作按钮悬停/聚焦边框，相邻色未声明"
+      }
+    },
+    "Vy3KTWAC": {
+      "pairs": [
+        {
+          "fg": "#576221",
+          "bg": "#e3dbce",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "olive green `#576221` for all text and borders; warm gray `#e3dbce` for background"
+        },
+        {
+          "fg": "#576221",
+          "bg": "#FFC0CB",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "pink `#FFC0CB` for text selection",
+          "note": "选中态文字色未声明，按保持橄榄绿计算"
+        }
+      ]
+    },
+    "C4aZtWoH": {
+      "pairs": [
+        {
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`#000000` text on `#ffffff` background"
+        }
+      ]
+    },
+    "B3LYgTWe": {
+      "pairs": [
+        {
+          "fg": "#000000",
+          "bg": "#fcf7f1",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Warm cream background (#fcf7f1) dominates the page body",
+            "Pure black (#000000) for primary text and UI chrome"
+          ]
+        }
+      ],
+      "ignore": {
+        "#0a0a0a": "页脚文字色未声明"
+      },
+      "notes": [
+        "轮播分页圆点（black, dark gray, mustard yellow, light gray）没有色值，无法计算"
+      ]
+    },
+    "tTceao0M": {
+      "pairs": [
+        {
+          "fg": "#000000",
+          "bg": "#f5f3ef",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Warm cream/off-white background (#f5f3ef or similar warm neutral) with pure black (#000000) text",
+          "note": "背景色原文为近似值"
+        }
+      ]
+    },
+    "JiAIwOJv": {
+      "pairs": [
+        {
+          "fg": "#ffffff",
+          "bg": "#000000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`#000000` background, `#ffffff` text and UI"
+        }
+      ]
+    },
+    "AT5oq8hX": {
+      "pairs": [
+        {
+          "fg": "#ededed",
+          "bg": "#000000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "**#000000** (hero background), **#ededed** (hero text)"
+        },
+        {
+          "fg": "#111111",
+          "bg": "#efefef",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": [
+            "**#efefef** (intro background)",
+            "**#111111** (body text)"
+          ]
+        },
+        {
+          "fg": "#0099ff",
+          "bg": "#efefef",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "**#0099ff** (link accent)",
+          "note": "链接所在背景未声明，按介绍区浅灰计算"
+        },
+        {
+          "fg": "#0088ff",
+          "bg": "#efefef",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Links use underline-on-hover pattern with color shift to #0088ff"
+        },
+        {
+          "fg": "#111111",
+          "bg": "#ff8e4d",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "**#ff8e4d** (vibrant orange section)",
+          "note": "橙色区块的文字色未声明，按正文色计算"
+        }
+      ]
+    },
+    "t2Q6D5JR": {
+      "pairs": [
+        {
+          "fg": "#222222",
+          "bg": "#FFFFFF",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "**#222222** (primary text/borders)",
+            "**#FFFFFF** (background)"
+          ]
+        },
+        {
+          "fg": "#C0C0C0",
+          "bg": "#FFFFFF",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "**#C0C0C0** (secondary/muted)",
+          "note": "secondary/muted 可能是次要文字，也可能只是分隔线；按文字计算"
+        },
+        {
+          "fg": "#6C6C58",
+          "bg": "#FFFFFF",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "**#6C6C58** (diagram lines)"
+        }
+      ]
+    },
+    "LjwyQI6U": {
+      "pairs": [
+        {
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "pure white (#ffffff) backgrounds, pure black (#000000) text and borders"
+        }
+      ],
+      "ignore": {
+        "#ddfa6d": "只用于浏览器 theme-color，不出现在界面中"
+      }
+    },
+    "H9aLYT6s": {
+      "pairs": [
+        {
+          "fg": "#fff",
+          "bg": "#1458e4",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Dominant electric blue (#1458e4) fills the entire page background with white (#fff) text"
+        },
+        {
+          "fg": "#0099FF",
+          "bg": "#1458e4",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "bright cyan-blue (#0099FF) used for button borders"
+        },
+        {
+          "fg": "#4d65ff",
+          "bg": "#1458e4",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "Focus states use 0.125rem solid #4d65ff outline",
+          "note": "焦点框所在背景未声明，按全页蓝底计算"
+        }
+      ]
+    },
+    "Yoiov5EL": {
+      "pairs": [
+        {
+          "fg": "#000",
+          "bg": "#e5e5e5",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Background: `#e5e5e5` (light warm gray). Text: `#000` (pure black)"
+        },
+        {
+          "fg": [
+            "#CAA266",
+            "#AABB87",
+            "#5D80D9"
+          ],
+          "bg": "#e5e5e5",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "Each section uses its highlight for borders, active states, and player chrome",
+          "note": "边框、激活态与播放器控件按非文字 UI 计算；若高亮色也用于文字则门槛为 4.5:1"
+        }
+      ]
+    },
+    "haYCh1wI": {
+      "pairs": [
+        {
+          "fg": "#000",
+          "bg": "white",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Pure black text `#000` on white background"
+        },
+        {
+          "fg": [
+            "white",
+            "black"
+          ],
+          "bg": "#1100FF",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "Header background is the accent blue; active tab inverts to white background with black text",
+          "note": "蓝色页眉上非激活标签的文字色未声明，黑白两种都列出"
+        }
+      ]
+    },
+    "G26LBSOO": {
+      "pairs": [
+        {
+          "fg": "#181616",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Neutral base (#ffffff background, #181616 near-black text)"
+        },
+        {
+          "fg": "#181616",
+          "bg": "#e9ff96",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Text on lime blocks reverses to dark",
+          "note": "“dark” 按正文近黑色计算"
+        },
+        {
+          "fg": "#e9ff96",
+          "bg": "#ffffff",
+          "kind": "ui",
+          "certainty": "uncertain",
+          "quote": "The lime appears in full-bleed sections, button fills, and toggle backgrounds",
+          "note": "仅当按钮/开关只靠青柠填充与白底区分时适用 1.4.11"
+        }
+      ]
+    },
+    "1JlUSoIP": {
+      "pairs": [
+        {
+          "fg": "#444",
+          "bg": "#F8F8F8",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Light gray background (#F8F8F8) with darker text (#444)"
+        },
+        {
+          "fg": "#535353",
+          "bg": "#F8F8F8",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Headings in #535353 gray"
+        },
+        {
+          "fg": "#0181eb",
+          "bg": "#F8F8F8",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Links in #0181eb"
+        },
+        {
+          "fg": "#444",
+          "bg": "#eaeaea",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Inline code uses Menlo/Monaco monospace with #eaeaea background",
+          "note": "行内代码文字色未声明，按正文色计算"
+        },
+        {
+          "fg": [
+            "#E5432E",
+            "#3F90CD"
+          ],
+          "bg": "#F8F8F8",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "positive pressure in red (#E5432E), negative pressure in blue (#3F90CD)",
+          "note": "可视化画布底色未声明，按页面底色计算"
+        },
+        {
+          "fg": [
+            "#424b37",
+            "#715728",
+            "#dab017"
+          ],
+          "bg": "#F8F8F8",
+          "kind": "ui",
+          "certainty": "uncertain",
+          "quote": "grass arrows in #424b37, leaf markers in #715728, airfoil cross-section in #dab017",
+          "note": "画布底色未声明，按页面底色计算"
+        },
+        {
+          "fg": "#777",
+          "bg": "#F8F8F8",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "40px circular knob (#777 background)"
+        },
+        {
+          "fg": "#444",
+          "bg": "#ddd",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Segmented controls with 40px height, 10px border-radius, #ddd background with #F8F8F8 active state",
+          "note": "分段控件文字色未声明，按正文色计算"
+        },
+        {
+          "fg": "#F8F8F8",
+          "bg": "#ddd",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "Segmented controls with 40px height, 10px border-radius, #ddd background with #F8F8F8 active state",
+          "note": "激活态只靠底色区分时适用 1.4.11"
+        }
+      ],
+      "ignore": {
+        "#2052BB": "横幅上的文字色未声明"
+      }
+    },
+    "rVQmfOqR": {
+      "pairs": [
+        {
+          "fg": "white",
+          "bg": "#2F282F",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Dark graphite background `#2F282F` dominates",
+            "Text is white/off-white on dark"
+          ]
+        },
+        {
+          "fg": "#874FD4",
+          "bg": "#2F282F",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "violet/purple `#874FD4` used for buttons, icons, and interactive elements"
+        },
+        {
+          "fg": "white",
+          "bg": "#874FD4",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "Text is white/off-white on dark",
+          "note": "紫色按钮上的文字色未声明，按白字计算"
+        }
+      ],
+      "ignore": {
+        "#FFEB85": "用于头像底色与渐变，属装饰",
+        "#368CFB": "悬停渐变色标",
+        "#5CAEFE": "悬停渐变色标"
+      }
+    },
+    "rvYJrbZh": {
+      "pairs": [
+        {
+          "fg": "#000",
+          "bg": "#fff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`#000` text on `#fff` background"
+        },
+        {
+          "fg": "#000",
+          "bg": "#E6E6E6",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Hover states use `#E6E6E6` background fill"
+        }
+      ]
+    },
+    "x1BNQPTi": {
+      "pairs": [
+        {
+          "fg": "#000",
+          "bg": "#f0dba8",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Warm tan/cream background: `#f0dba8`",
+            "Pure black `#000` for text, borders, and UI elements"
+          ]
+        },
+        {
+          "fg": "#000",
+          "bg": "#fff",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Pure white `#fff` for contrast elements"
+        }
+      ]
+    },
+    "GzPJkoac": {
+      "pairs": [
+        {
+          "fg": "#002f99",
+          "bg": [
+            "#f6ccc7",
+            "#e6e6fa",
+            "#f9da73"
+          ],
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Text in main blue (#002f99) on light backgrounds",
+          "note": "原文未指明哪些浅色作背景，按三种浅色各算一次"
+        },
+        {
+          "fg": "#f6ccc7",
+          "bg": "#021a50",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Deep navy background (#021a50)",
+            "off-white on dark"
+          ]
+        },
+        {
+          "fg": "white",
+          "bg": "#f34020",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Selection highlight uses primary red with white text"
+        },
+        {
+          "fg": "#f34020",
+          "bg": "#021a50",
+          "kind": "ui",
+          "certainty": "uncertain",
+          "quote": "vibrant primary red (#f34020) as accent",
+          "note": "强调色的具体用途未声明，按非文字 UI 计算"
+        }
+      ],
+      "ignore": {
+        "#88a6ea": "次要色，用途未声明",
+        "#8888dd": "次要色，用途未声明"
+      }
+    },
+    "weZM545X": {
+      "pairs": [
+        {
+          "fg": "#222",
+          "bg": "#fff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "pure black `#000` and pure white `#fff` dominate",
+            "Text in `#222` (near-black) for body"
+          ]
+        },
+        {
+          "fg": "#fff",
+          "bg": "#000",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`::selection{color:#fff;background:#000}`"
+        }
+      ]
+    },
+    "swwKiFDe": {
+      "pairs": [
+        {
+          "fg": "#050505",
+          "bg": "#fafafa",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "`#050505` (dark), `#fafafa` (light)"
+        },
+        {
+          "fg": "#404040",
+          "bg": "#fafafa",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "`#404040` (darkish)",
+          "note": "darkish 的用途未声明，按文字计算"
+        },
+        {
+          "fg": "grey",
+          "bg": "#fafafa",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "`grey` (mid)",
+          "note": "CSS grey = #808080；用途未声明，按文字计算"
+        }
+      ],
+      "ignore": {
+        "#e6e6e6": "lightish，用途未声明"
+      }
+    },
+    "Nv0J2QBT": {
+      "pairs": [
+        {
+          "fg": "#000000",
+          "bg": "#f4f4f4",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`#f4f4f4` (warm off-white) background, pure black (`#000000`) for all notation and text"
+        }
+      ]
+    },
+    "upXsOXv8": {
+      "pairs": [
+        {
+          "fg": "#f6f6f4",
+          "bg": "#1c3a13",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Off-white/cream text: `#f6f6f4` on dark backgrounds"
+        },
+        {
+          "fg": "#1c3a13",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "Pure white `#ffffff` for cards and light sections",
+            "Dark text on light: `#1c3a13` or near-black"
+          ]
+        },
+        {
+          "fg": "#1c3a13",
+          "bg": "#d2d8d0",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Light sage accent: `#d2d8d0` for borders and subtle backgrounds"
+        },
+        {
+          "fg": "#d2d8d0",
+          "bg": "#ffffff",
+          "kind": "ui",
+          "certainty": "uncertain",
+          "quote": "Light sage accent: `#d2d8d0` for borders and subtle backgrounds",
+          "note": "边框若用于界定输入框等组件则适用 1.4.11；纯装饰分隔不适用"
+        }
+      ]
+    },
+    "vEj9F5om": {
+      "pairs": [
+        {
+          "fg": "#ffffff",
+          "bg": "#121212",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Default theme: #121212 (near-black) background, #ffffff text"
+        },
+        {
+          "fg": "#3a3a3a",
+          "bg": "#121212",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "#3a3a3a secondary/muted",
+          "note": "secondary/muted 是否用于文字未声明，按文字计算"
+        },
+        {
+          "fg": "#404040",
+          "bg": "#121212",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "SVG icons use #404040 fill in default state"
+        },
+        {
+          "fg": "#000000",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Inverted theme: #ffffff background, #000000 text"
+        },
+        {
+          "fg": "#d4d4d4",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "#d4d4d4 secondary",
+          "note": "secondary 是否用于文字未声明，按文字计算"
+        }
+      ]
+    },
+    "FpA0MHDV": {
+      "pairs": [
+        {
+          "fg": "#8a898f",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "white (`#ffffff`) background",
+            "medium gray text (`#8a898f`)"
+          ]
+        },
+        {
+          "fg": "#ff3232",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Missed calls in `#ff3232`"
+        },
+        {
+          "fg": "#007AFF",
+          "bg": "#ffffff",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "iOS blue for info icons (`#007AFF` in SVG)"
+        },
+        {
+          "fg": [
+            "#cdcdcd",
+            "#ccc"
+          ],
+          "bg": "#ffffff",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "Icons are simple line-art SVG with `#cdcdcd` or `#ccc` fills"
+        }
+      ],
+      "ignore": {
+        "#f0f0f0": "页眉底色；页眉文字色未声明",
+        "#c8c8c8": "装饰性细分隔线",
+        "#222222": "视频页眉，文字色未声明",
+        "#141414": "倒计时背景，文字色未声明"
+      }
+    },
+    "lC4BpOAk": {
+      "pairs": [
+        {
+          "fg": "white",
+          "alpha": 0.75,
+          "bg": "#0a0a1a",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "approximately `#0a0a1a`",
+            "Pure white text at 75% opacity default"
+          ],
+          "note": "背景色原文为近似值；白字按 75% 不透明度合成后计算"
+        },
+        {
+          "fg": "#0a0a1a",
+          "bg": "white",
+          "kind": "text",
+          "certainty": "inferred",
+          "quote": "Dark mode inverts to white page background with navy text",
+          "note": "navy 文字按近似底色计算"
+        }
+      ]
+    },
+    "o0W3sQmk": {
+      "pairs": [
+        {
+          "fg": "#0b0b0b",
+          "bg": "#f3f0e6",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "warm beige/cream textured background (`#f3f0e6` range from the wallpaper)",
+            "Text is near-black `#0b0b0b` for high contrast"
+          ],
+          "note": "背景是带纹理的壁纸，色值为范围近似"
+        },
+        {
+          "fg": "#f54e00",
+          "bg": "#f3f0e6",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "vibrant orange `#f54e00` used for CTAs and highlights"
+        },
+        {
+          "fg": "#f54e00",
+          "bg": "#f3f0e6",
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "vibrant orange `#f54e00` used for CTAs and highlights",
+          "note": "“highlights” 若是橙色文字则适用 4.5:1"
+        }
+      ]
+    },
+    "pu9ToBED": {
+      "pairs": [
+        {
+          "fg": [
+            "#22d3ee",
+            "#34d399",
+            "#fbbf24",
+            "#f87171"
+          ],
+          "bg": [
+            "#050810",
+            "#0c1220",
+            "#111a2b"
+          ],
+          "kind": "text",
+          "certainty": "uncertain",
+          "quote": "Primary accent cyan `#22d3ee` for active/live states. Secondary accents: mint green `#34d399` (positive/safe), amber `#fbbf24` (warnings), red `#f87171` (critical)",
+          "note": "正文文字色未声明；语义色常用于标签文字，按文字计算"
+        },
+        {
+          "fg": "#1a2540",
+          "bg": [
+            "#0c1220",
+            "#111a2b"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "panels `#0c1220`/`#111a2b`, borders `#1a2540`",
+          "note": "面板边框若只是装饰性分隔则不适用 1.4.11"
+        }
+      ]
+    },
+    "tVghVsn2": {
+      "pairs": [
+        {
+          "fg": "#333",
+          "bg": "#fff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "white canvas (`#fff`)",
+            "text `#333` for headings"
+          ]
+        },
+        {
+          "fg": "#888",
+          "bg": "#fff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "`#888` for secondary text"
+        },
+        {
+          "fg": "#666",
+          "bg": "#fff",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "`#666` for UI chrome"
+        },
+        {
+          "fg": "#6698ff",
+          "bg": "#fff",
+          "kind": "ui",
+          "certainty": "inferred",
+          "quote": "primary accent `#6698ff` (soft blue)",
+          "note": "强调色用于选中工具等状态时适用 1.4.11"
+        },
+        {
+          "fg": "#aaa",
+          "bg": "#fff",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "Arrows use `#aaa` stroke at 1.5px width",
+          "note": "教学箭头传达操作指引，按非文字图形计算"
+        }
+      ],
+      "ignore": {
+        "#f5f5f5": "灰阶起点/soft 主题底色，主题内文字色未声明",
+        "#121212": "灰阶终点",
+        "#f9f8ed": "retro 主题底色，主题内文字色未声明",
+        "#141414": "dark 主题底色，主题内文字色未声明",
+        "#0d2537": "starry 主题底色，主题内文字色未声明",
+        "#00000014": "阴影",
+        "#eeeeee": "浮层装饰边框"
+      }
+    }
+  }
+}

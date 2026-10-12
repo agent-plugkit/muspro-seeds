@@ -80,7 +80,7 @@ Large display typography dominates: hero digits appear at approximately 20vw siz
 
 # Color
 
-Dominant electric blue (#1458e4) fills the entire page background with white (#fff) text. Secondary accent is a bright cyan-blue (#0099FF) used for button borders. The blue creates immediate brand recognition and cohesive atmosphere. Video section temporarily breaks the blue with natural video colors. Project cards introduce varied colors from client work.
+Dominant electric blue (#1458e4) fills the entire page background with white (#fff) text. Secondary accent is a bright cyan-blue (#0099FF), kept for color fields, glows and other decoration only: on the blue page it reaches just 1.97:1, below the 3:1 a visible boundary needs. Button borders use Border Cyan (#91C8FE), a lighter tint of the same hue at 3.35:1 on #1458e4. The blue creates immediate brand recognition and cohesive atmosphere. Video section temporarily breaks the blue with natural video colors. Project cards introduce varied colors from client work.
 
 # Imagery
 
@@ -88,7 +88,7 @@ Project showcase features screenshot thumbnails of client websites and digital p
 
 # Components
 
-Primary CTA button: white text on transparent background with right arrow icon, border-color #0099FF. Video player: custom video player implementation with play button overlay and poster frame. Marquee tags: pill-shaped containers with large text scrolling horizontally. Project cards: screenshot thumbnails with hover states. Footer: a row of common social platform icon links.
+Primary CTA button: white text on transparent background with right arrow icon, border-color #91C8FE (Border Cyan). Video player: custom video player implementation with play button overlay and poster frame. Marquee tags: pill-shaped containers with large text scrolling horizontally. Project cards: screenshot thumbnails with hover states. Footer: a row of common social platform icon links.
 
 # Motion
 

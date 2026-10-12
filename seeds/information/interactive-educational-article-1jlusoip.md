@@ -71,7 +71,7 @@ Single-column article layout with max-width 44rem for text content. Full-width c
 
 # Typography
 
-Dual font system: Inter for headings (600 weight) and IBM Plex Sans for body text. Body text at 1.2em (19.2px base) with 1.6em line height. Headings in #535353 gray, body in #444. Links in #0181eb with 0.15s color transition on hover. Inline code uses Menlo/Monaco monospace with #eaeaea background and 0.4em border-radius. Post title at 2.4em with 0.4em top padding.
+Dual font system: Inter for headings (600 weight) and IBM Plex Sans for body text. Body text at 1.2em (19.2px base) with 1.6em line height. Headings in #535353 gray, body in #444. Link text in #0272D1 (4.56:1 on #F8F8F8) with 0.15s color transition on hover; the brighter original #0181eb (3.70:1) is kept for link underlines and hover accents, not for link text. Inline code uses Menlo/Monaco monospace with #eaeaea background and 0.4em border-radius. Post title at 2.4em with 0.4em top padding.
 
 # Color
 

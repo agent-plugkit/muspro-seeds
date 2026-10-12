@@ -83,7 +83,7 @@ Primary font: a friendly geometric sans-serif with round bowls and a chunky, pos
 
 # Color
 
-Deep navy background (#021a50) with vibrant primary red (#f34020) as accent. Secondary palette: warm yellow (#f9da73), pale blush pink (#f6ccc7), pale lavender (#e6e6fa), periwinkle blue (#88a6ea), soft violet-blue (#8888dd). Text in main blue (#002f99) on light backgrounds, blush pink on dark. Selection highlight uses primary red with white text.
+Deep navy background (#021a50) with vibrant primary red (#f34020) as accent. Secondary palette: warm yellow (#f9da73), pale blush pink (#f6ccc7), pale lavender (#e6e6fa), periwinkle blue (#88a6ea), soft violet-blue (#8888dd). Text in main blue (#002f99) on light backgrounds, blush pink on dark. Selection highlight uses Selection Red (#E22C05), a deeper value of the primary red, with white text at 4.56:1; white on the primary red itself is only 3.77:1, so #f34020 stays for borders, focus outlines, active states and accents.
 
 # Imagery
 
@@ -107,4 +107,4 @@ Subtle grid texture overlay on select sections. Gradient backgrounds on cards us
 
 # Craft
 
-Consistent 4px spacing system throughout. Text selection color customized to brand primary. Focus outlines use primary red with 2px offset. Rounded corners applied universally (sections, cards, buttons, inputs). Underline link treatment with precise offset control.
+Consistent 4px spacing system throughout. Text selection color customized to Selection Red, the deeper brand primary. Focus outlines use primary red with 2px offset. Rounded corners applied universally (sections, cards, buttons, inputs). Underline link treatment with precise offset control.

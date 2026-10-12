@@ -18,6 +18,6 @@
     "test": "node --test test/*.test.mjs",
     "pack:release": "node scripts/pack-release.mjs",
     "contrast": "node scripts/contrast-report.mjs",
-    "check": "node scripts/validate.mjs && node scripts/build-index.mjs --check && node scripts/contrast-report.mjs --enforce mC1nkP2t && npm test && node scripts/pack-release.mjs --check-reproducible"
+    "check": "node scripts/validate.mjs && node scripts/build-index.mjs --check && node scripts/contrast-report.mjs --enforce mC1nkP2t --no-violations && npm test && node scripts/pack-release.mjs --check-reproducible"
   }
 }

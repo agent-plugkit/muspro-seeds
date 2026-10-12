@@ -639,11 +639,12 @@
           "quote": "Dominant electric blue (#1458e4) fills the entire page background with white (#fff) text"
         },
         {
-          "fg": "#0099FF",
+          "fg": "#91C8FE",
           "bg": "#1458e4",
           "kind": "ui",
           "certainty": "declared",
-          "quote": "bright cyan-blue (#0099FF) used for button borders"
+          "quote": "Button borders use Border Cyan (#91C8FE)",
+          "note": "按钮边框的界面值"
         },
         {
           "fg": "#4d65ff",
@@ -653,7 +654,10 @@
           "quote": "Focus states use 0.125rem solid #4d65ff outline",
           "note": "焦点框所在背景未声明，按全页蓝底计算"
         }
-      ]
+      ],
+      "ignore": {
+        "#0099FF": "原色只用于色块、光晕与装饰，不承载边框、文字或标记"
+      }
     },
     "Yoiov5EL": {
       "pairs": [
@@ -745,11 +749,20 @@
           "quote": "Headings in #535353 gray"
         },
         {
-          "fg": "#0181eb",
+          "fg": "#0272D1",
           "bg": "#F8F8F8",
           "kind": "text",
           "certainty": "declared",
-          "quote": "Links in #0181eb"
+          "quote": "Link text in #0272D1 (4.56:1 on #F8F8F8)",
+          "note": "链接文字值"
+        },
+        {
+          "fg": "#0181eb",
+          "bg": "#F8F8F8",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "the brighter original #0181eb (3.70:1) is kept for link underlines and hover accents",
+          "note": "原色只用于链接下划线与悬停强调，按非文字计算"
         },
         {
           "fg": "#444",
@@ -824,19 +837,18 @@
           ]
         },
         {
-          "fg": "#874FD4",
+          "fg": "#945DE3",
           "bg": "#2F282F",
           "kind": "ui",
           "certainty": "declared",
-          "quote": "violet/purple `#874FD4` used for buttons, icons, and interactive elements"
+          "quote": "Icons, secondary-button borders and other interactive marks drawn directly on the graphite use Violet UI `#945DE3`"
         },
         {
           "fg": "white",
           "bg": "#874FD4",
           "kind": "text",
-          "certainty": "uncertain",
-          "quote": "Text is white/off-white on dark",
-          "note": "紫色按钮上的文字色未声明，按白字计算"
+          "certainty": "declared",
+          "quote": "used as the primary button fill: white labels on it reach 5.12:1"
         }
       ],
       "ignore": {
@@ -911,10 +923,10 @@
         },
         {
           "fg": "white",
-          "bg": "#f34020",
+          "bg": "#E22C05",
           "kind": "text",
           "certainty": "declared",
-          "quote": "Selection highlight uses primary red with white text"
+          "quote": "Selection highlight uses Selection Red (#E22C05), a deeper value of the primary red, with white text"
         },
         {
           "fg": "#f34020",
@@ -1047,11 +1059,14 @@
           "note": "secondary/muted 是否用于文字未声明，按文字计算"
         },
         {
-          "fg": "#404040",
-          "bg": "#121212",
+          "fg": "#6E6E6E",
+          "bg": [
+            "#121212",
+            "#ffffff"
+          ],
           "kind": "ui",
           "certainty": "declared",
-          "quote": "SVG icons use #404040 fill in default state"
+          "quote": "SVG icons use #6E6E6E fill in default state (3.67:1 on #121212, 5.09:1 on the inverted white)"
         },
         {
           "fg": "#000000",
@@ -1068,26 +1083,47 @@
           "quote": "#d4d4d4 secondary",
           "note": "secondary 是否用于文字未声明，按文字计算"
         }
-      ]
+      ],
+      "ignore": {
+        "#404040": "只用于禁用态图标；1.4.11 不适用于非激活组件"
+      }
     },
     "FpA0MHDV": {
       "pairs": [
         {
-          "fg": "#8a898f",
+          "fg": "#76757B",
           "bg": "#ffffff",
           "kind": "text",
           "certainty": "declared",
           "quote": [
             "white (`#ffffff`) background",
-            "medium gray text (`#8a898f`)"
+            "Type labels and timestamps at 100 weight in Label Gray `#76757B`"
+          ],
+          "note": "类型标签与时间戳的文字值"
+        },
+        {
+          "fg": "#8a898f",
+          "bg": "#ffffff",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "native medium gray (`#8a898f`, 3.46:1 on white) for icons and other marks",
+            "Icons are simple line-art SVG filled with the medium gray `#8a898f`"
           ]
+        },
+        {
+          "fg": "#EA0C1D",
+          "bg": "#ffffff",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "Missed calls in Missed Red `#EA0C1D` (4.59:1 on white)"
         },
         {
           "fg": "#ff3232",
           "bg": "#ffffff",
-          "kind": "text",
+          "kind": "ui",
           "certainty": "declared",
-          "quote": "Missed calls in `#ff3232`"
+          "quote": "system red (`#ff3232`, 3.64:1) for non-text missed-call marks"
         },
         {
           "fg": "#007AFF",
@@ -1095,23 +1131,15 @@
           "kind": "ui",
           "certainty": "declared",
           "quote": "system blue for info icons (`#007AFF` in SVG)"
-        },
-        {
-          "fg": [
-            "#cdcdcd",
-            "#ccc"
-          ],
-          "bg": "#ffffff",
-          "kind": "ui",
-          "certainty": "declared",
-          "quote": "Icons are simple line-art SVG with `#cdcdcd` or `#ccc` fills"
         }
       ],
       "ignore": {
         "#f0f0f0": "页眉底色；页眉文字色未声明",
         "#c8c8c8": "装饰性细分隔线",
         "#222222": "视频页眉，文字色未声明",
-        "#141414": "倒计时背景，文字色未声明"
+        "#141414": "倒计时背景，文字色未声明",
+        "#cdcdcd": "原生浅灰只用于禁用或纯装饰图形；1.4.11 不适用",
+        "#ccc": "原生浅灰只用于禁用或纯装饰图形；1.4.11 不适用"
       }
     },
     "lC4BpOAk": {
@@ -1215,11 +1243,15 @@
           ]
         },
         {
-          "fg": "#888",
+          "fg": "#757575",
           "bg": "#fff",
           "kind": "text",
           "certainty": "declared",
-          "quote": "`#888` for secondary text"
+          "quote": [
+            "`#757575` for secondary text (4.60:1 on the white canvas",
+            "Tooltip text at 14px in `#757575`"
+          ],
+          "note": "次要文字与提示文字的文字值"
         },
         {
           "fg": "#666",
@@ -1238,12 +1270,27 @@
           "note": "强调色用于选中工具等状态时适用 1.4.11"
         },
         {
-          "fg": "#aaa",
-          "bg": "#fff",
+          "fg": "#888",
+          "bg": [
+            "#fff",
+            "#f5f5f5",
+            "#f9f8ed"
+          ],
           "kind": "ui",
           "certainty": "declared",
-          "quote": "Arrows use `#aaa` stroke at 1.5px width",
+          "quote": "Arrows use `#888` stroke at 1.5px width on the light themes",
           "note": "教学箭头传达操作指引，按非文字图形计算"
+        },
+        {
+          "fg": "#aaa",
+          "bg": [
+            "#141414",
+            "#0d2537"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": "The softer `#aaa` pencil gray is only 2.32:1 on white, so it draws the arrows on the dark (`#141414`, 7.93:1) and starry (`#0d2537`, 6.76:1) themes",
+          "note": "深色主题的教学箭头"
         }
       ],
       "ignore": {

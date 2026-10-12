@@ -5,16 +5,18 @@
 //   node scripts/contrast-report.mjs --out <file>         also write the full Markdown report
 //   node scripts/contrast-report.mjs --enforce <id,...>   exit 1 if these seeds have a failing pair,
 //                                                         a stale declaration or an unclassified color
+//   node scripts/contrast-report.mjs --no-violations      exit 1 if any seed has a confirmed violation
+//                                                         or a stale declaration
 //
 // Seed prose names color roles in free text, so the roles live in scripts/contrast-roles.json.
 // Every declared pair quotes the seed sentence it relies on; a quote that no longer appears, a
 // color that is not in the seed, or a "declared" foreground its quotes do not name, is reported
 // as stale. Hex colors in a seed that no pair or
 // ignore entry covers are listed. Seeds without declarations get pairs inferred from keywords in
-// their "# Color" section, all marked uncertain. Failing pairs of other seeds never change the
-// exit code: the report is informational except for --enforce. A pair below its threshold is a
-// confirmed violation only when both roles are declared and the pair is not marked
-// "applicability": "conditional" (its note names a use for which the criterion does not apply).
+// their "# Color" section, all marked uncertain. Pairs below threshold in other seeds change the
+// exit code only under --no-violations, and only when they are confirmed violations. A pair below
+// its threshold is a confirmed violation only when both roles are declared and the pair is not
+// marked "applicability": "conditional" (its note names a use for which the criterion does not apply).
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -440,6 +442,34 @@ export function renderMarkdown(report) {
   return `${out.join('\n').trimEnd()}\n`;
 }
 
+// Problems that fail the check: everything wrong with an enforced seed, and with noViolations every
+// confirmed violation or stale declaration in any seed. A stale quote is included because a pair
+// whose text has changed no longer shows whether the seed's declared use passes.
+export function checkProblems(report, { enforce = [], noViolations = false } = {}) {
+  const problems = [];
+  const describe = (id, result) => `${id}: ${result.fg} on ${result.bg} is ${formatRatio(result.ratio)}:1, needs ${result.threshold}:1`;
+  for (const id of enforce) {
+    const seed = report.seeds.find((item) => item.id === id);
+    if (!seed) problems.push(`${id}: no such seed`);
+    else if (!seed.declared) problems.push(`${id}: no role declarations in scripts/contrast-roles.json`);
+    else {
+      for (const result of seed.failures) problems.push(describe(id, result));
+      for (const item of seed.stale) problems.push(`${id}: ${item}`);
+      for (const { hex, line } of seed.unclassified) problems.push(`${id}: ${hex} (line ${line}) has no declared role`);
+    }
+  }
+  if (noViolations) {
+    for (const seed of report.seeds.filter(({ id }) => !enforce.includes(id))) {
+      for (const result of seed.failures.filter(({ status: value }) => value === 'violation')) {
+        problems.push(`${describe(seed.id, result)} (confirmed violation)`);
+      }
+      for (const item of seed.stale) problems.push(`${seed.id}: ${item}`);
+    }
+  }
+  for (const id of report.orphans) problems.push(`scripts/contrast-roles.json: unknown seed ${id}`);
+  return problems;
+}
+
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const args = process.argv.slice(2);
   const option = (name) => {
@@ -459,21 +489,12 @@ if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) 
     console.log(`  ${seed.id.padEnd(8)} ${seed.failures.length} below threshold, ${tally(seed.failures, 'violation')} confirmed`);
   }
   const enforced = (option('--enforce') ?? '').split(',').filter(Boolean);
-  const problems = [];
-  for (const id of enforced) {
-    const seed = report.seeds.find((item) => item.id === id);
-    if (!seed) problems.push(`${id}: no such seed`);
-    else if (!seed.declared) problems.push(`${id}: no role declarations in scripts/contrast-roles.json`);
-    else {
-      for (const result of seed.failures) problems.push(`${id}: ${result.fg} on ${result.bg} is ${formatRatio(result.ratio)}:1, needs ${result.threshold}:1`);
-      for (const item of seed.stale) problems.push(`${id}: ${item}`);
-      for (const { hex, line } of seed.unclassified) problems.push(`${id}: ${hex} (line ${line}) has no declared role`);
-    }
-  }
-  for (const id of report.orphans) problems.push(`scripts/contrast-roles.json: unknown seed ${id}`);
+  const noViolations = args.includes('--no-violations');
+  const problems = checkProblems(report, { enforce: enforced, noViolations });
   if (problems.length) {
     console.error(`Contrast check failed:\n${problems.map((item) => `- ${item}`).join('\n')}`);
     process.exit(1);
   }
   if (enforced.length) console.log(`Enforced seeds pass: ${enforced.join(', ')}.`);
+  if (noViolations) console.log('No confirmed violations and no stale declarations.');
 }

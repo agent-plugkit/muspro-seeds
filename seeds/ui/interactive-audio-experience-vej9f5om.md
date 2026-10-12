@@ -76,11 +76,11 @@ Dual font system: Canela (custom loaded serif, weight 400) for display text and 
 
 # Color
 
-Dark-first palette with CSS custom property theming. Default theme: #121212 (near-black) background, #ffffff text, #3a3a3a secondary/muted. Inverted theme: #ffffff background, #000000 text, #d4d4d4 secondary. SVG icons use #404040 fill in default state, transitioning to var(--textColor) on interaction. No gradients, no accent colors — pure monochrome with subtle state transitions (color transitions take 1s, path fills 0.05-0.5s).
+Dark-first palette with CSS custom property theming. Default theme: #121212 (near-black) background, #ffffff text, #3a3a3a secondary/muted. Inverted theme: #ffffff background, #000000 text, #d4d4d4 secondary. SVG icons use #6E6E6E fill in default state (3.67:1 on #121212, 5.09:1 on the inverted white), transitioning to var(--textColor) on interaction. The darker #404040 (1.80:1 on #121212) is reserved for disabled icons, which need no 3:1. No gradients, no accent colors — pure monochrome with subtle state transitions (color transitions take 1s, path fills 0.05-0.5s).
 
 # Imagery
 
-No photographic imagery. Visual interest comes from: (1) custom SVG iconography — play triangle, record circle, audio waveform, share arrow, sun/moon theme toggle, info circle; (2) animated logo states (three-bar animation sequence on load); (3) text-as-visual — the typed content itself becomes the visual output. Icons are geometric, minimal, single-weight strokes with fill="#404040" default.
+No photographic imagery. Visual interest comes from: (1) custom SVG iconography — play triangle, record circle, audio waveform, share arrow, sun/moon theme toggle, info circle; (2) animated logo states (three-bar animation sequence on load); (3) text-as-visual — the typed content itself becomes the visual output. Icons are geometric, minimal, single-weight strokes with fill="#6E6E6E" default.
 
 # Components
 

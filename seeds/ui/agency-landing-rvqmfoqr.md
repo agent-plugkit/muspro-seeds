@@ -81,7 +81,7 @@ Primary font: a **contemporary display grotesk** — wide, smooth and confident,
 
 # Color
 
-Dark graphite background `#2F282F` dominates. Primary accent is violet/purple `#874FD4` used for buttons, icons, and interactive elements. Secondary accents: yellow `#FFEB85`, green, pink for avatar backgrounds. Text is white/off-white on dark. Gradient stops for hover states: `#368CFB`, `#5CAEFE`, `#FFEB85`.
+Dark graphite background `#2F282F` dominates. Primary accent is violet/purple `#874FD4`, used as the primary button fill: white labels on it reach 5.12:1, and a filled button is identified by its label, so the fill needs no 3:1 against the graphite (it measures 2.79:1). Icons, secondary-button borders and other interactive marks drawn directly on the graphite use Violet UI `#945DE3`, a lighter value of the same hue at 3.36:1 on `#2F282F`. Secondary accents: yellow `#FFEB85`, green, pink for avatar backgrounds. Text is white/off-white on dark. Gradient stops for hover states: `#368CFB`, `#5CAEFE`, `#FFEB85`.
 
 # Imagery
 
@@ -89,7 +89,7 @@ Dark graphite background `#2F282F` dominates. Primary accent is violet/purple `#
 
 # Components
 
-**Buttons**: Dual-text slide animation on hover (text wraps translate vertically). Primary uses violet fill, secondary uses transparent with border.
+**Buttons**: Dual-text slide animation on hover (text wraps translate vertically). Primary uses violet fill, secondary uses transparent with a Violet UI border.
 
 **Star Rating Eyebrow**: Avatar group (3 circular 3D emojis) + star SVG + a short trust-claim line - used as social proof header.
 

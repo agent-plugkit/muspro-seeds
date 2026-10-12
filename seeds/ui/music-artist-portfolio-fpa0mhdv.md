@@ -72,15 +72,15 @@ Full-viewport mobile-first layout. Single-column list with fixed header (70px he
 
 # Typography
 
-System font stack: `-apple-system, BlinkMacSystemFont, helvetica`. The recent-calls header title at 38px with 700 weight. Call names at 1.15em (≈18.4px) with 500 weight. Type labels and timestamps at 100 weight in `#8a898f`. Missed calls in `#ff3232` (the native system red).
+System font stack: `-apple-system, BlinkMacSystemFont, helvetica`. The recent-calls header title at 38px with 700 weight. Call names at 1.15em (≈18.4px) with 500 weight. Type labels and timestamps at 100 weight in Label Gray `#76757B` (4.56:1 on white). Missed calls in Missed Red `#EA0C1D` (4.59:1 on white), a deeper value of the native system red `#ff3232`.
 
 # Color
 
-Pure native-phone palette: white (`#ffffff`) background, light gray header (`#f0f0f0`), medium gray text (`#8a898f`), system red for missed (`#ff3232`), system blue for info icons (`#007AFF` in SVG). Video app uses dark chrome (`#222222` header, `#141414` background for countdown). No custom brand colors—entirely mimics the native mobile system colors.
+Pure native-phone palette: white (`#ffffff`) background, light gray header (`#f0f0f0`); native medium gray (`#8a898f`, 3.46:1 on white) for icons and other marks, with the darker Label Gray (`#76757B`, 4.56:1) for text; system red (`#ff3232`, 3.64:1) for non-text missed-call marks such as a dot or badge, with Missed Red (`#EA0C1D`, 4.59:1) for missed-call text; system blue for info icons (`#007AFF` in SVG). Video app uses dark chrome (`#222222` header, `#141414` background for countdown). No custom brand colors—entirely mimics the native mobile system colors.
 
 # Imagery
 
-SVG iconography mimicking the native phone app: outgoing call arrow, video-call camera icon, info "i" in circle. Icons are simple line-art SVG with `#cdcdcd` or `#ccc` fills. No photography or illustrations—pure UI chrome.
+SVG iconography mimicking the native phone app: outgoing call arrow, video-call camera icon, info "i" in circle. Icons are simple line-art SVG filled with the medium gray `#8a898f` (3.46:1 on white). The native light grays `#cdcdcd` and `#ccc` (about 1.6:1) are too faint for icons that carry meaning; keep them for disabled or purely decorative glyphs only. No photography or illustrations—pure UI chrome.
 
 # Components
 

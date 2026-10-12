@@ -24,7 +24,7 @@ Muspro Seeds 是一个公开的设计参考库。每条 seed 记录一个真实�
 ```bash
 npm run build          # 从 frontmatter 生成 seeds/index.json 与 seeds/scenarios.json
 npm run validate       # 校验 frontmatter、ID 唯一、文件命名与 ID 登记表
-npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t）+ 测试 + 打包可复现
+npm run check          # 校验 + 生成物一致 + 对比度（强制 mC1nkP2t；全部 seed 已确认违规为 0）+ 测试 + 打包可复现
 npm run contrast -- --out contrast.md   # WCAG 对比度报告：全部 seed 的不达标组合与建议色
 npm run pack:release   # 生成 dist/muspro-seeds-<version>.tar.gz 与 dist/manifest.json
 ```

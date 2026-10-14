@@ -5,6 +5,29 @@ minor or patch release. Changing frontmatter fields, scenario names or the `inde
 release and raises `schemaVersion`. Published IDs are never removed or reused; retire a seed with
 `deprecated: true` and keep it for at least one major version.
 
+## 1.3.0
+
+Minor release: three new seeds. Existing seeds, IDs, file names, frontmatter fields, scenario names and
+the `index.json` layout are unchanged, so `schemaVersion` stays 1.0.0.
+
+- New seeds, one per scenario. Each is a generalized method distilled from the shared traits of public
+  UX research and award-recognized examples (基于公开 UX 研究与获奖案例的共性提炼), not a record of one
+  site: no source names, logos, copy or code, and no `source_url` because there is no single source.
+  - `E3ISF3qW` `ui/restaurant-cafe-website-e3isf3qw.md` (餐厅／咖啡馆官网): restaurant or cafe site
+    ordered by the visitor's jobs (menu, reservation/booking, visit info); text menu with sticky
+    category anchors, booking panel showing available times, open/closed status from the hours table.
+  - `mDGmR1dE` `graphic/product-launch-social-card-mdgmr1de.md` (产品发布社媒卡片): product launch,
+    release announcement and changelog social card / og image template; one focal interface crop,
+    headline of at most eight words, mono metadata strip, word-labelled change tags, re-laid per size.
+  - `YqkjvOqz` `information/pricing-plan-comparison-table-yqkjvoqz.md` (套餐方案对比表): pricing plan
+    comparison for subscription tiers; audience cards above a comparison table with sticky headers,
+    a tinted and argued recommended tier, and distinct included / not included / not applicable cells.
+- Each new seed states every color value with its use and WCAG 2.x ratio (truncated to two decimals);
+  all text pairs reach 4.5:1 and all large-text and non-text UI pairs 3:1. Colors left to downstream
+  work (photography, brand colors) come with the rule to balance appearance and contrast. Every value
+  is declared in `scripts/contrast-roles.json`.
+- README: a seed records either one real design precedent or a method distilled from several.
+
 ## 1.2.1
 
 Patch release: corrections that keep each seed's design direction, plus contributor documentation.

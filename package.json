@@ -1,6 +1,6 @@
 {
   "name": "@agent-plugkit/muspro-seeds",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "private": true,
   "description": "Muspro Seeds: versioned design reference seeds for Musekit and other agent skills",
   "license": "MIT",

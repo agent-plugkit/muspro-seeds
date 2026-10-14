@@ -1,6 +1,6 @@
 # Muspro Seeds
 
-Muspro Seeds 是一个公开的设计参考库。每条 seed 记录一个真实设计先例中值得借鉴的细节：布局、字体、颜色、图像、交互与工艺，部分附代码级参考。[Musekit](https://github.com/agent-plugkit/plugkit-marketplace) 的 `musepool` Skill 用它检索灵感并写出 seed 简报；其他 Agent 或工具也可以直接读取。
+Muspro Seeds 是一个公开的设计参考库。每条 seed 记录一个真实设计先例（或从多个先例提炼的共性方法）中值得借鉴的细节：布局、字体、颜色、图像、交互与工艺，部分附代码级参考。[Musekit](https://github.com/agent-plugkit/plugkit-marketplace) 的 `musepool` Skill 用它检索灵感并写出 seed 简报；其他 Agent 或工具也可以直接读取。
 
 本仓库只放数据和校验工具，不含检索逻辑或制作 Skill。
 

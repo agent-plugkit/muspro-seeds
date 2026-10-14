@@ -1526,6 +1526,354 @@
         "#00000014": "阴影",
         "#eeeeee": "浮层装饰边框"
       }
+    },
+    "E3ISF3qW": {
+      "pairs": [
+        {
+          "fg": "#2A211C",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Ink | `#2A211C` | headings, dish names, body text and prices on Paper and Surface | 14.75:1 on Paper, 13.22:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "Ink：标题、菜名、正文与价格，在 Paper 与 Surface 上"
+        },
+        {
+          "fg": "#6B5E54",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Muted | `#6B5E54` | dish descriptions, dietary marks, captions, dot leaders on Paper and Surface | 5.86:1 on Paper, 5.25:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "Muted：菜品描述、饮食标记、说明文字与点线引导，在 Paper 与 Surface 上"
+        },
+        {
+          "fg": "#B4441F",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Accent | `#B4441F` | text links, active-section underline and focus ring on Paper and Surface | 5.19:1 on Paper, 4.65:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "Accent 作文字链接"
+        },
+        {
+          "fg": "#B4441F",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Accent | `#B4441F` | text links, active-section underline and focus ring on Paper and Surface | 5.19:1 on Paper, 4.65:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "Accent 作当前栏目下划线与焦点框"
+        },
+        {
+          "fg": "#FFFFFF",
+          "bg": "#B4441F",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Accent button | `#B4441F` fill, `#FFFFFF` label | primary \"Reserve a table\" button | label 5.54:1 on the fill |",
+          "note": "主按钮“Reserve a table”：Accent 填充上的白色标签"
+        },
+        {
+          "fg": "#FFFFFF",
+          "bg": "#8E3416",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Accent Deep | `#8E3416` fill, `#FFFFFF` label | hover and pressed state of the primary button | label 7.91:1 on the fill |",
+          "note": "主按钮悬停/按下：Accent Deep 填充上的白色标签"
+        },
+        {
+          "fg": "#2F6B3A",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Open | `#2F6B3A` | the \"Open now\" status text on Paper and Surface, always written out in words | 5.98:1 on Paper, 5.36:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "“Open now”营业状态文字（始终写成文字）"
+        },
+        {
+          "fg": "#8A7A6D",
+          "bg": [
+            "#FBF7F0",
+            "#F3EADD"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Field Border | `#8A7A6D` | borders of inputs, selects and the date and party-size controls on Paper and Surface | 3.86:1 on Paper, 3.46:1 on Surface |",
+            "| Paper | `#FBF7F0` | page background | — |",
+            "| Surface | `#F3EADD` | menu category panels, Reserve band, form panels | — |"
+          ],
+          "note": "输入框、选择器、日期与人数控件的边框"
+        },
+        {
+          "fg": "#FBF7F0",
+          "bg": "#2A211C",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Night Text | `#FBF7F0` | text on the Night band | 14.75:1 on Night |",
+            "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
+          ],
+          "note": "深色到店信息带与页脚上的正文"
+        },
+        {
+          "fg": "#CDBFB2",
+          "bg": "#2A211C",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Night Muted | `#CDBFB2` | secondary text on the Night band (notes, captions) | 8.77:1 on Night |",
+            "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
+          ],
+          "note": "深色带上的次要文字"
+        },
+        {
+          "fg": "#E9A27F",
+          "bg": "#2A211C",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Glow | `#E9A27F` | links, focus ring and Reserve button fill on the Night band; the button label there is Ink `#2A211C` | 7.45:1 on Night; label 7.45:1 on Glow |",
+            "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
+          ],
+          "note": "深色带上的链接文字"
+        },
+        {
+          "fg": "#E9A27F",
+          "bg": "#2A211C",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Glow | `#E9A27F` | links, focus ring and Reserve button fill on the Night band; the button label there is Ink `#2A211C` | 7.45:1 on Night; label 7.45:1 on Glow |",
+            "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
+          ],
+          "note": "深色带上的焦点框与订位按钮填充边界"
+        },
+        {
+          "fg": "#2A211C",
+          "bg": "#E9A27F",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Glow | `#E9A27F` | links, focus ring and Reserve button fill on the Night band; the button label there is Ink `#2A211C` | 7.45:1 on Night; label 7.45:1 on Glow |",
+          "note": "深色带上订位按钮：Glow 填充上的 Ink 标签"
+        }
+      ]
+    },
+    "mDGmR1dE": {
+      "pairs": [
+        {
+          "fg": "#16181D",
+          "bg": "#F4F2EE",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Ink | `#16181D` | headline, change lines, next step on Canvas | 15.88:1 on Canvas |",
+            "| Canvas | `#F4F2EE` | light card background | — |"
+          ],
+          "note": "浅色卡：标题、变更行与下一步"
+        },
+        {
+          "fg": "#5A5F69",
+          "bg": "#F4F2EE",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Meta | `#5A5F69` | meta strip, version, date and footer text on Canvas | 5.73:1 on Canvas |",
+            "| Canvas | `#F4F2EE` | light card background | — |"
+          ],
+          "note": "浅色卡：元信息条、版本、日期与页脚"
+        },
+        {
+          "fg": "#F4F2EE",
+          "bg": "#14161B",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Light Ink | `#F4F2EE` | headline, change lines, next step on Canvas Dark | 16.18:1 on Canvas Dark |",
+            "| Canvas Dark | `#14161B` | dark card background | — |"
+          ],
+          "note": "深色卡：标题、变更行与下一步"
+        },
+        {
+          "fg": "#A9AFBA",
+          "bg": "#14161B",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Meta Dark | `#A9AFBA` | meta strip, version, date and footer text on Canvas Dark | 8.21:1 on Canvas Dark |",
+            "| Canvas Dark | `#14161B` | dark card background | — |"
+          ],
+          "note": "深色卡：元信息条、版本、日期与页脚"
+        },
+        {
+          "fg": "#FFFFFF",
+          "bg": [
+            "#1F5FD1",
+            "#6A3FC2",
+            "#1D7A4C"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| NEW | `#1F5FD1` | `#FFFFFF` | label 5.80:1 on the fill |",
+            "| IMPROVED | `#6A3FC2` | `#FFFFFF` | label 6.76:1 on the fill |",
+            "| FIXED | `#1D7A4C` | `#FFFFFF` | label 5.32:1 on the fill |"
+          ],
+          "note": "变更标签：NEW / IMPROVED / FIXED 色块上的白色文字（文字承载含义，颜色为辅助）"
+        }
+      ],
+      "ignore": {
+        "#E7E3DB": "浅色卡截图衬底面板，不承载文字",
+        "#23262D": "深色卡截图衬底面板，不承载文字",
+        "#00000026": "截图下的柔和阴影"
+      }
+    },
+    "YqkjvOqz": {
+      "pairs": [
+        {
+          "fg": "#1B1F24",
+          "bg": [
+            "#FFFFFF",
+            "#F4F6F8",
+            "#E6EBF1",
+            "#EEF3FF",
+            "#E3EAFB"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Ink | `#1B1F24` | tier names, prices, feature labels, values and ✓ marks on Page, Stripe, Group, Tint and Tint Stripe | 16.56 / 15.28 / 13.81 / 14.90 / 13.74 |",
+            "| Page | `#FFFFFF` | page, cards and plain table rows | — |",
+            "| Stripe | `#F4F6F8` | alternate feature rows | — |",
+            "| Group | `#E6EBF1` | feature-group heading rows, across all columns | — |",
+            "| Tint | `#EEF3FF` | recommended column on plain rows | — |",
+            "| Tint Stripe | `#E3EAFB` | recommended column on striped rows | — |"
+          ],
+          "note": "Ink：档位名、价格、功能名、取值与 ✓ 标记，在五种底色上"
+        },
+        {
+          "fg": "#5B6470",
+          "bg": [
+            "#FFFFFF",
+            "#F4F6F8",
+            "#E6EBF1",
+            "#EEF3FF",
+            "#E3EAFB"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Muted | `#5B6470` | price units, billing basis, footnotes, \"—\" and \"n/a\" cells on Page, Stripe, Group, Tint and Tint Stripe | 5.99 / 5.53 / 5.00 / 5.39 / 4.97 |",
+            "| Page | `#FFFFFF` | page, cards and plain table rows | — |",
+            "| Stripe | `#F4F6F8` | alternate feature rows | — |",
+            "| Group | `#E6EBF1` | feature-group heading rows, across all columns | — |",
+            "| Tint | `#EEF3FF` | recommended column on plain rows | — |",
+            "| Tint Stripe | `#E3EAFB` | recommended column on striped rows | — |"
+          ],
+          "note": "Muted：价格单位、计费口径、脚注、“—”与“n/a”单元格"
+        },
+        {
+          "fg": "#2952CC",
+          "bg": [
+            "#FFFFFF",
+            "#F4F6F8",
+            "#E6EBF1",
+            "#EEF3FF",
+            "#E3EAFB"
+          ],
+          "kind": "text",
+          "certainty": "declared",
+          "quote": [
+            "| Accent | `#2952CC` | recommended column outline, focus ring, text links on Page, Stripe, Group, Tint and Tint Stripe | 6.61 / 6.10 / 5.52 / 5.95 / 5.49 |",
+            "| Page | `#FFFFFF` | page, cards and plain table rows | — |",
+            "| Stripe | `#F4F6F8` | alternate feature rows | — |",
+            "| Group | `#E6EBF1` | feature-group heading rows, across all columns | — |",
+            "| Tint | `#EEF3FF` | recommended column on plain rows | — |",
+            "| Tint Stripe | `#E3EAFB` | recommended column on striped rows | — |"
+          ],
+          "note": "Accent 作文字链接"
+        },
+        {
+          "fg": "#2952CC",
+          "bg": [
+            "#FFFFFF",
+            "#F4F6F8",
+            "#E6EBF1",
+            "#EEF3FF",
+            "#E3EAFB"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Accent | `#2952CC` | recommended column outline, focus ring, text links on Page, Stripe, Group, Tint and Tint Stripe | 6.61 / 6.10 / 5.52 / 5.95 / 5.49 |",
+            "| Page | `#FFFFFF` | page, cards and plain table rows | — |",
+            "| Stripe | `#F4F6F8` | alternate feature rows | — |",
+            "| Group | `#E6EBF1` | feature-group heading rows, across all columns | — |",
+            "| Tint | `#EEF3FF` | recommended column on plain rows | — |",
+            "| Tint Stripe | `#E3EAFB` | recommended column on striped rows | — |"
+          ],
+          "note": "Accent 作推荐列描边与焦点框"
+        },
+        {
+          "fg": "#FFFFFF",
+          "bg": "#2952CC",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Accent fill | `#2952CC` fill, `#FFFFFF` label | recommended badge and primary buttons | label 6.61:1 on the fill |",
+          "note": "推荐徽标与主按钮：Accent 填充上的白色标签"
+        },
+        {
+          "fg": "#7A838F",
+          "bg": [
+            "#FFFFFF",
+            "#F4F6F8",
+            "#E6EBF1",
+            "#EEF3FF",
+            "#E3EAFB"
+          ],
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Rule | `#7A838F` | table outer border, header bottom rule, secondary-button and picker borders on Page, Stripe, Group, Tint and Tint Stripe | 3.83 / 3.54 / 3.20 / 3.45 / 3.18 |",
+            "| Page | `#FFFFFF` | page, cards and plain table rows | — |",
+            "| Stripe | `#F4F6F8` | alternate feature rows | — |",
+            "| Group | `#E6EBF1` | feature-group heading rows, across all columns | — |",
+            "| Tint | `#EEF3FF` | recommended column on plain rows | — |",
+            "| Tint Stripe | `#E3EAFB` | recommended column on striped rows | — |"
+          ],
+          "note": "表格外框、表头底线、次按钮与选择器边框"
+        }
+      ]
     }
   }
 }

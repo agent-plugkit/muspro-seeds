@@ -13,6 +13,8 @@ the `index.json` layout are unchanged, so `schemaVersion` stays 1.0.0.
 - New seeds, one per scenario. Each is a generalized method distilled from the shared traits of public
   UX research and award-recognized examples (基于公开 UX 研究与获奖案例的共性提炼), not a record of one
   site: no source names, logos, copy or code, and no `source_url` because there is no single source.
+  Each Narrative states that its structure and rules are what the sources share, while the specific
+  values (palette, type sizes, breakpoints, margins, durations) are defaults chosen for the seed.
   - `E3ISF3qW` `ui/restaurant-cafe-website-e3isf3qw.md` (餐厅／咖啡馆官网): restaurant or cafe site
     ordered by the visitor's jobs (menu, reservation/booking, visit info); text menu with sticky
     category anchors, booking panel showing available times, open/closed status from the hours table.
@@ -26,7 +28,13 @@ the `index.json` layout are unchanged, so `schemaVersion` stays 1.0.0.
   all text pairs reach 4.5:1 and all large-text and non-text UI pairs 3:1. Colors left to downstream
   work (photography, brand colors) come with the rule to balance appearance and contrast. Every value
   is declared in `scripts/contrast-roles.json`.
+- Review fixes before release: on the restaurant seed's dark Visit band, today's hours row and the
+  open/closed status are Night Text (Ink there would be 1.00:1), the dark-band Reserve button has a
+  declared hover state, and booking is the one primary action with several entries; the launch card
+  separates bleed from the text safe area (long-side inset 120px on 1200×630, also in the CSS), sets
+  `box-sizing: border-box` on the artboard and raises tag labels to 20–22px.
 - README: a seed records either one real design precedent or a method distilled from several.
+- CONTRIBUTING: how distilled multi-source seeds record sources and mark chosen parameters.
 
 ## 1.2.1
 

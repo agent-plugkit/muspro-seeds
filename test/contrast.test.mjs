@@ -185,6 +185,7 @@ const FIXED_PAIRS = {
   haYCh1wI: ['#FFFFFF #1100FF text'],
   swwKiFDe: ['#808080 #FAFAFA ui'],
   t2Q6D5JR: ['#757575 #FFFFFF text'],
+  E3ISF3qW: ['#FBF7F0 #2A211C text'],
 };
 
 function missingFixedPairs(report) {

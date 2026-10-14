@@ -63,7 +63,7 @@ dimensions_with_reference:
 
 A generalized method for a pricing plan comparison table: the subscription tiers on a pricing page, a membership level chart, or a "which plan should I pick" review graphic. Two layers: audience cards saying who each tier is for, above a comparison table for checking features row by row.
 
-Distilled from usability research on comparison tables and pricing pages and from audits of many subscription pricing pages. The cards answer the first question (which tier is meant for someone like me, what does it cost, why would I move up); the table answers the second-order questions (does this tier include the one feature I need, what are the limits). The recommended tier is argued for with a concrete reason, not only a badge. Content consistency comes first: every tier is described with the same attributes in the same order, so differences stand out.
+Distilled from usability research on comparison tables and pricing pages and from audits of many subscription pricing pages. The cards answer the first question (which tier is meant for someone like me, what does it cost, why would I move up); the table answers the second-order questions (does this tier include the one feature I need, what are the limits). The recommended tier is argued for with a concrete reason, not only a badge. Content consistency comes first: every tier is described with the same attributes in the same order, so differences stand out. The two layers, the argued recommendation and the distinct cell types are what the sources share; the specific values below (palette, type sizes, breakpoints, durations) are working defaults chosen for this seed, not measurements of any one source.
 
 # Tech Stack
 

@@ -68,7 +68,7 @@ dimensions_with_reference:
 
 A generalized template for product launch and release announcement social cards: the image on a launch post, a changelog update or a link preview (og image). One focal product view, a short plain headline, a mono metadata strip and one next step.
 
-Distilled from launch-graphic guides and changelog card collections. The card has to work in two seconds while someone scrolls. It answers four questions in a fixed order: what changed (the product itself, shown), what it is called, when it is available, and what to do next. It is a template, not a one-off poster: each release swaps two or three fields (version, date, headline, screenshot crop) and keeps everything else, so a run of cards reads as one series. The same design is re-laid for each delivery size rather than cropped.
+Distilled from launch-graphic guides and changelog card collections. The card has to work in two seconds while someone scrolls. It answers four questions in a fixed order: what changed (the product itself, shown), what it is called, when it is available, and what to do next. It is a template, not a one-off poster: each release swaps two or three fields (version, date, headline, screenshot crop) and keeps everything else, so a run of cards reads as one series. The same design is re-laid for each delivery size rather than cropped. The fixed order, the single focal view, the short headline and the labelled change list are what the sources share; the specific values below (palette, type sizes, margins, durations) are working defaults chosen for this seed, not measurements of any one source.
 
 # Tech Stack
 
@@ -90,11 +90,11 @@ Inside each size:
 3. **Focal view**: a real interface crop showing the changed state, occupying 50–60% of the card. Crop tight to the change and show it at or above actual size; a whole application window shrunk to fit is unreadable at feed size.
 4. **Footer**: one next step as text (a short URL path or "Update in Settings") and a small product mark. The mark comes after the sentence, never in the headline position.
 
-Safe margins: at least 6% of the short side on every edge (about 40px on 1200×630, 64px on 1080×1350). Nothing essential sits in the outer tenth of the long side, because some surfaces crop previews toward a narrower ratio; if a target is known to crop to a square, use a centered stacked layout instead of the split.
+Bleed and safe area are separate. The background and the Stage panel may run to or past the edge. Text, the product mark and the changed part of the screenshot stay inside the safe area: at least 6% of the short side from every edge (about 40px on 1200×630, 64px on 1080×1350), and out of the outer tenth of the long side (120px at each end on 1200×630, 135px on 1080×1350, 150px on 1500×500), because some surfaces crop previews toward a narrower ratio. Choose the safe area by delivery target: when the platform is unknown or may crop, use the long-side inset; only when the target is known to show the whole frame uncropped may the long side drop to the 6% margin. If a target is known to crop to a square, use a centered stacked layout instead of the split.
 
 # Typography
 
-Two voices. A neo-grotesque or grotesque sans, bold (700), for the headline and change lines; a monospace for the meta strip, version numbers and tags. Sizes on the 1200×630 artboard: headline 56–72px with line height 1.05–1.1 and slightly tight tracking (−1% to −2%); change lines 26–30px semibold; meta strip 22–24px mono; tag labels 18–20px mono semibold in capitals; footer 22px. Nothing below 20px, because previews are often shown at less than half their pixel size. On 1080×1350 scale everything by about 1.1. The headline sets in two lines at most; break lines by meaning, not by width.
+Two voices. A neo-grotesque or grotesque sans, bold (700), for the headline and change lines; a monospace for the meta strip, version numbers and tags. Sizes on the 1200×630 artboard: headline 56–72px with line height 1.05–1.1 and slightly tight tracking (−1% to −2%); change lines 26–30px semibold; meta strip 22–24px mono; tag labels 20–22px mono semibold in capitals; footer 22px. Nothing below 20px, tag labels included, because previews are often shown at less than half their pixel size. On 1080×1350 scale everything by about 1.1. The headline sets in two lines at most; break lines by meaning, not by width.
 
 # Color
 
@@ -152,7 +152,7 @@ Static by default. If a short video variant is needed, animate only the focal vi
 
 # Algorithms
 
-Template fill per release: read the version, date, headline and change lines from the release notes; reject a headline over eight words or a change line over six words; render every delivery size from the same fields; check that each text field fits without shrinking below its minimum size and that no field crosses the safe margin. Keep the previous card for comparison so the series stays consistent.
+Template fill per release: read the version, date, headline and change lines from the release notes; reject a headline over eight words or a change line over six words; render every delivery size from the same fields; check that each text field fits without shrinking below its minimum size and that no text, mark or changed area crosses the safe area chosen for that target. Keep the previous card for comparison so the series stays consistent.
 
 # Material
 
@@ -176,16 +176,18 @@ One focal view, one headline and one next step keep the card readable in a scrol
   --ink: #16181d;   /* 15.88:1 on canvas */
   --meta: #5a5f69;  /* 5.73:1 on canvas */
   --stage: #e7e3db; /* no text */
-  --safe: 40px;
+  --safe: 40px;       /* 6% of the short side */
+  --safe-long: 120px; /* outer tenth of the long side; 40px only if the target never crops */
 }
 
 .card {
+  box-sizing: border-box; /* padding stays inside the 1200×630 artboard */
   width: 1200px;
   height: 630px;
   display: grid;
   grid-template-columns: 42fr 58fr;
   background: var(--canvas);
-  padding: var(--safe) 0 var(--safe) var(--safe);
+  padding: var(--safe) 0 var(--safe) var(--safe-long);
 }
 .card__text     { display: flex; flex-direction: column; gap: 24px; padding-right: 32px; }
 .card__meta     { font: 600 22px/1.2 var(--font-mono); color: var(--meta); }
@@ -194,4 +196,4 @@ One focal view, one headline and one next step keep the card readable in a scrol
 .card__stage    { background: var(--stage); border-radius: 16px 0 0 16px; overflow: hidden; }
 ```
 
-The text column is a flex column so the footer settles at the bottom margin; the stage bleeds off the right edge, which tells the eye the product continues beyond the frame.
+The text column is a flex column so the footer settles at the bottom margin; the stage bleeds off the right edge, which tells the eye the product continues beyond the frame. Only the Stage bleeds: position the screenshot inside it so the changed area stays at least `--safe-long` from the right edge. `box-sizing: border-box` keeps the padding inside the artboard, so the exported image is exactly 1200×630 without relying on a global reset.

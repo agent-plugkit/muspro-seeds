@@ -67,7 +67,7 @@ dimensions_with_reference:
 
 A generalized method for a local restaurant or cafe website, distilled from usability research on restaurant and table reservation sites and from award-recognized restaurant sites. The page serves three visitor jobs in order: read the menu, make a booking, and plan the visit (hours, address, phone).
 
-The voice is a host at the door: warm, specific and brief. One real photograph of the food or the room, the place's name and a single line of positioning set the character; everything after that is practical. The menu, the reservation entry and the visit details are never more than one click or one scroll away from any point on the page, and none of them is locked inside a PDF or an image. The method fits a single-location restaurant, cafe, bakery or bar; a group with several locations adds a location picker before the visit details and keeps the same order.
+The voice is a host at the door: warm, specific and brief. One real photograph of the food or the room, the place's name and a single line of positioning set the character; everything after that is practical. The menu, the reservation entry and the visit details are never more than one click or one scroll away from any point on the page, and none of them is locked inside a PDF or an image. The method fits a single-location restaurant, cafe, bakery or bar; a group with several locations adds a location picker before the visit details and keeps the same order. The order of jobs, the text menu and the visible booking path are what the sources share; the specific values below (palette, type sizes, breakpoints, durations) are working defaults chosen for this seed, not measurements of any one source.
 
 # Tech Stack
 
@@ -111,11 +111,12 @@ The Visit band and the footer reverse to Night, which is the Ink value `#2A211C`
 
 | Token | Value | Use | Contrast |
 | --- | --- | --- | --- |
-| Night Text | `#FBF7F0` | text on the Night band | 14.75:1 on Night |
+| Night Text | `#FBF7F0` | text on the Night band, including today's row in the hours table and the open/closed status line | 14.75:1 on Night |
 | Night Muted | `#CDBFB2` | secondary text on the Night band (notes, captions) | 8.77:1 on Night |
 | Glow | `#E9A27F` | links, focus ring and Reserve button fill on the Night band; the button label there is Ink `#2A211C` | 7.45:1 on Night; label 7.45:1 on Glow |
+| Night Button Hover | `#FBF7F0` fill, Ink `#2A211C` label | hover and pressed state of the Reserve button on the Night band | label 14.75:1 on the fill; fill 14.75:1 on Night |
 
-Accent reaches only 2.84:1 on Night, so it is never used on the dark band; Glow takes its jobs there. Status is never shown by color alone: "Open now" and "Closed" are words, today's row in the hours table carries the word "Today", and the active category has an underline as well as its color.
+Accent reaches only 2.84:1 on Night, so it is never used on the dark band; Glow takes its jobs there. Ink is the Night value itself and Open reaches only 2.46:1 on Night, so neither is used as text on the band: there, today's row and the status line are Night Text, and the words carry the status. Status is never shown by color alone: "Open now" and "Closed" are words, today's row in the hours table carries the word "Today", and the active category has an underline as well as its color.
 
 Photography, illustration and any brand color the place already owns are chosen downstream. Choose them for appetite and atmosphere and for legibility together: text and controls never sit directly on a photograph but on Paper, Surface, Night or a solid panel, and any new text color is checked at 4.5:1 (3:1 for large text and for borders, icons and focus rings). If a brand color replaces Accent and falls below 4.5:1 on Paper or Surface, keep it for fills and large type and add a deeper value of the same hue for links and small text.
 
@@ -125,11 +126,11 @@ Real photographs of the actual dishes, the room and the people working in it, in
 
 # Components
 
-**Primary button**: "Reserve a table", Accent fill with a `#FFFFFF` label, 44–48px tall, 4–6px radius, Accent Deep on hover and press. One per viewport; secondary actions are text links.
+**Primary button**: "Reserve a table", Accent fill with a `#FFFFFF` label, 44–48px tall, 4–6px radius, Accent Deep on hover and press. The primary style belongs to one action only, booking. It may have more than one entry in view at once (the header button and the one in the hero or the Reserve band), and every entry opens the same booking panel; all other actions (View menu, Order, Directions) are text links. On the Night band the button uses Glow with an Ink label and turns Night Text on hover and press.
 
 **Booking panel**: opened from any Reserve button as a dialog on desktop and a full-height sheet on phones. Three visible controls (date, time, party size) and, once a date is set, the available times as a grid of buttons. Unavailable times stay in place, disabled and labelled "Full", so the visitor sees the rhythm of the evening. A summary line before confirmation, a confirmation screen with the details, and the phone number at the bottom for larger groups or special requests.
 
-**Hours block**: a two-column table (day, hours), today's row labelled "Today" and set in semibold Ink, special or holiday hours listed above the regular week. The status line reads "Open now · closes 22:00" or "Closed · opens Tue 08:00".
+**Hours block**: a two-column table (day, hours), today's row labelled "Today" and set in semibold (Ink on Paper or Surface; Night Text in the Visit band, which is Night), special or holiday hours listed above the regular week. The status line reads "Open now · closes 22:00" or "Closed · opens Tue 08:00"; on Paper and Surface "Open now" is set in Open and "Closed" in Ink, and on the Night band both are Night Text.
 
 **Menu category bar**: horizontal text anchors that stick under the header; on phones the row scrolls sideways and the active anchor scrolls into view.
 

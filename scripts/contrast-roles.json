@@ -1641,10 +1641,10 @@
           "kind": "text",
           "certainty": "declared",
           "quote": [
-            "| Night Text | `#FBF7F0` | text on the Night band | 14.75:1 on Night |",
+            "| Night Text | `#FBF7F0` | text on the Night band, including today's row in the hours table and the open/closed status line | 14.75:1 on Night |",
             "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
           ],
-          "note": "深色到店信息带与页脚上的正文"
+          "note": "深色到店信息带与页脚上的正文，含营业时间表的当天行与营业状态行"
         },
         {
           "fg": "#CDBFB2",
@@ -1686,6 +1686,25 @@
           "certainty": "declared",
           "quote": "| Glow | `#E9A27F` | links, focus ring and Reserve button fill on the Night band; the button label there is Ink `#2A211C` | 7.45:1 on Night; label 7.45:1 on Glow |",
           "note": "深色带上订位按钮：Glow 填充上的 Ink 标签"
+        },
+        {
+          "fg": "#2A211C",
+          "bg": "#FBF7F0",
+          "kind": "text",
+          "certainty": "declared",
+          "quote": "| Night Button Hover | `#FBF7F0` fill, Ink `#2A211C` label | hover and pressed state of the Reserve button on the Night band | label 14.75:1 on the fill; fill 14.75:1 on Night |",
+          "note": "深色带上订位按钮悬停/按下：Night Text 填充上的 Ink 标签"
+        },
+        {
+          "fg": "#FBF7F0",
+          "bg": "#2A211C",
+          "kind": "ui",
+          "certainty": "declared",
+          "quote": [
+            "| Night Button Hover | `#FBF7F0` fill, Ink `#2A211C` label | hover and pressed state of the Reserve button on the Night band | label 14.75:1 on the fill; fill 14.75:1 on Night |",
+            "The Visit band and the footer reverse to Night, which is the Ink value `#2A211C` used as a background:"
+          ],
+          "note": "深色带上订位按钮悬停/按下时的填充边界"
         }
       ]
     },

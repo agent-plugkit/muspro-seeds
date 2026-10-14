@@ -7,6 +7,7 @@
 - 已发布的 ID 不删除、不改绑到其他文件，也不重新使用；文件名 `<slug>-<id小写>.md` 不改。要停用一条 seed，在 frontmatter 加 `deprecated: true`，至少保留一个 major 版本。
 - seed 内容只能来自它所参考的设计先例。修改已有 seed 时，新写的内容只能基于该 seed 已有的信息，不添加原文没有的事实或来源。
 - 来源有作者、URL 或许可时写入 `source_url`、`source_revision`、`source_license`，需要随附的声明写进 `NOTICE`。
+- 从多个先例提炼的泛化 seed 没有单一来源，frontmatter 不写上述来源字段，许可不猜填；CHANGELOG 注明“基于公开 UX 研究与获奖案例的共性提炼”，不列来源名称，来源清单按 seed ID 记在仓库外的调研记录中。这类 seed 的结构、顺序和规则必须是来源的共性；色值、字号、断点、时长等具体参数可以由作者选定，但 Narrative 要写明它们是选定的默认值，不是来源实测。
 - `seeds/index.json` 和 `seeds/scenarios.json` 是生成物，不要手改，用 `npm run build` 重新生成。
 
 ## 色值必须写明用途

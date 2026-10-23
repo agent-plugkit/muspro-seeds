@@ -5,6 +5,20 @@ minor or patch release. Changing frontmatter fields, scenario names or the `inde
 release and raises `schemaVersion`. Published IDs are never removed or reused; retire a seed with
 `deprecated: true` and keep it for at least one major version.
 
+## 1.3.1
+
+Patch release: 46 missing search tags across 31 seeds, each supported by the existing seed body.
+Seed bodies, existing tags, IDs, file names and design guidance are unchanged; `schemaVersion`
+stays 1.0.0.
+
+- Add `bar` and `bakery` to `E3ISF3qW`, and `paper.js` and `canvas` to `Nv0J2QBT`, so searches
+  can match their indexed tags instead of finding those terms only in the body.
+- Complete the reviewed domain, technology, typography, layout, color, imagery and motion tags
+  for the other 29 seeds. No unsupported terms such as `cocktail` were added.
+- Omit `gaming` from the font specimen seed: its embedded game demonstrates the typeface,
+  rather than establishing a gaming domain for the reference.
+- Regenerate the search index and scenario list for version 1.3.1.
+
 ## 1.3.0
 
 Minor release: three new seeds. Existing seeds, IDs, file names, frontmatter fields, scenario names and

@@ -25,6 +25,7 @@ tags:
   - product-showcase
   - portfolio
   - art
+  - gaming
   imagery:
   - svg-led
   - illustration-led
